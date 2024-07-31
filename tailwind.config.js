@@ -12,6 +12,8 @@ export default {
         green: '#46A358',
         gray: '#727272',
         bgGray: '#f5f5f5',
+        customGray: '#727272',
+        customGreen: '#46A358',
         dark: {
           black: '#1a1a1a',
           green: '#2b8a3e',
@@ -24,6 +26,10 @@ export default {
           gray: '#727272',
           bgGray: '#f5f5f5'
         }
+      },
+      placeholderColor: {
+        'custom-gray': '#727272',
+        'custom-green': '#46A358',
       },
     },
   },

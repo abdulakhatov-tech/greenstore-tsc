@@ -12,7 +12,6 @@ const Button = memo(
         type = "button",
         size = "medium",
         loading = false,
-        theme="light",
         leftIcon,
         rightIcon,
         className,
@@ -21,11 +20,12 @@ const Button = memo(
       },
       ref
     ) => {
+
       return (
         <button
           ref={ref}
           type={type}
-          className={getButtonStyle({ variant, size, className, theme })}
+          className={getButtonStyle({ variant, size, className })}
           onClick={onClick}
           {...props}
         >

@@ -1,3 +1,4 @@
+
 const sizeClasses = {
     small: "h-[30px] md:h-[35px] px-[10px] md:px-[12px] text-[10px] md:text-[12px] lg:text-[14px]",
     medium: "h-[35px] md:h-[40px] px-[12px] md:px-[14px] text-[12px] md:text-[14px] lg:text-[16px]",
@@ -10,5 +11,5 @@ interface InputStyleProps {
 }
 
 export const inputStyle = ({ size, className = "" }: InputStyleProps): string => {
-    return `border-green outline-green focus:border-green focus:outline-green hover:border-green hover:outline-green ${sizeClasses[size]} ${className}`;
+    return `bg-transparent placeholder-custom-green focus:bg-transparent placeholder-gray text-black border-green outline-green focus:border-green focus:outline-green hover:border-green hover:outline-green ${sizeClasses[size]} ${className}`;
 };

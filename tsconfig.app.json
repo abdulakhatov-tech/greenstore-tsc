@@ -26,6 +26,8 @@
       "@interfaces/*": ["src/@interfaces/*"],
       "@tools/*": ["src/tools/*"],
       "@assets/*": ["src/assets/*"],
+      "@redux/*": ["src/redux/*"],
+      "@hooks/*": ["src/hooks/*"],
     }
   },
   "include": ["src"]
