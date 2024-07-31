@@ -65,14 +65,15 @@
 /* Ensure body uses the background color variable */
 body {
   background-color: var(--color-bgGray);
+  margin: 0 !important;
 }
 
 .container {
+  max-width: 1216px;
+  min-width: 320px;
   width: 100%;
   margin: 0 auto;
-  max-width: 1216px;
   padding: 0px 16px;
-  min-width: 320px;
 }
 
 header,
