@@ -1,10 +1,14 @@
 import Button from "@generic/button";
 import Image from "@generic/image";
 import Input from "@generic/input";
+import MainLayout from "./layout/main-layout";
 
 const App = () => {
   return (
     <div className='app'>
+      <MainLayout>
+        <h1>Hi</h1>
+      </MainLayout>
       <h1 className={"text-black bg-white"}>Buttons</h1>
       <Button variant='primary'>Primary</Button>
       <Button variant='secondary'>Secondary</Button>
