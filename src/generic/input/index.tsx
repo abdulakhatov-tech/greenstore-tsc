@@ -3,7 +3,7 @@ import { forwardRef, memo, ForwardedRef, FC } from "react";
 import { InputPropI } from "@interfaces/generic";
 import { inputStyle } from "./style";
 
-const Input:FC = memo(
+const Input:FC<InputPropI> = memo(
   forwardRef<InputRef, InputPropI>(
     (
       { type = "text", placeholder, size = "medium", className, ...props },
