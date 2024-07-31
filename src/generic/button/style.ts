@@ -3,10 +3,10 @@ import { GetButtonStyleParamsI } from "@interfaces/generic";
 // tailwind classes for each button type
 const variantClasses = {
   primary: "bg-green text-white border-green",
-  secondary: "bg-white text-green border-green",
+  secondary: "bg-transparent text-green border-green",
   default: "text-gray border-gray focus:border-green focus:text-green",
-  text: "text-green border-transparent",
-  link: "text-green border-transparent underline",
+  text: "text-green border-transparent bg-transparent",
+  link: "text-green border-transparent underline bg-transparent",
 };
 
 // Tailwind classes for each button size
@@ -25,6 +25,6 @@ const boxStyle =
 
 
 
-export const getButtonStyle = ({ variant, size, className }: GetButtonStyleParamsI) => {
-  return `${textStyle} ${boxStyle} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+export const getButtonStyle = ({ variant, size, className, theme }: GetButtonStyleParamsI) => {
+  return `${textStyle} ${boxStyle} ${variantClasses[variant]} ${sizeClasses[size]} ${className} theme-${theme}`;
 };

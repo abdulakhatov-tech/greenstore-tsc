@@ -13,6 +13,58 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --color-black: #3D3D3D;
+  --color-green: #46A358;
+  --color-gray: #727272;
+  --color-bgGray: #ffffff;
+}
+
+/* styles.css */
+
+[data-theme="dark"] {
+  --color-black: #1a1a1a;
+  --color-green: #2b8a3e;
+  --color-gray: #5a5a5a;
+  --color-bgGray: #1A202C;
+}
+
+/* Use the variables in Tailwind's utility classes */
+.bg-black {
+  background-color: var(--color-black);
+}
+
+.text-black {
+  color: var(--color-black);
+}
+
+.bg-green {
+  background-color: var(--color-green);
+}
+
+.text-green {
+  color: var(--color-green);
+}
+
+.bg-gray {
+  background-color: var(--color-gray);
+}
+
+.text-gray {
+  color: var(--color-gray);
+}
+
+.bg-bgGray {
+  background-color: var(--color-bgGray);
+}
+
+.text-bgGray {
+  color: var(--color-bgGray);
+}
+
+/* Ensure body uses the background color variable */
+body {
+  background-color: var(--color-bgGray);
 }
 
 .container {
@@ -28,4 +80,3 @@ section,
 footer {
    width: 100%;
 }
-
