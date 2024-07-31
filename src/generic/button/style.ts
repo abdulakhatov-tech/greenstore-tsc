@@ -1,4 +1,4 @@
-import { GetButtonStyleParamsI } from "@interfaces/generic";
+import { GetButtonStyleParamsI } from "./types";
 
 // tailwind classes for each button type
 const variantClasses = {

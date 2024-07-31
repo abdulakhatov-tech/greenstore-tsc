@@ -1,6 +1,6 @@
-import { ImagePropsI } from "@interfaces/generic";
 import { Image as ImageComp } from "antd";
 import { FC, memo } from "react";
+import { ImagePropsI } from "@type/generic";
 
 const Image:FC<ImagePropsI> = memo(({
     src,

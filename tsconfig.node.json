@@ -13,11 +13,15 @@
       "@components/*": ["src/components/*"],
       "@generic/*": ["src/generic/*"],
       "@utils/*": ["src/utils/*"],
-      "@interfaces/*": ["src/@interfaces/*"],
+      "@type/*": ["src/@type/*"],
       "@tools/*": ["src/tools/*"],
       "@assets/*": ["src/assets/*"],
       "@redux/*": ["src/redux/*"],
       "@hooks/*": ["src/hooks/*"],
+      "@pages/*": ["src/pages/*"],
+      "@routes/*": ["src/routes/*"],
+      "@services/*": ["src/services/*"],
+      "@layout/*": ["src/layout/*"],
     }
   },
   "include": ["vite.config.ts"]

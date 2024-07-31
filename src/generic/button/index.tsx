@@ -1,7 +1,7 @@
 import { forwardRef, memo } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import { getButtonStyle } from "./style";
-import { ButtonPropsI } from "@interfaces/generic";
+import { ButtonPropsI } from "@type/generic";
 
 const Button = memo(
   forwardRef<HTMLButtonElement, ButtonPropsI>(

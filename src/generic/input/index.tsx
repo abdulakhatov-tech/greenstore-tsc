@@ -1,7 +1,7 @@
 import { Input as InputComp, InputRef } from "antd";
 import { forwardRef, memo, ForwardedRef, FC } from "react";
-import { InputPropI } from "@interfaces/generic";
 import { inputStyle } from "./style";
+import { InputPropI } from "./types";
 
 const Input:FC<InputPropI> = memo(
   forwardRef<InputRef, InputPropI>(
