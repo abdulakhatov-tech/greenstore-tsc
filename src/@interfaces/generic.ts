@@ -1,4 +1,4 @@
-import { ReactNode, ButtonHTMLAttributes } from "react";
+import { ReactNode, ButtonHTMLAttributes, InputHTMLAttributes } from "react";
 
 export type ThemeT = "light" | "dark";
 export type ButtonVariantT = "primary" | "secondary" | "default" | "text" | "link";
@@ -24,4 +24,14 @@ export interface GetButtonStyleParamsI {
   size: ButtonSizeT;
   className?: string;
   theme?: ThemeT;
+}
+
+export interface CustomInputHTMLAttributes<T> extends Omit<InputHTMLAttributes<T>, 'size'> {
+  size?: "small" | "medium" | "large";
+}
+
+export interface InputPropI extends CustomInputHTMLAttributes<HTMLInputElement> {
+  type?: "text" | "password" | "number" | "email" | "search" | "tel" | "url" | "date" | "datetime" | "month" | "week" | "time" | "datetime-local" | "range" | "color";
+  placeholder?: string;
+  className?: string;
 }
