@@ -13,7 +13,9 @@
       "@components/*": ["src/components/*"],
       "@generic/*": ["src/generic/*"],
       "@utils/*": ["src/utils/*"],
-      "@interfaces/*": ["src/@interfaces/*"]
+      "@interfaces/*": ["src/@interfaces/*"],
+      "@tools/*": ["src/tools/*"],
+      "@assets/*": ["src/assets/*"],
     }
   },
   "include": ["vite.config.ts"]

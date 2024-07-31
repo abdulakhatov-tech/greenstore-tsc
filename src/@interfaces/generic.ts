@@ -1,6 +1,6 @@
 import { ReactNode, ButtonHTMLAttributes } from "react";
 
-
+export type ThemeT = "light" | "dark";
 export type ButtonVariantT = "primary" | "secondary" | "default" | "text" | "link";
 export type ButtonSizeT = "small" | "medium" | "large";
 type ButtonTypeT = "button" | "submit" | "reset"
@@ -16,10 +16,12 @@ export interface ButtonPropsI extends ButtonHTMLAttributes<HTMLButtonElement> {
   rightIcon?: ReactNode;
   className?: string;
   onClick?: () => void;
+  theme?: ThemeT;
 }
 
 export interface GetButtonStyleParamsI {
   variant: ButtonVariantT;
   size: ButtonSizeT;
   className?: string;
+  theme?: ThemeT;
 }
