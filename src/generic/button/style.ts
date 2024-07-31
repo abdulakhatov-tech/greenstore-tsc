@@ -25,6 +25,6 @@ const boxStyle =
 
 
 
-export const getButtonStyle = ({ variant, size, className, theme }: GetButtonStyleParamsI) => {
-  return `${textStyle} ${boxStyle} ${variantClasses[variant]} ${sizeClasses[size]} ${className} theme-${theme}`;
+export const getButtonStyle = ({ variant, size, className }: GetButtonStyleParamsI) => {
+  return `${textStyle} ${boxStyle} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 };

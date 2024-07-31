@@ -13,6 +13,8 @@ export default defineConfig({
       '@interfaces': path.resolve(__dirname, './src/@interfaces'),
       '@tools': path.resolve(__dirname, './src/tools'),
       '@assets': path.resolve(__dirname, './src/assets'),
+      '@redux': path.resolve(__dirname, './src/redux'),
+      '@hooks': path.resolve(__dirname, './src/hooks'),
     },
   },
 });

@@ -15,7 +15,7 @@ const Input:FC<InputPropI> = memo(
           <InputComp.Password
             ref={ref}
             placeholder={placeholder}
-            className={inputStyle({size, className})}
+            className={inputStyle({size, className })}
             {...props}
           />
         );
