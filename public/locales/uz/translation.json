@@ -1,0 +1,83 @@
+{
+  "locale": {
+    "en": "Ingliz",
+    "ru": "Rus",
+    "uz": "O'zbek"
+  },
+  "routes": {
+    "home": "Asosiy",
+    "shop": "Do'kon",
+    "plant_care": "O'simlik P.",
+    "blogs": "Bloglar",
+    "product_details": "Mahsulot tafsilotlari",
+    "not-found": "Topilmadi",
+    "error": "Xato",
+    "profile": "Profil",
+    "account_details": "Hisob tafsilotlari",
+    "my_products": "Mahsulotlarim",
+    "address": "Manzil",
+    "logout": "Chiqish",
+    "wishlist": "Istaklar ro‘yxati",
+    "shopping_cart": "Savatcha",
+    "checkout": "Hisob-kitob",
+    "track_order": "Buyurtmani kuzatish"
+  },
+  "meta": {
+    "home": {
+      "title": "Greenstore - Marketplace",
+      "description": "Mahsulotlarimiz va xizmatlarimizni ko'rib chiqing"
+    },
+    "shop": {
+      "title": "Greenstore - Do'kon",
+      "description": "Do'konimizdan sifatli mahsulotlar sotib oling"
+    },
+    "plant_care": {
+      "title": "Greenstore - O'simlik parvarishi",
+      "description": "O'simlik parvarishi va bog'dorchilik bo'yicha maslahatlar"
+    },
+    "blogs": {
+      "title": "Greenstore - Bloglar",
+      "description": "So'nggi blog postlarimizni o'qing"
+    },
+    "product_details": {
+      "title": "{{ product.name }} - Greenstore",
+      "description": "{{ product.description }}"
+    },
+    "not_found": {
+      "title": "Greenstore - Topilmadi",
+      "description": "Sahifa topilmadi"
+    },
+    "error": {
+      "title": "Greenstore - Xato",
+      "description": "Xato yuz berdi"
+    },
+    "profile": {
+      "title": "Greenstore - Profil",
+      "description": "Hisob tafsilotlarini boshqarish"
+    },
+    "account_details": {
+      "title": "Greenstore - Hisob tafsilotlari",
+      "description": "Shaxsiy ma'lumotlarni yangilang"
+    },
+    "my_products": {
+      "title": "Greenstore - Mening mahsulotlarim",
+      "description": "Mahsulotlaringizni ko'rib chiqing va boshqaring"
+    },
+    "address": {
+      "title": "Greenstore - Manzil",
+      "description": "Yetkazib berish manzilini yangilang"
+    },
+    "shopping_cart": {
+      "title": "Greenstore - Savatcha",
+      "description": "Buyumlaringizni ko'rib chiqing va hisob-kitob qiling"
+    },
+    "checkout": {
+      "title": "Greenstore - Hisob-kitob",
+      "description": "Buyurtmani tasdiqlang va xavfsiz to'lang"
+    },
+    "track_order": {
+      "title": "Greenstore - Buyurtmani kuzatish",
+      "description": "Buyurtma holatini kuzatib boring va kuzatuv ma'lumotlarini ko'ring"
+    }
+  }
+}

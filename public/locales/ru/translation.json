@@ -1,0 +1,83 @@
+{
+  "locale": {
+    "en": "Английский",
+    "ru": "Русский",
+    "uz": "Узбекский"
+  },
+  "routes": {
+    "home": "Главная",
+    "shop": "Магазин",
+    "plant_care": "Ух. за раст",
+    "blogs": "Блоги",
+    "product_details": "Детали продукта",
+    "not-found": "Не найдено",
+    "error": "Ошибка",
+    "profile": "Профиль",
+    "account_details": "Детали аккаунта",
+    "my_products": "Мои продукты",
+    "address": "Адрес",
+    "logout": "Выйти",
+    "wishlist": "Список желаний",
+    "shopping_cart": "Корзина",
+    "checkout": "Оформление заказа",
+    "track_order": "Отслеживание заказа"
+  },
+  "meta": {
+    "home": {
+      "title": "Greenstore - Marketplace",
+      "description": "Ознакомьтесь с нашими продуктами и услугами"
+    },
+    "shop": {
+      "title": "Greenstore - Магазин",
+      "description": "Покупайте качественные товары в нашем магазине"
+    },
+    "plant_care": {
+      "title": "Greenstore - Уход за растениями",
+      "description": "Узнайте об уходе за растениями и советы по садоводству"
+    },
+    "blogs": {
+      "title": "Greenstore - Блоги",
+      "description": "Читайте наши последние записи в блогах"
+    },
+    "product_details": {
+      "title": "{{ product.name }} - Greenstore",
+      "description": "{{ product.description }}"
+    },
+    "not_found": {
+      "title": "Greenstore - Не найдено",
+      "description": "Страница не найдена"
+    },
+    "error": {
+      "title": "Greenstore - Ошибка",
+      "description": "Произошла ошибка"
+    },
+    "profile": {
+      "title": "Greenstore - Профиль",
+      "description": "Управляйте данными учетной записи"
+    },
+    "account_details": {
+      "title": "Greenstore - Данные учетной записи",
+      "description": "Обновите свои личные данные"
+    },
+    "my_products": {
+      "title": "Greenstore - Мои продукты",
+      "description": "Просматривайте и управляйте своими продуктами"
+    },
+    "address": {
+      "title": "Greenstore - Адрес",
+      "description": "Обновите адрес доставки"
+    },
+    "shopping_cart": {
+      "title": "Greenstore - Корзина",
+      "description": "Просматривайте и оформляйте свои покупки"
+    },
+    "checkout": {
+      "title": "Greenstore - Оформление заказа",
+      "description": "Подтвердите свой заказ и оплатите безопасно"
+    },
+    "track_order": {
+      "title": "Greenstore - Отслеживание заказа",
+      "description": "Отслеживайте статус своего заказа и смотрите информацию о доставке"
+    }
+  }
+}
