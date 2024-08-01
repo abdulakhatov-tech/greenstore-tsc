@@ -3,13 +3,11 @@ import classNames from "classnames";
 import { FC } from "react";
 
 import useAppRoutes from "@utils/app-routes";
-import { NavListPropsI } from "../types";
 import ListItem from "./list-item";
-
+import { NavListPropsI } from "../../types";
 
 const NavList:FC<NavListPropsI> = ({ isMobile = false}) => {
   const { appRoutes } = useAppRoutes();
-
 
   return <ul className={classNames({
     ['flex flex-col gap-[20px]']: isMobile,

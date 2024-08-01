@@ -14,12 +14,14 @@ import Button from "@generic/button";
 import { logo } from "@utils/index";
 import CustomSkeleton from "@tools/skeleton";
 import useOnlineStatus from "@hooks/useOnlineStatus";
-import NavList from "./nav-list";
 import Locale from "../common/locale";
+import useFeaturesHeader from "./features";
+import { NavList } from "./custom";
 
 const Header = () => {
   const { t } = useTranslation();
   const isOnline = useOnlineStatus();
+  const { handleSearch } = useFeaturesHeader();
 
   const renderLogo = () => (
     <Link to='/'>
@@ -37,7 +39,7 @@ const Header = () => {
           <NavList />
           <div className='flex items-center gap-3 sm:gap-4 md:gap-6'>
             <Tooltip color='#46A358' title={t("header.search")}>
-              <SearchOutlined className='cursor-pointer text-[18px] md:text-[22px] hover:text-green' />
+              <SearchOutlined onClick={handleSearch} className='cursor-pointer text-[18px] md:text-[22px] hover:text-green' />
             </Tooltip>
             <Tooltip
               color='#46A358'
