@@ -12,11 +12,11 @@ const variantClasses = {
 // Tailwind classes for each button size
 const sizeClasses = {
   small:
-    "h-[30px] md:h-[35px] px-[10px]  md:px-[12px] text-[10px] md:text-[12px] lg:text-[14px]",
+    "h-[25px] sm:h-[30px] md:h-[35px] px-[6px] sm:px-[8px] md:px-[10px] lg:px-[12px] text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px]",
   medium:
-    "h-[35px] md:h-[40px]  px-[12px] md:px-[14px] text-[12px] md:text-[14px] lg:text-[16px]",
+    "h-[30px] sm:h-[35px] md:h-[40px]  px-[8px] sm:px-[10px] md:px-[12px] lg:px-[14px] text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px]",
   large:
-    "h-[40px] md:h-[45px] px-[14px] md:px-[16px] text-[14px] md:text-[16px] lg:text-[18px]",
+    "h-[35px] sm:h-[40px] md:h-[45px] px-[10px] sm:px-[12px] md:px-[14px] lg:px-[16px] text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px]",
 };
 
 const textStyle = "font-normal m-1";

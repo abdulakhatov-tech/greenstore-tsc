@@ -79,5 +79,33 @@
       "title": "Greenstore - Buyurtmani kuzatish",
       "description": "Buyurtma holatini kuzatib boring va kuzatuv ma'lumotlarini ko'ring"
     }
+  },
+  "header": {
+    "search": "Qidirish",
+    "shopping_cart": "Savatcha",
+    "favourites": "Sevimlilar",
+    "language": "Til",
+    "login": "Kirish"
+  },
+  "home_page": {
+    "planet": "Sayyora",
+    "hero_slice_1": {
+      "title": "KELING, YAXSHI HAYOT QILAYLIK",
+      "subtitle": "GREENSTORE GA XUSH KELIBSIZ",
+      "description": "Biz arzon va zamonaviy o'simliklarning keng doirasini taklif qiluvchi onlayn o'simliklar do'konimiz. Bizning o'simliklarimizdan foydalanib, noyob shahar junglisini yarating. Sevimli o'simliklaringizni buyurtma qiling!",
+      "buttonText": "HOZIR XARID QILING"
+    },
+    "hero_slice_2": {
+      "title": "YAXSHI HAYOT KECHIRAYLIK",
+      "subtitle": "GREENSTORE GA XUSH KELIBSIZ",
+      "description": "Biz arzon va zamonaviy o'simliklarning keng doirasini taklif qiluvchi onlayn o'simliklar do'konimiz. Bizning o'simliklarimizdan foydalanib, noyob shahar junglisini yarating. Sevimli o'simliklaringizni buyurtma qiling!",
+      "buttonText": "KELING BOSHLAYLIK"
+    },
+    "hero_slice_3": {
+      "title": "YAXSHI HAYOTNI KO'RAYLIK",
+      "subtitle": "GREENSTORE GA XUSH KELIBSIZ",
+      "description": "Biz arzon va zamonaviy o'simliklarning keng doirasini taklif qiluvchi onlayn o'simliklar do'konimiz. Bizning o'simliklarimizdan foydalanib, noyob shahar junglisini yarating. Sevimli o'simliklaringizni buyurtma qiling!",
+      "buttonText": "KREDIT OLING"
+    }
   }
 }
