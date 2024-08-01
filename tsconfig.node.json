@@ -22,6 +22,7 @@
       "@routes/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
       "@layout/*": ["src/layout/*"],
+      "@locale/*": ["src/locale/*"],
     }
   },
   "include": ["vite.config.ts"]

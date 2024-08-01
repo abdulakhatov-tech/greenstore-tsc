@@ -1,0 +1,83 @@
+{
+  "locale": {
+    "en": "English",
+    "ru": "Russian",
+    "uz": "Uzbek"
+  },
+  "routes": {
+    "home": "Home",
+    "shop": "Shop",
+    "plant_care": "Plant Care",
+    "blogs": "Blogs",
+    "product_details": "Product Details",
+    "not-found": "Not Found",
+    "error": "Error",
+    "profile": "Profile",
+    "account_details": "Account Details",
+    "my_products": "My Products",
+    "address": "Address",
+    "logout": "Logout",
+    "wishlist": "Wishlist",
+    "shopping_cart": "Shopping Cart",
+    "checkout": "Checkout",
+    "track_order": "Track Order"
+  },
+  "meta": {
+    "home": {
+      "title": "Greenstore - Marketplace",
+      "description": "Explore our products and services"
+    },
+    "shop": {
+      "title": "Greenstore - Shop",
+      "description": "Buy quality products from our store"
+    },
+    "plant_care": {
+      "title": "Greenstore - Plant Care",
+      "description": "Learn about plant care and gardening tips"
+    },
+    "blogs": {
+      "title": "Greenstore - Blogs",
+      "description": "Read our latest blog posts"
+    },
+    "product_details": {
+      "title": "{{ product.name }} - Greenstore",
+      "description": "{{ product.description }}"
+    },
+    "not_found": {
+      "title": "Greenstore - Not Found",
+      "description": "Page not found"
+    },
+    "error": {
+      "title": "Greenstore - Error",
+      "description": "An error occurred"
+    },
+    "profile": {
+      "title": "Greenstore - Profile",
+      "description": "Manage your account details"
+    },
+    "account_details": {
+      "title": "Greenstore - Account Details",
+      "description": "Update your personal information"
+    },
+    "my_products": {
+      "title": "Greenstore - My Products",
+      "description": "View and manage your products"
+    },
+    "address": {
+      "title": "Greenstore - Address",
+      "description": "Update your shipping address"
+    },
+    "shopping_cart": {
+      "title": "Greenstore - Shopping Cart",
+      "description": "Review and checkout your items"
+    },
+    "checkout": {
+      "title": "Greenstore - Checkout",
+      "description": "Confirm your order and pay securely"
+    },
+    "track_order": {
+      "title": "Greenstore - Track Order",
+      "description": "Track your order status and view tracking information"
+    }
+  }
+}

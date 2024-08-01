@@ -1,17 +1,17 @@
+import { Badge } from "antd";
 import {
   LoginOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
   AlignRightOutlined,
   HeartOutlined,
-  GlobalOutlined,
 } from "@ant-design/icons";
 
 import Button from "@generic/button";
 import { logo } from "@utils/index";
 import Image from "@generic/image";
+import Locale from "../common/locale";
 import NavList from "./nav-list";
-import { Badge } from "antd";
 
 const Header = () => {
   return (
@@ -40,7 +40,7 @@ const Header = () => {
                 // onClick={wishlistHandler}
               />
             </Badge>
-            <GlobalOutlined className='cursor-pointer text-[18px] md:text-[22px] active:text-green' />
+            <Locale />
             <AlignRightOutlined className=' text-[18px] md:text-[23px] text-black block lg:hidden cursor-pointer active:text-green' />
             <Button
               variant='primary'
