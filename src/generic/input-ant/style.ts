@@ -13,5 +13,5 @@ export const inputStyle = ({
   size,
   className = "",
 }: InputStyleProps): string => {
-  return `bg-transparent placeholder-custom-green focus:bg-transparent placeholder-gray text-black border-2 rounded-[5px] border-gray outline-green focus:border-green focus:outline-green hover:border-green hover:outline-green ${sizeClasses[size]} ${className}`;
+  return `bg-transparent placeholder-custom-green focus:bg-transparent placeholder-gray text-black border-green outline-green focus:border-green focus:outline-green hover:border-green hover:outline-green ${sizeClasses[size]} ${className}`;
 };

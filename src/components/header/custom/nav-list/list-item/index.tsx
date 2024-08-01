@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import { FC } from "react";
 
-import { ListItemT } from "@components/header/types";
+import { ListItemT } from "../../../types";
 
 const ListItem: FC<ListItemT> = ({ label, path, isMobile }) => {
   return (
