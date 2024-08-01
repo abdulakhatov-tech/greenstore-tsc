@@ -1,52 +1,50 @@
-import { Dropdown, Menu, Tooltip } from "antd";
-import { useTranslation } from "react-i18next";
+import { Dropdown, Tooltip } from "antd";
 import { GlobalOutlined } from "@ant-design/icons";
-import { FC, useEffect, useMemo } from "react";
-import useLocale from "@utils/locale";
+
+import { FC, useEffect } from "react";
+
+import { Label } from "./label";
+import { LabelT } from "./types";
+import { MockData } from "@utils/index";
+import { useTranslation } from "react-i18next";
 
 const Locale: FC = () => {
-  const { languages, languageData } = useLocale();
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
+  const { langData } = MockData();
 
-  const currentLang = localStorage.getItem('i18nextLng') as string
+  // Getting the current language from localStorage.
+  const currentLang = localStorage.getItem("i18nextLng") || "en-US";
 
   useEffect(() => {
-    if (
-      !["en-US", "uz", "ru"].includes(
-        currentLang
-      )
-    ) {
+    const supportedLanguages = ["en-US", "uz", "ru"];
+    if (!supportedLanguages.includes(currentLang)) {
       localStorage.setItem("i18nextLng", "en-US");
     }
   }, [currentLang]);
 
-  const onChange = (lang: string): void => {
-    i18n.changeLanguage(lang);
-    localStorage.setItem("i18nextLng", lang);
-  };
+  // Mapping language data to dropdown items.
+  const items = langData.map((item: LabelT) => ({
+    key: item.key,
+    label: <Label item={item} />,
+  }));
 
-  const items = useMemo(() => (
-    <Menu onClick={(e) => onChange(e.key)}>
-      {languages.map(({ key, label }) => (
-        <Menu.Item key={key}>{label}</Menu.Item>
-      ))}
-    </Menu>
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  ), [languages]);
-
-  const title = languageData.find(({key}) => key === currentLang )
+  // Determining the current language title for tooltip display.
+  const currentTitle = langData.find(({ key }) => key === currentLang);
 
   return (
-    <Tooltip title={`Language: ${title?.label}`} placement='left' color='cyan'>
-      <Dropdown
-      overlay={items}
+    <Dropdown
+      menu={{ items }}
       placement='bottomRight'
       trigger={["click"]}
       aria-label='Select Language'
     >
-      <GlobalOutlined className='cursor-pointer text-[18px] md:text-[22px] active:text-green' />
+      <Tooltip
+        title={`${t('header.language')}: ${currentTitle?.label || "Unknown"}`}
+        color='#46A358'
+      >
+        <GlobalOutlined className='cursor-pointer text-[18px] md:text-[22px] active:text-green' />
+      </Tooltip>
     </Dropdown>
-    </Tooltip>
   );
 };
 

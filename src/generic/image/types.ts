@@ -8,4 +8,5 @@ export interface ImagePropsI extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   style?: React.CSSProperties;
   onClick?: () => void;
+  visible?: boolean;
 }

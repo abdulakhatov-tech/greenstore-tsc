@@ -2,20 +2,23 @@ import { Image as ImageComp } from "antd";
 import { FC, memo } from "react";
 import { ImagePropsI } from "./types";
 
-const Image:FC<ImagePropsI> = memo(({
+const GenericImage: FC<ImagePropsI> = memo(
+  ({
     src,
     alt,
     width = "auto",
     height = "auto",
+    visible = false,
     className,
     onClick,
-    style={},
+    style = {},
     ...props
- }) => {
+  }) => {
     const isSvg = src?.endsWith(".svg");
 
-    return (
-       <ImageComp
+    if (!visible) {
+      return (
+        <img
           src={src}
           alt={alt}
           width={width}
@@ -25,8 +28,24 @@ const Image:FC<ImagePropsI> = memo(({
           style={style}
           onClick={onClick}
           {...props}
-       />
-    );
-});
+        />
+      );
+    }
 
-export default Image;
+    return (
+      <ImageComp
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className={className}
+        loading={isSvg ? undefined : "lazy"}
+        style={style}
+        onClick={onClick}
+        {...props}
+      />
+    );
+  }
+);
+
+export default GenericImage;
