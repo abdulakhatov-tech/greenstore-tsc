@@ -10,10 +10,10 @@ import {
 import { Form } from "antd";
 import { useCallback, useEffect, useState } from "react";
 import useAxios from "@hooks/useAxios";
-import { useAuth } from "@config/auth";
 import { useAppDispatch } from "@hooks/useRedux";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import { setNotification } from "@redux/slices/notification";
+import { useAuth } from "@config/auth";
 
 // Define initial form values for both sign-in and sign-up
 const initialValues: InitialStateT = {

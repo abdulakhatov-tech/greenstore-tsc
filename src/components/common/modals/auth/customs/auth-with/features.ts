@@ -1,12 +1,12 @@
-import { useAuth } from "@config/auth";
 import useAxios from "@hooks/useAxios";
 import { useAppDispatch } from "@hooks/useRedux";
 import { setNotification } from "@redux/slices/notification";
-import { signInWithGoogle } from "@config/firebase";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import { AuthQuery } from "../../types";
 import useAuthModalFeatures from "../../features";
-import { ErrorResponse } from "./types";
+import { AuthResponse, ErrorResponse } from "./types";
+import { useAuth } from "@config/auth";
+import { signInWithGoogle } from "@config/firebase";
 
 const useAuthWithFeatures = () => {
   const axios = useAxios();
@@ -24,8 +24,8 @@ const useAuthWithFeatures = () => {
 
       const endpoint =
         authType === AuthQuery.SignUp ? AuthQuery.SignUp : AuthQuery.SignIn;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const response: any = await axios({
+
+      const response = await axios<AuthResponse>({
         method: "POST",
         url: `/user/${endpoint}/google`,
         data: {
