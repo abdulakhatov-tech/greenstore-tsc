@@ -1,14 +1,14 @@
 import useSearchParamsHook from "@hooks/useSearchParams";
-import axios, { AxiosResponse, AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
-import { RequestConfigT } from "./types";
+import { AxiosProp } from "./types";
 
 
 const useAxios = () => {
   const navigate = useNavigate();
   const { setParam } = useSearchParamsHook()
 
-  const request = async <T>({
+  const request = async ({
     method = "GET",
     url,
     data = {},
@@ -16,7 +16,7 @@ const useAxios = () => {
     headers = {},
     includeToken = true,
     ...others
-  }: RequestConfigT): Promise<AxiosResponse<T>> => {
+  }: AxiosProp) => {
     try {
       // base URL as an environment variable
       const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;

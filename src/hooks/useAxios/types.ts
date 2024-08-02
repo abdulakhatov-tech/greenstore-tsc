@@ -1,9 +1,10 @@
 
-export type RequestConfigT = {
+export type AxiosProp = {
   method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
   url: string;
-  data?: Record<string, unknown>;
-  params?: Record<string, unknown>;
-  headers?: Record<string, string>;
+  data?: object;
+  params?: object;
+  headers?: object;
   includeToken?: boolean;
 } ; // Extend with AxiosRequestConfig for additional options
+
