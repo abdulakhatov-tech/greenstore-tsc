@@ -16,7 +16,7 @@ import Locale from "@components/common/locale";
 const Actions = () => {
   const { t } = useTranslation();
   const { isAuthed, getUser } = useAuth();
-  const { handleSearch, handleAuth, handleUser } = useHeaderFeatures();
+  const { handleSearch, handleAuth, handleUser, handleSideMenu } = useHeaderFeatures();
 
   return (
     <div className='flex items-center gap-3 sm:gap-4 md:gap-6'>
@@ -37,7 +37,7 @@ const Actions = () => {
         </Badge>
       </Tooltip>
       <Locale />
-      <AlignRightOutlined className='text-[18px] md:text-[23px] text-black block lg:hidden cursor-pointer hover:text-green' />
+      <AlignRightOutlined onClick={handleSideMenu} className='text-[18px] md:text-[23px] text-black block lg:hidden cursor-pointer hover:text-green' />
 
       {isAuthed() ? (
         <Tooltip
@@ -67,7 +67,7 @@ const Actions = () => {
           onClick={handleAuth}
           aria-label='Login button'
         >
-          <LoginOutlined /> Login
+          <LoginOutlined /> {t("header.login")}
         </Button>
       )}
     </div>

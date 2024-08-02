@@ -2,12 +2,17 @@ import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
 import { FC, useEffect } from "react";
 import AuthModal from "./auth";
 import useSearchParamsHook from "@hooks/useSearchParams";
-import { toggleAuthModalVisibility } from "@redux/slices/modal";
+import {
+  toggleAuthModalVisibility,
+} from "@redux/slices/modal";
 import { AuthQuery } from "./auth/types";
+import SideMenuModal from "./side-menu";
 
 const ModalVisibility: FC = () => {
   const { getParam, setParam } = useSearchParamsHook();
-  const { authModalVisibility } = useAppSelector((state) => state.modal);
+  const { authModalVisibility, sideMenuModalVisibility } = useAppSelector(
+    (state) => state.modal
+  );
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -33,7 +38,12 @@ const ModalVisibility: FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getParam("auth")]);
 
-  return <>{authModalVisibility.open && <AuthModal />}</>;
+  return (
+    <>
+      {authModalVisibility.open && <AuthModal />}
+      {sideMenuModalVisibility.open && <SideMenuModal />}
+    </>
+  );
 };
 
 export default ModalVisibility;

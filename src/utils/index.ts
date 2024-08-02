@@ -1,5 +1,11 @@
 import { HeroCarouselSlideT } from "@type/index";
 import { useTranslation } from "react-i18next";
+import {
+  CiUser,
+  CiLocationOn,
+  CiHeart,
+  CiShoppingBasket,
+} from "react-icons/ci";
 
 export const logo: string =
   "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Flogo.svg?alt=media&token=fc9659d6-f435-43b9-a624-8b0d3a574baa";
@@ -64,5 +70,36 @@ export const MockData = () => {
     },
   ];
 
-  return { langData, hero_carousel_mock };
+  const profile_navigation = [
+    {
+       _id: '1',
+       title: t('routes.account_details') ?? 'Account Details',
+       path: "/profile",
+       Icon: CiUser,
+       label: t('routes.account_details') ?? "Account Details",
+    },
+    {
+       _id: '2',
+       title: t('routes.my_products') ?? "My Products",
+       path: "/profile/my-products",
+       Icon: CiShoppingBasket,
+       label: t('routes.my_products') ?? "My Products",
+    },
+    {
+       _id: '3',
+       title: t('routes.address') ?? "Address",
+       path: "/profile/address",
+       Icon: CiLocationOn,
+       label: t('routes.address') ?? "My Address",
+    },
+    {
+       _id: '4',
+       title: t('routes.wishlist') ?? "Wishlist",
+       path: "/profile/wishlist",
+       Icon: CiHeart,
+       label: t('routes.wishlist') ?? "My Wishlist",
+    },
+ ];
+
+  return { langData, hero_carousel_mock, profile_navigation };
 };
