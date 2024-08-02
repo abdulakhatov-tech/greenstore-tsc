@@ -3,7 +3,7 @@ import { FC } from "react";
 import useSearchBarFeatures from "./features";
 
 const searchBar = "max-h-0 overflow-hidden opacity-0";
-const openSearchBar = "max-h-[200px] opacity-1";
+const openSearchBar = "max-h-[200px] opacity-1 pt-5 py-2 ";
 
 const SearchBar: FC = () => {
   const { searchRef, open, onSearchChange, searchVal } = useSearchBarFeatures();
@@ -11,7 +11,7 @@ const SearchBar: FC = () => {
   return (
     <section
       id='search-bar'
-      className={`pt-5 py-2 transition-all duration-200 ease-in ${
+      className={`transition-all duration-200 ease-in ${
         open ? openSearchBar : searchBar
       }`}
     >

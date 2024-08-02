@@ -1,3 +1,4 @@
+
 export interface NavListPropsI {
   isMobile?: boolean;
 }
@@ -8,6 +9,9 @@ export type ListItemT = {
   isMobile?: boolean;
 };
 
+
 export type UseHeaderFeaturesT = {
-  handleSearch: () => void; // for search bar input event handler
+  handleSearch: () => void; 
+  handleAuth: () => void; 
+  handleUser: () => void;
 };

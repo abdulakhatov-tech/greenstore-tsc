@@ -20,6 +20,7 @@ export default defineConfig({
       '@services': path.resolve(__dirname, './src/services'),
       '@layout': path.resolve(__dirname, './src/layout'),
       '@locale': path.resolve(__dirname, './src/locale'),
+      '@config': path.resolve(__dirname, './src/config'),
     },
   },
 });
