@@ -1,8 +1,7 @@
 import useSearchParamsHook from "@hooks/useSearchParams";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AxiosProp } from "./types";
-
 
 const useAxios = () => {
   const navigate = useNavigate();
@@ -45,10 +44,8 @@ const useAxios = () => {
       });
 
       return response;
-    } catch (error) {
-      const axiosError = error as AxiosError;
-
-      if (axiosError.response && axiosError.response.status === 401) {
+    } catch (error: any) {
+      if (error.response.status === 401) {
         setParam('auth', 'sign-in')
       } else {
         navigate("/error");

@@ -2,7 +2,7 @@ import useAxios from "@hooks/useAxios";
 import { useAppDispatch } from "@hooks/useRedux";
 import { setNotification } from "@redux/slices/notification";
 import useSearchParamsHook from "@hooks/useSearchParams";
-import { AuthQuery } from "../../types";
+import { AuthQuery, ResponseT } from "../../types";
 import useAuthModalFeatures from "../../features";
 import { ErrorResponse } from "./types";
 import { useAuth } from "@config/auth";
@@ -25,13 +25,13 @@ const useAuthWithFeatures = () => {
       const endpoint =
         authType === AuthQuery.SignUp ? AuthQuery.SignUp : AuthQuery.SignIn;
 
-      const response = await axios({
+      const response: ResponseT = await axios({
         method: "POST",
         url: `/user/${endpoint}/google`,
         data: {
           email: user?.email,
         },
-      });
+      }) as ResponseT;
 
       const { token, user: userAuth } = response.data.data ;
       const authAction = authType === AuthQuery.SignIn ? signIn : signUp;

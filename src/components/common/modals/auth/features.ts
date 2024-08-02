@@ -3,9 +3,8 @@ import {
   InitialStateT,
   UseAuthModalFeaturesT,
   FormValueT,
-  ResponseT,
   ErrorT,
-  RequestConfigT,
+  ResponseT,
 } from "./types";
 import { Form } from "antd";
 import { useCallback, useEffect, useState } from "react";
@@ -70,13 +69,11 @@ const useAuthModalFeatures = (): UseAuthModalFeaturesT => {
                 password: formValue.password,
               };
 
-        const requestConfig: RequestConfigT = {
+        const response: ResponseT = await axios({
           method: "POST",
           url: `/user/${authType}`,
           data,
-        };
-
-        const response: ResponseT = await axios(requestConfig);
+        }) as ResponseT;
 
         const { token, user } = response.data.data;
 
@@ -95,12 +92,12 @@ const useAuthModalFeatures = (): UseAuthModalFeaturesT => {
             description: `You have successfully ${
               authType === "sign-in" ? "logged in" : "registered"
             } successfully`,
-            duration: 5, 
+            duration: 3, 
           })
         );
         setTimeout(() => {
           window.location.reload();
-        }, 700);
+        }, 500);
       } catch (error) {
         const err = error as ErrorT;
         dispatch(

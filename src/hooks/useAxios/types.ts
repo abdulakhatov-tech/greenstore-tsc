@@ -6,5 +6,5 @@ export type AxiosProp = {
   params?: object;
   headers?: object;
   includeToken?: boolean;
-} ; // Extend with AxiosRequestConfig for additional options
+} ; 
 
