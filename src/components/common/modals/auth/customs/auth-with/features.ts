@@ -6,7 +6,7 @@ import { signInWithGoogle } from "@config/firebase";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import { AuthQuery } from "../../types";
 import useAuthModalFeatures from "../../features";
-import { AuthResponse, ErrorResponse } from "./types";
+import { ErrorResponse } from "./types";
 
 const useAuthWithFeatures = () => {
   const axios = useAxios();
@@ -24,7 +24,8 @@ const useAuthWithFeatures = () => {
 
       const endpoint =
         authType === AuthQuery.SignUp ? AuthQuery.SignUp : AuthQuery.SignIn;
-      const response:AuthResponse = await axios({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const response: any = await axios({
         method: "POST",
         url: `/user/${endpoint}/google`,
         data: {
@@ -32,8 +33,8 @@ const useAuthWithFeatures = () => {
         },
       });
 
-      const { token, user: userAuth } = response.data.data;
-      const authAction = authType === "sign-in" ? signIn : signUp;
+      const { token, user: userAuth } = response.data.data ;
+      const authAction = authType === AuthQuery.SignIn ? signIn : signUp;
       authAction({ token, user: userAuth });
 
       removeParam("auth");
