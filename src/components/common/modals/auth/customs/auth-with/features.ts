@@ -24,7 +24,7 @@ const useAuthWithFeatures = () => {
 
       const endpoint =
         authType === AuthQuery.SignUp ? AuthQuery.SignUp : AuthQuery.SignIn;
-      const response = await axios<AuthResponse>({
+      const response:AuthResponse = await axios({
         method: "POST",
         url: `/user/${endpoint}/google`,
         data: {

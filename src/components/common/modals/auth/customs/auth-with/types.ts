@@ -2,9 +2,11 @@
 
 export interface AuthResponse {
   data: {
-    token: string;
-    user: UserAuth;
-  };
+    data: {
+      token: string;
+      user: UserAuth;
+    };
+  }
 }
 
 export interface UserAuth {
