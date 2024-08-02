@@ -25,15 +25,15 @@ const useAuthWithFeatures = () => {
       const endpoint =
         authType === AuthQuery.SignUp ? AuthQuery.SignUp : AuthQuery.SignIn;
 
-      const response: ResponseT = await axios({
+      const response: ResponseT = (await axios({
         method: "POST",
         url: `/user/${endpoint}/google`,
         data: {
           email: user?.email,
         },
-      }) as ResponseT;
+      })) as ResponseT;
 
-      const { token, user: userAuth } = response.data.data ;
+      const { token, user: userAuth } = response.data.data;
       const authAction = authType === AuthQuery.SignIn ? signIn : signUp;
       authAction({ token, user: userAuth });
 
@@ -50,15 +50,15 @@ const useAuthWithFeatures = () => {
 
       setTimeout(() => window.location.reload(), 700);
     } catch (error) {
-
-        const errorMessage = (error as ErrorResponse)?.response?.data?.extraMessage ||
+      const errorMessage =
+        (error as ErrorResponse)?.response?.data?.extraMessage ||
         (error as Error)?.message ||
-          "An error occurred"
+        "An error occurred";
 
       dispatch(
         setNotification({
           type: "error",
-          message:errorMessage          ,
+          message: errorMessage,
           description: `Failed to ${
             authType === AuthQuery.SignUp ? AuthQuery.SignUp : AuthQuery.SignIn
           } with Google`,

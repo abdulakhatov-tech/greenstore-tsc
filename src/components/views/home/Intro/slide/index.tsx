@@ -2,9 +2,12 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { FC } from "react";
 import Button from "@generic/button";
+import { useAuth } from "@config/auth";
 import CustomSkeleton from "@tools/skeleton";
 import { HeroCarouselSlideT } from "@type/index";
 import useOnlineStatus from "@hooks/useOnlineStatus";
+import useSearchParamsHook from "@hooks/useSearchParams";
+import { AuthQuery } from "@components/common/modals/auth/types";
 
 type SliceT = Omit<HeroCarouselSlideT, "id">;
 
@@ -19,6 +22,16 @@ const Slide: FC<SliceT> = ({
   const { t } = useTranslation();
   const isOnline = useOnlineStatus();
   const navigate = useNavigate();
+  const { isAuthed } = useAuth();
+  const { setParam } = useSearchParamsHook();
+
+  const handleShop = () => {
+    if (isAuthed()) {
+      navigate("/shop");
+    } else {
+      setParam("auth", AuthQuery.SignIn);
+    }
+  };
 
   return (
     <div className='w-full flex min-h-[300px] md:min-h-[400px] pb-[30px]'>
@@ -32,7 +45,7 @@ const Slide: FC<SliceT> = ({
         <p className='text-gray max-w-[630px] mb-4 md:mb-8 line-clamp-3'>
           {description}
         </p>
-        <Button variant='primary' type='button' onClick={() => navigate('/shop')}>
+        <Button variant='primary' type='button' onClick={handleShop}>
           {buttonText}
         </Button>
       </div>

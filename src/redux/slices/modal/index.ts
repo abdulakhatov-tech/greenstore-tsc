@@ -6,6 +6,9 @@ const initialState:InitialStateT = {
     authModalVisibility: {
         open: false,
         authQuery: null,
+    },
+    sideMenuModalVisibility: {
+        open: false,
     }
 }
 
@@ -16,9 +19,12 @@ const modalSlice = createSlice({
         toggleAuthModalVisibility: (state, action) => {
             state.authModalVisibility = {...state.authModalVisibility, ...action.payload}
         },
+        toggleSideMenuModalVisibility: (state, action) => {
+            state.sideMenuModalVisibility = {...state.sideMenuModalVisibility,...action.payload}
+        },
     }
 })
 
-export const { toggleAuthModalVisibility } = modalSlice.actions
+export const { toggleAuthModalVisibility, toggleSideMenuModalVisibility } = modalSlice.actions
 
 export default modalSlice.reducer;

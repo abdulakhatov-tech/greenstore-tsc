@@ -14,4 +14,5 @@ export type UseHeaderFeaturesT = {
   handleSearch: () => void; 
   handleAuth: () => void; 
   handleUser: () => void;
+  handleSideMenu: () => void;
 };

@@ -3,6 +3,7 @@ import { toggleSearchbar } from "@redux/slices/search";
 import { UseHeaderFeaturesT } from "./types";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import { useNavigate } from "react-router-dom";
+import { toggleSideMenuModalVisibility } from "@redux/slices/modal";
 
 const useHeaderFeatures = (): UseHeaderFeaturesT => {
   const navigate = useNavigate();
@@ -21,10 +22,15 @@ const useHeaderFeatures = (): UseHeaderFeaturesT => {
     navigate('/profile')
  }
 
+ const handleSideMenu = () => {
+   dispatch(toggleSideMenuModalVisibility({ open: true }))
+ }
+
   return {
     handleSearch,
     handleAuth,
-    handleUser
+    handleUser,
+    handleSideMenu
   };
 };
 
