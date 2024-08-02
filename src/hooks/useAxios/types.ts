@@ -1,4 +1,3 @@
-import { AxiosRequestConfig } from "axios";
 
 export type RequestConfigT = {
   method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
@@ -7,4 +6,4 @@ export type RequestConfigT = {
   params?: Record<string, unknown>;
   headers?: Record<string, string>;
   includeToken?: boolean;
-} & AxiosRequestConfig; // Extend with AxiosRequestConfig for additional options
+} ; // Extend with AxiosRequestConfig for additional options
