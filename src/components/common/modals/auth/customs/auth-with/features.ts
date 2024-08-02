@@ -4,7 +4,7 @@ import { setNotification } from "@redux/slices/notification";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import { AuthQuery } from "../../types";
 import useAuthModalFeatures from "../../features";
-import { AuthResponse, ErrorResponse } from "./types";
+import { ErrorResponse } from "./types";
 import { useAuth } from "@config/auth";
 import { signInWithGoogle } from "@config/firebase";
 
@@ -25,7 +25,7 @@ const useAuthWithFeatures = () => {
       const endpoint =
         authType === AuthQuery.SignUp ? AuthQuery.SignUp : AuthQuery.SignIn;
 
-      const response = await axios<AuthResponse>({
+      const response = await axios({
         method: "POST",
         url: `/user/${endpoint}/google`,
         data: {
