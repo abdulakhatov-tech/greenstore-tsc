@@ -87,6 +87,36 @@
     "language": "Язык",
     "login": "Войти"
   },
+  "modal": {
+    "auth": {
+      "sign_in": "Войти",
+      "sign_up": "Регистрация",
+      "forgot_password": "Забыли пароль?",
+      "remember_me": "Запомнить меня",
+      "or_login_with": "Или войдите через",
+      "or_sign_up_with": "или через",
+      "form": {
+         "name": "Введите ваше имя!",
+         "name_error": "Введите ваше имя!",
+         "surname": "Введите вашу фамилию!",
+         "surname_error": "Введите вашу фамилию!",
+         "email": "Введите ваш email!",
+         "email_error": "Введите действительный email!",
+         "password": "Введите ваш пароль!",
+         "password_error": "Введите ваш пароль!",
+         "password_error_2": "Минимум 5 символов!",
+         "password_error_3": "Хотя бы одна цифра!",
+         "password_error_4": "Хотя бы одна буква!",
+         "password_error_5": "Хотя бы один символ!",
+         "confirm_password": "Подтвердите ваш пароль!",
+         "confirm_password_error": "Подтвердите ваш пароль!",
+         "confirm_password_error_2": "Пароли не совпадают!"
+      },
+      "continue_with_google": "Google",
+      "continue_with_facebook": "Facebook",
+      "continue_with_qrcode": "QR-код"
+    }
+  },
   "home_page": {
     "planet": "Планета",
     "hero_slice_1": {

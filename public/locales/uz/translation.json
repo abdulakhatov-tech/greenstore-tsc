@@ -87,6 +87,36 @@
     "language": "Til",
     "login": "Kirish"
   },
+  "modal": {
+    "auth": {
+      "sign_in": "Kirish",
+      "sign_up": "Ro'yxatdan o'tish",
+      "forgot_password": "Parolni unutdingizmi?",
+      "remember_me": "Meni eslab qol",
+      "or_login_with": "Yoki kirish orqali",
+      "or_sign_up_with": "yoki ro'yxatdan o'ting",
+      "form": {
+         "name": "Ismingizni kiriting!",
+         "name_error": "Iltimos, ismingizni kiriting!",
+         "surname": "Familiyangizni kiriting!",
+         "surname_error": "Iltimos, familiyangizni kiriting!",
+         "email": "Elektron pochtangizni kiriting!",
+         "email_error": "Iltimos, emailingizni kiriting!",
+         "password": "Parolingizni kiriting!",
+         "password_error": "Iltimos, parolingizni kiriting!",
+         "password_error_2": "Parol kamida 5 belgidan iborat bo‘lishi kerak!",
+         "password_error_3": "Parolda kamida bitta raqam bo‘lishi kerak!",
+         "password_error_4": "Parolda kamida bitta harf bo‘lishi kerak!",
+         "password_error_5": "Parolda kamida bitta belgi bo‘lishi kerak!",
+         "confirm_password": "Parolni tasdiqlang!",
+         "confirm_password_error": "Iltimos, parolni tasdiqlang!",
+         "confirm_password_error_2": "Parollar mos kelmadi!"
+      },
+      "continue_with_google": "Google bilan",
+      "continue_with_facebook": "Facebook bilan",
+      "continue_with_qrcode": "QR-kod bilan"
+    }
+  },
   "home_page": {
     "planet": "Sayyora",
     "hero_slice_1": {
