@@ -189,5 +189,15 @@
         "placeholder": "Почта"
      },
      "footer_text": "Greenstore. Все права защищены."
+  },
+  "product_details_page": {
+    "buy_now": "Купить сейчас",
+    "add_to_cart": "Добавить в корзину",
+    "category": "Категория",
+    "short_description": "Краткое описание",
+    "customer_review": "Отзывы покупателей",
+    "product_description": "Описание товара",
+    "reviews": "Отзывы",
+    "no_reviews_yet": "Пока нет отзывов"
   }
 }

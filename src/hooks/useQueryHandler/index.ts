@@ -7,6 +7,7 @@ interface QueryHandlerProps {
   options?: object;
   retry?: number;
   onSuccess?: () => void;
+  enabled?: any
 }
 
 const useQueryHandler = ({

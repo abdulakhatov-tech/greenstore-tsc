@@ -1,7 +1,8 @@
 import { FC } from "react";
+import ProductDetailsComponent from "@components/views/product-details";
 
 const ProductDetails: FC = () => {
-  return <div>ProductDetails</div>;
+  return <ProductDetailsComponent />
 };
 
 export default ProductDetails;
