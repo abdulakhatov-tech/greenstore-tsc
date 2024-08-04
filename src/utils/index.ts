@@ -134,9 +134,167 @@ export const MockData = () => {
     },
  ];
 
+ const footer_navigation = {
+  title_1: t("footer_navigation.title_1"),
+  title_2: t("footer_navigation.title_2"),
+  title_3: t("footer_navigation.title_3"),
+  title_4: t("footer_navigation.title_4"),
+  navigation: [
+     {
+        _id: "1",
+        title: t("footer_navigation.navigation.my_account"),
+        path: "my-account",
+     },
+     {
+        _id: "2",
+        title: t("footer_navigation.navigation.address"),
+        path: "address",
+     },
+     {
+        _id: "3",
+        title: t("footer_navigation.navigation.wishlist"),
+        path: "wishlist",
+     },
+  ],
+  categories: [
+     {
+        _id: "1",
+        title: t("footer_navigation.categories.house_plants"),
+        path: "/shop?category=house-plants",
+     },
+     {
+        _id: "2",
+        title: t("footer_navigation.categories.potter_plants"),
+        path: "/shop?category=potter-plants",
+     },
+     {
+        _id: "3",
+        title: t("footer_navigation.categories.seeds"),
+        path: "/shop?category=seeds",
+     },
+     {
+        _id: "4",
+        title: t("footer_navigation.categories.small_plants"),
+        path: "/shop?category=small-plants",
+     },
+     {
+        _id: "5",
+        title: t("footer_navigation.categories.accessories"),
+        path: "/shop?category=accessories",
+     },
+  ],
+  plant_fetures: [
+     {
+        _id: "1",
+        title: t("footer_navigation.plant_features.garden_care"),
+        description: t(
+           "footer_navigation.plant_features.garden_care_description",
+        ),
+        img_url:
+           "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Ffooter_flower_1.svg?alt=media&token=407c8917-880e-4c1d-a8a8-b377ff7cc61c",
+     },
+     {
+        _id: "2",
+        title: t("footer_navigation.plant_features.plant_renovation"),
+        description: t(
+           "footer_navigation.plant_features.plant_renovation_description",
+        ),
+        img_url:
+           "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Ffooter_flower_2.svg?alt=media&token=cc49dd7d-b040-4311-a0a3-310c0aba964a",
+     },
+     {
+        _id: "3",
+        title: t("footer_navigation.plant_features.watering_garden"),
+        description: t(
+           "footer_navigation.plant_features.watering_garden_description",
+        ),
+        img_url:
+           "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Ffooter_flower_1.svg?alt=media&token=407c8917-880e-4c1d-a8a8-b377ff7cc61c",
+     },
+  ],
+  social_media_links: [
+     {
+        _id: "1",
+        title: "facebook",
+        href: "https://www.facebook.com",
+        path: "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Ffacebook.svg?alt=media&token=3db32f6e-a8c2-4dd2-829a-840b16fede49",
+     },
+     {
+        _id: "2",
+        title: "instagram",
+        href: "https://www.instagram.com",
+        path: "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Finstagram.svg?alt=media&token=dff411c8-b4c4-451d-820e-3f6752290ff5",
+     },
+     {
+        _id: "3",
+        title: "twitter",
+        href: "https://www.twitter.com",
+        path: "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Ftwitter.svg?alt=media&token=9ab7ee69-e867-48b2-8d1c-978fd8d43835",
+     },
+     {
+        _id: "4",
+        title: "youtube",
+        href: "https://www.youtube.com",
+        path: "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Funion.svg?alt=media&token=2ab668d7-f49d-4c46-ae87-d8d49ae0849f",
+     },
+  ],
+  payment_links: [
+     {
+        _id: "1",
+        title: "paypal",
+        href: "https://www.paypal.com",
+        path: "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Fpaypal.svg?alt=media&token=51f12650-aff4-485a-bbcb-0ee3f4e64cca",
+     },
+     {
+        _id: "2",
+        title: "mastercard",
+        href: "https://www.mastercard.com",
+        path: "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Fmastercard.svg?alt=media&token=cb5cc08d-e2a0-4625-8fc7-86448ce7628a",
+     },
+     {
+        _id: "3",
+        title: "visa",
+        href: "https://www.visa.com",
+        path: "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Fvisa.svg?alt=media&token=4fffddbd-bd42-4523-a201-06650a09e8a2",
+     },
+     {
+        _id: "4",
+        title: "american-express",
+        href: "https://www.americanexpress.com",
+        path: "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Famex.svg?alt=media&token=89c19c4a-9c33-4e7a-b802-a7f0ba10ef04",
+     },
+  ],
+  contact_info: {
+     logo: {
+        src: "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Flogo.svg?alt=media&token=fc9659d6-f435-43b9-a624-8b0d3a574baa",
+        path: "/",
+        alt: "greenshop",
+     },
+     location: {
+        src: "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Flocation.svg?alt=media&amp;token=d600d0e4-aa9d-423d-8348-e3df90b195f3",
+        path: "#",
+        alt: "address",
+        address: "70 West Buckingham Ave. Farmingdale, NY 11735",
+     },
+     email: {
+        src: "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Femail.svg?alt=media&token=8136c940-c139-486f-a6d3-be49bede2381",
+        path: "#",
+        alt: "email",
+        email: "islomabdulakhatov@gmail.com",
+     },
+     phone: {
+        src: "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Fcall.svg?alt=media&token=3841a4f9-b499-4e8c-98d3-a05fe4edc39f",
+        path: "#",
+        alt: "tel",
+        phoneNumber: "+99899 528 98 96",
+     },
+  },
+};
+
   return {
     langData,
     sortByOptions,
+    footer_navigation,
     hero_carousel_mock,
     profile_navigation,
     plant_gallery_navigation,

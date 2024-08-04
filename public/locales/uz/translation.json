@@ -156,5 +156,38 @@
           "layout_change": "Tartibni o'zgartirish"
        }
     }
+  },
+  "footer_navigation": {
+     "title_1": "Mening hisobim",
+     "title_2": "Toifalar",
+     "title_3": "Ijtimoiy tarmoqlar",
+     "title_4": "Biz qabul qilamiz",
+     "navigation": {
+        "my_account": "Mening hisobim",
+        "address": "Manzil",
+        "wishlist": "Istaklar ro‘yxati"
+     },
+     "categories": {
+        "house_plants": "Uy o‘simliklari",
+        "potter_plants": "Gul idishlari",
+        "seeds": "Urug‘lar",
+        "small_plants": "Kichik o‘simliklar",
+        "accessories": "Aksessuarlar"
+     },
+     "plant_features": {
+        "garden_care": "Bog‘ parvarishi",
+        "garden_care_description": "Arzon va zamonaviy o‘simliklar do‘koni.",
+        "plant_renovation": "O‘simliklar yangilanishi",
+        "plant_renovation_description": "O‘simliklarimiz xavfsiz muhitda o‘sadi.",
+        "watering_garden": "Bog‘ sug‘orish",
+        "watering_garden_description": "Turli texnologiyalarni qo‘llash."
+     },
+     "newsletter": {
+        "title": "Yangiliklarga qo‘shilasizmi?",
+        "description": "Takliflar va qiyinchiliklar oling. Uy o‘simliklari va aksessuarlari yetkazib beriladigan onlayn manzilingiz!",
+        "button_text": "Qo‘shilish",
+        "placeholder": "Emailingizni kiriting"
+     },
+     "footer_text": "Greenstore. Barcha huquqlar himoyalangan."
   }
 }

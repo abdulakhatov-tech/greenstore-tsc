@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import Notification from "@tools/notification";
 import SearchBar from "@components/search-bar";
 import ModalVisibility from "@components/common/modals";
+import Footer from "@components/footer";
 
 const MainLayout: FC = () => {
 
@@ -14,6 +15,7 @@ const MainLayout: FC = () => {
         <SearchBar />       
         <Outlet />
       </main>
+      <Footer />
 
       <Notification />
       <ModalVisibility />
