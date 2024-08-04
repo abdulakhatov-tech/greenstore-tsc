@@ -1,7 +1,8 @@
+import ShopComponent from "@components/views/shop";
 import { FC } from "react";
 
 const Shop: FC = () => {
-  return <div>Shop</div>;
+  return <ShopComponent />
 };
 
 export default Shop;

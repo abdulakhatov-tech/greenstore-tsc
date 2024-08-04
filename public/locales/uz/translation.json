@@ -189,5 +189,15 @@
         "placeholder": "Emailingizni kiriting"
      },
      "footer_text": "Greenstore. Barcha huquqlar himoyalangan."
+  },
+  "product_details_page": {
+    "buy_now": "Sotib olish",
+    "add_to_cart": "Savatga qo'shish",
+    "category": "Kategoriya",
+    "short_description": "Qisqa tavsif",
+    "customer_review": "Mijozlar sharhi",
+    "product_description": "Mahsulot tavsifi",
+    "reviews": "Sharhlar",
+    "no_reviews_yet": "Hozircha sharhlar yo'q"
   }
 }

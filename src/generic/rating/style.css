@@ -1,0 +1,6 @@
+.filled svg {
+  fill: #f6fe06;
+}
+.error svg {
+  stroke: #fc836d;
+}

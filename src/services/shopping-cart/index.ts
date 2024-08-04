@@ -239,7 +239,8 @@ const useShoppingCartService = () => {
     applyCoupon,
     formattedDiscount,
     payment_method,
-    loading
+    loading,
+    cart
   };
 };
 
