@@ -156,5 +156,38 @@
          "layout_change": "Layout Change"
       }
    }
-  }
+  },
+  "footer_navigation": {
+      "title_1": "My Account",
+      "title_2": "Categories",
+      "title_3": "Social Media",
+      "title_4": "We accept",
+      "navigation": {
+         "my_account": "My Account",
+         "address": "Address",
+         "wishlist": "Wishlist"
+      },
+      "categories": {
+         "house_plants": "House Plants",
+         "potter_plants": "Potter Plants",
+         "seeds": "Seeds",
+         "small_plants": "Small Plants",
+         "accessories": "Accessories"
+      },
+      "plant_features": {
+         "garden_care": "Garden Care",
+         "garden_care_description": "Online shop for cheap and trendy plants.",
+         "plant_renovation": "Plant Renovation",
+         "plant_renovation_description": "Our plants grow in a safe environment.",
+         "watering_garden": "Watering Garden",
+         "watering_garden_description": "Using various technologies."
+      },
+      "newsletter": {
+         "title": "Would you like to join newsletters?",
+         "description": "We usually post offers and challenges in newsletter. We’re your online houseplant destination. We offer a wide range of houseplants and accessories shipped directly from our (green)house to yours!",
+         "button_text": "Join",
+         "placeholder": "Email address"
+      },
+      "footer_text": "Greenstore. All Rights Reserved."
+   }
 }

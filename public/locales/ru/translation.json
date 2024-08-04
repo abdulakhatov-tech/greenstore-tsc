@@ -156,5 +156,38 @@
           "layout_change": "Изменить макет"
        }
     }
+  },
+  "footer_navigation": {
+     "title_1": "Мой аккаунт",
+     "title_2": "Категории",
+     "title_3": "Соцсети",
+     "title_4": "Мы принимаем",
+     "navigation": {
+        "my_account": "Мой аккаунт",
+        "address": "Адрес",
+        "wishlist": "Избранное"
+     },
+     "categories": {
+        "house_plants": "Комнатные растения",
+        "potter_plants": "Горшечные растения",
+        "seeds": "Семена",
+        "small_plants": "Маленькие растения",
+        "accessories": "Аксессуары"
+     },
+     "plant_features": {
+        "garden_care": "Уход за садом",
+        "garden_care_description": "Интернет-магазин дешевых и модных растений.",
+        "plant_renovation": "Реновация растений",
+        "plant_renovation_description": "Наши растения растут в безопасной среде.",
+        "watering_garden": "Полив сада",
+        "watering_garden_description": "Используем различные технологии."
+     },
+     "newsletter": {
+        "title": "Присоединиться к рассылке?",
+        "description": "Получайте предложения и задачи. Ваш интернет-магазин растений с широким ассортиментом комнатных растений и аксессуаров, доставляемых вам!",
+        "button_text": "Вступить",
+        "placeholder": "Почта"
+     },
+     "footer_text": "Greenstore. Все права защищены."
   }
 }
