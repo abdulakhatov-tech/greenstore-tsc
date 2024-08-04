@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState } from "react"; // Ensure React is imported
+import { FC, memo, useEffect, useState } from "react"; // Ensure React is imported
 import "./style.css";
 
 const starStyle = "mr-[5px]";
