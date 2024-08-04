@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export type ReactNodeT = {
-  children?: ReactNode
+  children?: ReactNode;
 };
 
 export type HeroCarouselSlideT = {
@@ -12,7 +12,7 @@ export type HeroCarouselSlideT = {
   description: string;
   flower_1: string;
   flower_2: string;
-}
+};
 
 interface PermissionI {
   create?: boolean;
@@ -51,4 +51,61 @@ export interface UserI {
   order_list?: string[];
   created_at?: string;
   __v?: number;
+}
+
+export interface CategoryPropsI {
+  _id: string;
+  title: string;
+  count: number;
+  route_path: string;
+  created_at: string;
+  created_by: string;
+  __v: string;
+}
+
+export enum SortCategoryBy {
+  DEFAULT_SORTING = "default-sorting",
+  THE_CHEAPEST = "the-cheapest",
+  MOST_EXPENSIVE = "most-expensive",
+}
+
+export type SortCategoryByT = SortCategoryBy.DEFAULT_SORTING | SortCategoryBy.THE_CHEAPEST | SortCategoryBy.MOST_EXPENSIVE
+
+export interface ProductPropsI {
+  _id: string;
+  title: string;
+  price: number;
+  discount: boolean;
+  discount_price: number;
+  short_description: string;
+  description: string;
+  main_image: string;
+  category: string;
+  detailed_images: string[];
+  rate: number;
+  views: number;
+  tags: string[];
+  comments: string[];
+  created_by: string;
+  created_at: Date;
+  __v: number
+}
+
+export interface CartProductPropsI extends ProductPropsI {
+  quantity: number;
+}
+
+export interface CouponPropsI {
+  id: number;
+  code: string;
+  discount_for: number;
+  title: string;
+}
+
+export type NotificationTypeT = "success" | "info" | "warning" | "error";
+
+export interface NotificationPropsI {
+  type: NotificationTypeT | null;
+  message: string;
+  description: string;
 }

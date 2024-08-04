@@ -7,10 +7,11 @@ import {
 } from "@redux/slices/modal";
 import { AuthQuery } from "./auth/types";
 import SideMenuModal from "./side-menu";
+import CategoryMenu from "./category-menu";
 
 const ModalVisibility: FC = () => {
   const { getParam, setParam } = useSearchParamsHook();
-  const { authModalVisibility, sideMenuModalVisibility } = useAppSelector(
+  const { authModalVisibility, sideMenuModalVisibility, categoryModalVisibility } = useAppSelector(
     (state) => state.modal
   );
   const dispatch = useAppDispatch();
@@ -42,6 +43,7 @@ const ModalVisibility: FC = () => {
     <>
       {authModalVisibility.open && <AuthModal />}
       {sideMenuModalVisibility.open && <SideMenuModal />}
+      {categoryModalVisibility && <CategoryMenu />}
     </>
   );
 };

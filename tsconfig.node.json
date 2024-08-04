@@ -24,6 +24,7 @@
       "@layout/*": ["src/layout/*"],
       "@locale/*": ["src/locale/*"],
       "@config/*": ["src/config/*"],
+      "@helpers/*": ["src/helpers/*"],
     }
   },
   "include": ["vite.config.ts"]

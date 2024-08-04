@@ -15,4 +15,6 @@ export type UseHeaderFeaturesT = {
   handleAuth: () => void; 
   handleUser: () => void;
   handleSideMenu: () => void;
+  handleShoppingCart: () => void;
+  handleWishlist: () => void;
 };

@@ -9,17 +9,22 @@ import {
 
 import Button from "@generic/button";
 import { useAuth } from "@config/auth";
-import useHeaderFeatures from "@components/header/features";
 import { useTranslation } from "react-i18next";
 import Locale from "@components/common/locale";
+import { useAppSelector } from "@hooks/useRedux";
+import useHeaderFeatures from "@components/header/features";
+import useWishlistService from "@services/wishlist";
 
 const Actions = () => {
   const { t } = useTranslation();
   const { isAuthed, getUser } = useAuth();
-  const { handleSearch, handleAuth, handleUser, handleSideMenu } = useHeaderFeatures();
+  const { handleSearch, handleAuth, handleUser, handleSideMenu, handleShoppingCart, handleWishlist } =
+    useHeaderFeatures();
+  const { cart } = useAppSelector((state) => state.shoppingCart);
+  const { wishlist } = useWishlistService();
 
   return (
-    <div className='flex items-center gap-3 sm:gap-4 md:gap-6'>
+    <div className='flex items-center gap-4 sm:gap-5 md:gap-6'>
       <Tooltip color='#46A358' title={t("header.search")}>
         <SearchOutlined
           onClick={handleSearch}
@@ -27,17 +32,20 @@ const Actions = () => {
         />
       </Tooltip>
       <Tooltip color='#46A358' title={t("header.shopping_cart")}>
-        <Badge count={0} overflowCount={99}>
-          <ShoppingCartOutlined className='cursor-pointer text-[18px] md:text-[22px] hover:text-green' />
+        <Badge count={cart?.length ?? 0} overflowCount={9}>
+          <ShoppingCartOutlined onClick={handleShoppingCart} className='cursor-pointer text-[18px] md:text-[22px] hover:text-green' />
         </Badge>
       </Tooltip>
       <Tooltip color='#46A358' title={t("header.favourites")}>
-        <Badge count={0} overflowCount={99}>
-          <HeartOutlined className='cursor-pointer text-[18px] md:text-[22px] hover:text-green' />
+        <Badge count={wishlist?.data?.length ?? 0} overflowCount={9}>
+          <HeartOutlined onClick={handleWishlist} className='cursor-pointer text-[18px] md:text-[22px] hover:text-green' />
         </Badge>
       </Tooltip>
       <Locale />
-      <AlignRightOutlined onClick={handleSideMenu} className='text-[18px] md:text-[23px] text-black block lg:hidden cursor-pointer hover:text-green' />
+      <AlignRightOutlined
+        onClick={handleSideMenu}
+        className='text-[18px] md:text-[23px] text-black block lg:hidden cursor-pointer hover:text-green'
+      />
 
       {isAuthed() ? (
         <Tooltip
