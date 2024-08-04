@@ -5,5 +5,7 @@ export type InitialStateT = {
     },
     sideMenuModalVisibility: {
         open: boolean;
-    }
+    },
+    categoriesModalVisibility: boolean;
+    categoryModalVisibility: boolean;
 }

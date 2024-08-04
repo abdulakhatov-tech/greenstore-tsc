@@ -136,6 +136,25 @@
       "subtitle": "WELCOME TO GREENSTORE",
       "description": "We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!",
       "buttonText": "GET CREDITS"
-    }
+    },
+    "indoor_plant_gallery": {
+      "categories": {
+         "title_1": "Categories",
+         "title_2": "Filter",
+         "title_3": "Size",
+         "price": "Price",
+         "filter": "Filter"
+      },
+      "products": {
+         "nav_item_1": "All Plants",
+         "nav_item_2": "New Arrivals",
+         "nav_item_3": "Sale",
+         "sort_by": "Sort By",
+         "default_sorting": "Default Sorting",
+         "the_cheapest": "The Cheapest",
+         "most_expensive": "Most expensive",
+         "layout_change": "Layout Change"
+      }
+   }
   }
 }

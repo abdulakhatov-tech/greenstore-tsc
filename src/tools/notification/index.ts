@@ -3,12 +3,12 @@ import { notification } from "antd";
 import { closeNotification } from "@redux/slices/notification";
 import { RootState } from "@redux/store";
 import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
-import { NotificationState, NotificationTypeT } from "./types";
+import { NotificationPropsI, NotificationTypeT } from "@type/index";
 
 const Notification = () => {
   const dispatch = useAppDispatch();
   const { type, message, description } = useAppSelector(
-    (state: RootState): NotificationState => state.notification as NotificationState
+    (state: RootState): NotificationPropsI => state.notification as NotificationPropsI
   );
   const [api, contextHolder] = notification.useNotification();
 
@@ -24,7 +24,7 @@ const Notification = () => {
 
   useEffect(() => {
     if (type) {
-      openNotificationWithIcon(type);
+      openNotificationWithIcon(type as NotificationTypeT);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type, message, description]);

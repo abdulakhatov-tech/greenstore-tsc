@@ -21,6 +21,7 @@ export default defineConfig({
       '@layout': path.resolve(__dirname, './src/layout'),
       '@locale': path.resolve(__dirname, './src/locale'),
       '@config': path.resolve(__dirname, './src/config'),
+      '@helpers': path.resolve(__dirname, './src/helpers'),
     },
   },
 });

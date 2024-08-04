@@ -29,3 +29,32 @@ section,
 footer {
    width: 100%;
 }
+
+/* custom select style */
+.ant-select-selector {
+  border-color: #46a358 !important;
+}
+
+.ant-select-arrow,
+.ant-select-selection-item {
+  color: #46a358 !important;
+  font-weight: 600 !important;
+}
+
+:where(.css-dev-only-do-not-override-1pg9a38).ant-badge .ant-scroll-number {
+  top: -1px;
+  right: -4px;
+}
+
+@media screen and (max-width: 768px) {
+  :where(.css-dev-only-do-not-override-1pg9a38).ant-badge .ant-scroll-number {
+    width: 25px !important;
+    height: 17px;
+    font-size: 10px;
+    line-height: 0px;
+    display: flex;
+    align-items: center;
+    top: -1px;
+    right: -4px;
+  }
+}

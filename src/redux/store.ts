@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { modal, notification, search } from "./slices";
+import { layout, modal, notification, search, shoppingCart } from "./slices";
 
 export const store = configureStore({
   reducer: {
     search,
     notification,
-    modal
+    modal,
+    layout,
+    shoppingCart
   },
 });
 

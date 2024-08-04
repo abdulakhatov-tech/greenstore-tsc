@@ -1,0 +1,1 @@
+export { default as PlantNavigation } from './plant-navigation'

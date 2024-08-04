@@ -16,6 +16,7 @@ type SkeletonMapT = {
 
 const CustomSkeleton: FC<CustomSkeletonI> = ({
   type = "default",
+  block=false,
   ...props
 }) => {
   const skeletonMap: SkeletonMapT = {
@@ -27,7 +28,7 @@ const CustomSkeleton: FC<CustomSkeletonI> = ({
 
   const SkeletonComponent = skeletonMap[type] || Skeleton;
 
-  return <SkeletonComponent {...props} />;
+  return <SkeletonComponent {...props} block={block} />;
 };
 
 export default CustomSkeleton;

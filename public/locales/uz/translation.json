@@ -136,6 +136,25 @@
       "subtitle": "GREENSTORE GA XUSH KELIBSIZ",
       "description": "Biz arzon va zamonaviy o'simliklarning keng doirasini taklif qiluvchi onlayn o'simliklar do'konimiz. Bizning o'simliklarimizdan foydalanib, noyob shahar junglisini yarating. Sevimli o'simliklaringizni buyurtma qiling!",
       "buttonText": "KREDIT OLING"
+    },
+    "indoor_plant_gallery": {
+       "categories": {
+          "title_1": "Kategoriyalar",
+          "title_2": "Filtr",
+          "title_3": "O'lcham",
+          "price": "Narx",
+          "filter": "Filtrlash"
+       },
+       "products": {
+          "nav_item_1": "Barcha O'simliklar",
+          "nav_item_2": "Yangi kelganlar",
+          "nav_item_3": "Chegirmalar",
+          "sort_by": "Saralash",
+          "default_sorting": "Standart saralash",
+          "the_cheapest": "Eng arzon",
+          "most_expensive": "Eng qimmat",
+          "layout_change": "Tartibni o'zgartirish"
+       }
     }
   }
 }

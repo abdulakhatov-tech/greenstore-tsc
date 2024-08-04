@@ -1,4 +1,4 @@
-import { HeroCarouselSlideT } from "@type/index";
+import { HeroCarouselSlideT, SortCategoryBy } from "@type/index";
 import { useTranslation } from "react-i18next";
 import {
   CiUser,
@@ -72,34 +72,73 @@ export const MockData = () => {
 
   const profile_navigation = [
     {
-       _id: '1',
-       title: t('routes.account_details') ?? 'Account Details',
-       path: "/profile",
-       Icon: CiUser,
-       label: t('routes.account_details') ?? "Account Details",
+      _id: "1",
+      title: t("routes.account_details") ?? "Account Details",
+      path: "/profile",
+      Icon: CiUser,
+      label: t("routes.account_details") ?? "Account Details",
     },
     {
-       _id: '2',
-       title: t('routes.my_products') ?? "My Products",
-       path: "/profile/my-products",
-       Icon: CiShoppingBasket,
-       label: t('routes.my_products') ?? "My Products",
+      _id: "2",
+      title: t("routes.my_products") ?? "My Products",
+      path: "/profile/my-products",
+      Icon: CiShoppingBasket,
+      label: t("routes.my_products") ?? "My Products",
     },
     {
-       _id: '3',
-       title: t('routes.address') ?? "Address",
-       path: "/profile/address",
-       Icon: CiLocationOn,
-       label: t('routes.address') ?? "My Address",
+      _id: "3",
+      title: t("routes.address") ?? "Address",
+      path: "/profile/address",
+      Icon: CiLocationOn,
+      label: t("routes.address") ?? "My Address",
     },
     {
-       _id: '4',
-       title: t('routes.wishlist') ?? "Wishlist",
-       path: "/profile/wishlist",
-       Icon: CiHeart,
-       label: t('routes.wishlist') ?? "My Wishlist",
+      _id: "4",
+      title: t("routes.wishlist") ?? "Wishlist",
+      path: "/profile/wishlist",
+      Icon: CiHeart,
+      label: t("routes.wishlist") ?? "My Wishlist",
+    },
+  ];
+
+  const plant_gallery_navigation = [
+    {
+      _id: "1",
+      title: t("home_page.indoor_plant_gallery.products.nav_item_1"),
+      slug: "all-plants",
+    },
+    {
+      _id: "2",
+      title: t("home_page.indoor_plant_gallery.products.nav_item_2"),
+      slug: "new-arrivals",
+    },
+    {
+      _id: "3",
+      title: t("home_page.indoor_plant_gallery.products.nav_item_3"),
+      slug: "sale",
+    },
+  ];
+
+  const sortByOptions = [
+    {
+       value: SortCategoryBy.DEFAULT_SORTING ?? "default-sorting",
+       label: t("home_page.indoor_plant_gallery.products.default_sorting"),
+    },
+    {
+       value: SortCategoryBy.THE_CHEAPEST ?? "the-cheapest",
+       label: t("home_page.indoor_plant_gallery.products.the_cheapest"),
+    },
+    {
+       value: SortCategoryBy.MOST_EXPENSIVE ?? "most-expensive",
+       label: t("home_page.indoor_plant_gallery.products.most_expensive"),
     },
  ];
 
-  return { langData, hero_carousel_mock, profile_navigation };
+  return {
+    langData,
+    sortByOptions,
+    hero_carousel_mock,
+    profile_navigation,
+    plant_gallery_navigation,
+  };
 };
