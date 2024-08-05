@@ -69,7 +69,10 @@ export enum SortCategoryBy {
   MOST_EXPENSIVE = "most-expensive",
 }
 
-export type SortCategoryByT = SortCategoryBy.DEFAULT_SORTING | SortCategoryBy.THE_CHEAPEST | SortCategoryBy.MOST_EXPENSIVE
+export type SortCategoryByT =
+  | SortCategoryBy.DEFAULT_SORTING
+  | SortCategoryBy.THE_CHEAPEST
+  | SortCategoryBy.MOST_EXPENSIVE;
 
 export interface ProductPropsI {
   _id: string;
@@ -88,7 +91,7 @@ export interface ProductPropsI {
   comments: string[];
   created_by: string;
   created_at: Date;
-  __v: number
+  __v: number;
 }
 
 export interface CartProductPropsI extends ProductPropsI {
@@ -108,4 +111,44 @@ export interface NotificationPropsI {
   type: NotificationTypeT | null;
   message: string;
   description: string;
+}
+
+export interface BreadcrumbRoutesI {
+  breadcrumbName: string | React.ReactNode;
+  path: string;
+}
+
+export enum PAYMENT_METHODS {
+  DIRECT_BANK_TRANSFER = "direct-bank-transfer",
+  PAY_BY_CARD = "pay-by-card",
+  CASH_ON_DELIVERY = "cash-on-delivery",
+}
+
+export type PaymentMethodT =
+  | PAYMENT_METHODS.CASH_ON_DELIVERY
+  | PAYMENT_METHODS.DIRECT_BANK_TRANSFER
+  | PAYMENT_METHODS.PAY_BY_CARD;
+
+export interface BillingAddressPropsI {
+  additional_street?: string;
+  city: string;
+  country: string;
+  email: string;
+  method: PaymentMethodT;
+  name: string;
+  notes?: string;
+  phone_number: string;
+  postal_code: string;
+  state: string;
+  street: string;
+  surname: string;
+}
+
+export interface FormFieldPropsI {
+  labelKey: string;
+  name: string;
+  rules: object[];
+  type?: string;
+  addonBefore?: string;
+  placeholderKey?: string;
 }

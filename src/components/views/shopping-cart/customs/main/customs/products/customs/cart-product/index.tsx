@@ -26,7 +26,7 @@ const CartProduct: FC<{ product: CartProductPropsI }> = ({ product }) => {
         <div className='flex flex-col justify-center'>
           <h3>{title}</h3>
           <Descriptions className='font-light text-[14px] mr-4' column={1}>
-            <Descriptions.Item span={1} label='SKU'>
+            <Descriptions.Item label='SKU'>
               <Tooltip title={_id}>
                   <span className='max-w-[175px] overflow-hidden whitespace-nowrap truncate'>
                      {_id}

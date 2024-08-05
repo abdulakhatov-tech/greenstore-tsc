@@ -12,6 +12,7 @@ const initialState:InitialStateT = {
     },
     categoriesModalVisibility: false,
     categoryModalVisibility: false,
+    trackOrderModalVisbility: false,
 }
 
 const modalSlice = createSlice({
@@ -30,9 +31,12 @@ const modalSlice = createSlice({
         toggleCategoryModalVisibility: (state) => {
             state.categoryModalVisibility = !state.categoryModalVisibility
         },
+        toggleTrackOrderModalVisibility: (state, action) => {
+            state.trackOrderModalVisbility = action?.payload ? action?.payload : !state.trackOrderModalVisbility
+        }
     }
 })
 
-export const { toggleAuthModalVisibility, toggleSideMenuModalVisibility, toggleCategoriesModalVisibility, toggleCategoryModalVisibility } = modalSlice.actions
+export const { toggleAuthModalVisibility, toggleSideMenuModalVisibility, toggleCategoriesModalVisibility, toggleCategoryModalVisibility, toggleTrackOrderModalVisibility } = modalSlice.actions
 
 export default modalSlice.reducer;

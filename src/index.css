@@ -73,6 +73,21 @@ footer {
   min-width: 40px !important;
 }
 
+#payment_methods .ant-radio-wrapper .ant-wave-target {
+  border: 1pxs solid #46A358 !important;
+}
+
+#payment_methods .ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+  border-color:#46A358;
+  background-color:#46A358;
+}
+
+#payment_methods  .ant-radio-wrapper-checked {
+  border-color: #46A358 !important;
+  color: #46A358 !important;
+}
+
+
 /* Webkit browsers */
 ::-webkit-scrollbar {
   width: 4px; /* width of the entire scrollbar */
