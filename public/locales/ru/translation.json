@@ -96,21 +96,21 @@
       "or_login_with": "Или войдите через",
       "or_sign_up_with": "или через",
       "form": {
-         "name": "Введите ваше имя!",
-         "name_error": "Введите ваше имя!",
-         "surname": "Введите вашу фамилию!",
-         "surname_error": "Введите вашу фамилию!",
-         "email": "Введите ваш email!",
-         "email_error": "Введите действительный email!",
-         "password": "Введите ваш пароль!",
-         "password_error": "Введите ваш пароль!",
-         "password_error_2": "Минимум 5 символов!",
-         "password_error_3": "Хотя бы одна цифра!",
-         "password_error_4": "Хотя бы одна буква!",
-         "password_error_5": "Хотя бы один символ!",
-         "confirm_password": "Подтвердите ваш пароль!",
-         "confirm_password_error": "Подтвердите ваш пароль!",
-         "confirm_password_error_2": "Пароли не совпадают!"
+        "name": "Введите ваше имя!",
+        "name_error": "Введите ваше имя!",
+        "surname": "Введите вашу фамилию!",
+        "surname_error": "Введите вашу фамилию!",
+        "email": "Введите ваш email!",
+        "email_error": "Введите действительный email!",
+        "password": "Введите ваш пароль!",
+        "password_error": "Введите ваш пароль!",
+        "password_error_2": "Минимум 5 символов!",
+        "password_error_3": "Хотя бы одна цифра!",
+        "password_error_4": "Хотя бы одна буква!",
+        "password_error_5": "Хотя бы один символ!",
+        "confirm_password": "Подтвердите ваш пароль!",
+        "confirm_password_error": "Подтвердите ваш пароль!",
+        "confirm_password_error_2": "Пароли не совпадают!"
       },
       "continue_with_google": "Google",
       "continue_with_facebook": "Facebook",
@@ -138,57 +138,57 @@
       "buttonText": "ПОЛУЧИТЕ КРЕДИТЫ"
     },
     "indoor_plant_gallery": {
-       "categories": {
-          "title_1": "Категории",
-          "title_2": "Фильтр",
-          "title_3": "Размер",
-          "price": "Цена",
-          "filter": "Фильтр"
-       },
-       "products": {
-          "nav_item_1": "Все растения",
-          "nav_item_2": "Новинки",
-          "nav_item_3": "Скидки",
-          "sort_by": "Сортировать по",
-          "default_sorting": "Сортировка по умолчанию",
-          "the_cheapest": "Самые дешевые",
-          "most_expensive": "Самые дорогие",
-          "layout_change": "Изменить макет"
-       }
+      "categories": {
+        "title_1": "Категории",
+        "title_2": "Фильтр",
+        "title_3": "Размер",
+        "price": "Цена",
+        "filter": "Фильтр"
+      },
+      "products": {
+        "nav_item_1": "Все растения",
+        "nav_item_2": "Новинки",
+        "nav_item_3": "Скидки",
+        "sort_by": "Сортировать по",
+        "default_sorting": "Сортировка по умолчанию",
+        "the_cheapest": "Самые дешевые",
+        "most_expensive": "Самые дорогие",
+        "layout_change": "Изменить макет"
+      }
     }
   },
   "footer_navigation": {
-     "title_1": "Мой аккаунт",
-     "title_2": "Категории",
-     "title_3": "Соцсети",
-     "title_4": "Мы принимаем",
-     "navigation": {
-        "my_account": "Мой аккаунт",
-        "address": "Адрес",
-        "wishlist": "Избранное"
-     },
-     "categories": {
-        "house_plants": "Комнатные растения",
-        "potter_plants": "Горшечные растения",
-        "seeds": "Семена",
-        "small_plants": "Маленькие растения",
-        "accessories": "Аксессуары"
-     },
-     "plant_features": {
-        "garden_care": "Уход за садом",
-        "garden_care_description": "Интернет-магазин дешевых и модных растений.",
-        "plant_renovation": "Реновация растений",
-        "plant_renovation_description": "Наши растения растут в безопасной среде.",
-        "watering_garden": "Полив сада",
-        "watering_garden_description": "Используем различные технологии."
-     },
-     "newsletter": {
-        "title": "Присоединиться к рассылке?",
-        "description": "Получайте предложения и задачи. Ваш интернет-магазин растений с широким ассортиментом комнатных растений и аксессуаров, доставляемых вам!",
-        "button_text": "Вступить",
-        "placeholder": "Почта"
-     },
-     "footer_text": "Greenstore. Все права защищены."
+    "title_1": "Мой аккаунт",
+    "title_2": "Категории",
+    "title_3": "Соцсети",
+    "title_4": "Мы принимаем",
+    "navigation": {
+      "my_account": "Мой аккаунт",
+      "address": "Адрес",
+      "wishlist": "Избранное"
+    },
+    "categories": {
+      "house_plants": "Комнатные растения",
+      "potter_plants": "Горшечные растения",
+      "seeds": "Семена",
+      "small_plants": "Маленькие растения",
+      "accessories": "Аксессуары"
+    },
+    "plant_features": {
+      "garden_care": "Уход за садом",
+      "garden_care_description": "Интернет-магазин дешевых и модных растений.",
+      "plant_renovation": "Реновация растений",
+      "plant_renovation_description": "Наши растения растут в безопасной среде.",
+      "watering_garden": "Полив сада",
+      "watering_garden_description": "Используем различные технологии."
+    },
+    "newsletter": {
+      "title": "Присоединиться к рассылке?",
+      "description": "Получайте предложения и задачи. Ваш интернет-магазин растений с широким ассортиментом комнатных растений и аксессуаров, доставляемых вам!",
+      "button_text": "Вступить",
+      "placeholder": "Почта"
+    },
+    "footer_text": "Greenstore. Все права защищены."
   },
   "product_details_page": {
     "buy_now": "Купить сейчас",
@@ -199,5 +199,27 @@
     "product_description": "Описание товара",
     "reviews": "Отзывы",
     "no_reviews_yet": "Пока нет отзывов"
+  },
+  "shopping_cart": {
+    "cart_total": "Итого в корзине",
+    "subtotal": "Промежуточный итог",
+    "shipping_fee": "Бесплатная доставка",
+    "total": "Итого",
+    "apply": "Применить",
+    "remove": "Удалить",
+    "continue_shopping": "Продолжить покупки",
+    "proceed_to_checkout": "Перейти к оформлению",
+    "you_maybe_interested_in": "Вас может заинтересовать",
+    "products": "Продукты",
+    "quantity": "Количество",
+    "price": "Цена",
+    "empty_cart": "Ваша корзина пуста",
+    "remove_product": "Удалить продукт",
+    "apply_coupon": "Код купона",
+    "apply_coupon_error": "Пожалуйста, введите код купона!",
+    "empty_cart_description": "Вам следует добавить хотя бы один товар, чтобы продолжить",
+    "checkout_success": "Успешно",
+    "checkout_success_description": "Вы успешно перешли на страницу оформления заказа!",
+    "coupon_discount": "Скидка по купону"
   }
 }

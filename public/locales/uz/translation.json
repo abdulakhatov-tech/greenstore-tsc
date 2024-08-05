@@ -96,21 +96,21 @@
       "or_login_with": "Yoki kirish orqali",
       "or_sign_up_with": "yoki ro'yxatdan o'ting",
       "form": {
-         "name": "Ismingizni kiriting!",
-         "name_error": "Iltimos, ismingizni kiriting!",
-         "surname": "Familiyangizni kiriting!",
-         "surname_error": "Iltimos, familiyangizni kiriting!",
-         "email": "Elektron pochtangizni kiriting!",
-         "email_error": "Iltimos, emailingizni kiriting!",
-         "password": "Parolingizni kiriting!",
-         "password_error": "Iltimos, parolingizni kiriting!",
-         "password_error_2": "Parol kamida 5 belgidan iborat bo‘lishi kerak!",
-         "password_error_3": "Parolda kamida bitta raqam bo‘lishi kerak!",
-         "password_error_4": "Parolda kamida bitta harf bo‘lishi kerak!",
-         "password_error_5": "Parolda kamida bitta belgi bo‘lishi kerak!",
-         "confirm_password": "Parolni tasdiqlang!",
-         "confirm_password_error": "Iltimos, parolni tasdiqlang!",
-         "confirm_password_error_2": "Parollar mos kelmadi!"
+        "name": "Ismingizni kiriting!",
+        "name_error": "Iltimos, ismingizni kiriting!",
+        "surname": "Familiyangizni kiriting!",
+        "surname_error": "Iltimos, familiyangizni kiriting!",
+        "email": "Elektron pochtangizni kiriting!",
+        "email_error": "Iltimos, emailingizni kiriting!",
+        "password": "Parolingizni kiriting!",
+        "password_error": "Iltimos, parolingizni kiriting!",
+        "password_error_2": "Parol kamida 5 belgidan iborat bo‘lishi kerak!",
+        "password_error_3": "Parolda kamida bitta raqam bo‘lishi kerak!",
+        "password_error_4": "Parolda kamida bitta harf bo‘lishi kerak!",
+        "password_error_5": "Parolda kamida bitta belgi bo‘lishi kerak!",
+        "confirm_password": "Parolni tasdiqlang!",
+        "confirm_password_error": "Iltimos, parolni tasdiqlang!",
+        "confirm_password_error_2": "Parollar mos kelmadi!"
       },
       "continue_with_google": "Google bilan",
       "continue_with_facebook": "Facebook bilan",
@@ -138,57 +138,57 @@
       "buttonText": "KREDIT OLING"
     },
     "indoor_plant_gallery": {
-       "categories": {
-          "title_1": "Kategoriyalar",
-          "title_2": "Filtr",
-          "title_3": "O'lcham",
-          "price": "Narx",
-          "filter": "Filtrlash"
-       },
-       "products": {
-          "nav_item_1": "Barcha O'simliklar",
-          "nav_item_2": "Yangi kelganlar",
-          "nav_item_3": "Chegirmalar",
-          "sort_by": "Saralash",
-          "default_sorting": "Standart saralash",
-          "the_cheapest": "Eng arzon",
-          "most_expensive": "Eng qimmat",
-          "layout_change": "Tartibni o'zgartirish"
-       }
+      "categories": {
+        "title_1": "Kategoriyalar",
+        "title_2": "Filtr",
+        "title_3": "O'lcham",
+        "price": "Narx",
+        "filter": "Filtrlash"
+      },
+      "products": {
+        "nav_item_1": "Barcha O'simliklar",
+        "nav_item_2": "Yangi kelganlar",
+        "nav_item_3": "Chegirmalar",
+        "sort_by": "Saralash",
+        "default_sorting": "Standart saralash",
+        "the_cheapest": "Eng arzon",
+        "most_expensive": "Eng qimmat",
+        "layout_change": "Tartibni o'zgartirish"
+      }
     }
   },
   "footer_navigation": {
-     "title_1": "Mening hisobim",
-     "title_2": "Toifalar",
-     "title_3": "Ijtimoiy tarmoqlar",
-     "title_4": "Biz qabul qilamiz",
-     "navigation": {
-        "my_account": "Mening hisobim",
-        "address": "Manzil",
-        "wishlist": "Istaklar ro‘yxati"
-     },
-     "categories": {
-        "house_plants": "Uy o‘simliklari",
-        "potter_plants": "Gul idishlari",
-        "seeds": "Urug‘lar",
-        "small_plants": "Kichik o‘simliklar",
-        "accessories": "Aksessuarlar"
-     },
-     "plant_features": {
-        "garden_care": "Bog‘ parvarishi",
-        "garden_care_description": "Arzon va zamonaviy o‘simliklar do‘koni.",
-        "plant_renovation": "O‘simliklar yangilanishi",
-        "plant_renovation_description": "O‘simliklarimiz xavfsiz muhitda o‘sadi.",
-        "watering_garden": "Bog‘ sug‘orish",
-        "watering_garden_description": "Turli texnologiyalarni qo‘llash."
-     },
-     "newsletter": {
-        "title": "Yangiliklarga qo‘shilasizmi?",
-        "description": "Takliflar va qiyinchiliklar oling. Uy o‘simliklari va aksessuarlari yetkazib beriladigan onlayn manzilingiz!",
-        "button_text": "Qo‘shilish",
-        "placeholder": "Emailingizni kiriting"
-     },
-     "footer_text": "Greenstore. Barcha huquqlar himoyalangan."
+    "title_1": "Mening hisobim",
+    "title_2": "Toifalar",
+    "title_3": "Ijtimoiy tarmoqlar",
+    "title_4": "Biz qabul qilamiz",
+    "navigation": {
+      "my_account": "Mening hisobim",
+      "address": "Manzil",
+      "wishlist": "Istaklar ro‘yxati"
+    },
+    "categories": {
+      "house_plants": "Uy o‘simliklari",
+      "potter_plants": "Gul idishlari",
+      "seeds": "Urug‘lar",
+      "small_plants": "Kichik o‘simliklar",
+      "accessories": "Aksessuarlar"
+    },
+    "plant_features": {
+      "garden_care": "Bog‘ parvarishi",
+      "garden_care_description": "Arzon va zamonaviy o‘simliklar do‘koni.",
+      "plant_renovation": "O‘simliklar yangilanishi",
+      "plant_renovation_description": "O‘simliklarimiz xavfsiz muhitda o‘sadi.",
+      "watering_garden": "Bog‘ sug‘orish",
+      "watering_garden_description": "Turli texnologiyalarni qo‘llash."
+    },
+    "newsletter": {
+      "title": "Yangiliklarga qo‘shilasizmi?",
+      "description": "Takliflar va qiyinchiliklar oling. Uy o‘simliklari va aksessuarlari yetkazib beriladigan onlayn manzilingiz!",
+      "button_text": "Qo‘shilish",
+      "placeholder": "Emailingizni kiriting"
+    },
+    "footer_text": "Greenstore. Barcha huquqlar himoyalangan."
   },
   "product_details_page": {
     "buy_now": "Sotib olish",
@@ -199,5 +199,27 @@
     "product_description": "Mahsulot tavsifi",
     "reviews": "Sharhlar",
     "no_reviews_yet": "Hozircha sharhlar yo'q"
+  },
+  "shopping_cart": {
+    "cart_total": "Savatcha jami",
+    "subtotal": "Oraliq yig‘indi",
+    "shipping_fee": "Bepul yetkazib berish",
+    "total": "Jami",
+    "apply": "Qo‘llash",
+    "remove": "O‘chirish",
+    "continue_shopping": "Xaridni davom ettirish",
+    "proceed_to_checkout": "To‘lovga o‘tish",
+    "you_maybe_interested_in": "Sizni qiziqtirishi mumkin",
+    "products": "Mahsulotlar",
+    "quantity": "Miqdor",
+    "price": "Narx",
+    "empty_cart": "Savatchangiz bo‘sh",
+    "remove_product": "Mahsulotni olib tashlash",
+    "apply_coupon": "Kupon kodi",
+    "apply_coupon_error": "Iltimos, kupon kodini kiriting!",
+    "empty_cart_description": "Davom ettirish uchun kamida bitta mahsulot qo‘shishingiz kerak",
+    "checkout_success": "Muvaffaqiyatli",
+    "checkout_success_description": "Siz muvaffaqiyatli ravishda to'lov sahifasiga o'tdingiz!",
+    "coupon_discount": "Kupon Chegirma"
   }
 }
