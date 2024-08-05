@@ -1,16 +1,27 @@
 import { Empty } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { memo } from "react";
+import { memo, useEffect } from "react";
 
 import { CartProduct } from "./customs";
 import Button from "@generic/button";
 import useShoppingCartService from "@services/shopping-cart";
+import { useAppDispatch } from "@hooks/useRedux";
+import { setRelatedProducts } from "@redux/slices/related-products";
 
 const CartProducts = memo(() => {
    const navigate = useNavigate();
    const { t } = useTranslation()
    const { cart } = useShoppingCartService();
+
+   const dispatch = useAppDispatch();
+
+   useEffect(() => {
+      const category = cart?.find(c => c.category)?.category
+
+      dispatch(setRelatedProducts(category))
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [cart])
 
    return (
       <div className="w-full">
