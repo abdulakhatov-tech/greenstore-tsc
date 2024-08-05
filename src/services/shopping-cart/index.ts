@@ -9,7 +9,11 @@ import {
 import { setNotification } from "@redux/slices/notification";
 import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
 import { getTotalPricePropsI } from "./types";
-import { CartProductPropsI, NotificationPropsI, ProductPropsI } from "@type/index";
+import {
+  CartProductPropsI,
+  NotificationPropsI,
+  ProductPropsI,
+} from "@type/index";
 
 const useShoppingCartService = () => {
   const axios = useAxios();
@@ -228,7 +232,7 @@ const useShoppingCartService = () => {
 
   const formattedDiscount = coupon?.discount_for
     ? `${coupon.discount_for}%`
-    : "0%"; 
+    : "0%";
 
   return {
     addOrUpdateCartItem,
@@ -240,7 +244,9 @@ const useShoppingCartService = () => {
     formattedDiscount,
     payment_method,
     loading,
-    cart
+    cart,
+    coupon,
+    shipping,
   };
 };
 
