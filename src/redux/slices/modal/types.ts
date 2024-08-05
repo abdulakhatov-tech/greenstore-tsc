@@ -8,5 +8,5 @@ export type InitialStateT = {
     },
     categoriesModalVisibility: boolean;
     categoryModalVisibility: boolean;
-    trackOrderModalVisbility?: boolean;
+    trackOrderModalVisibility: boolean;
 }

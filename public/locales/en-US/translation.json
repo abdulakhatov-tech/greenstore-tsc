@@ -115,6 +115,18 @@
       "continue_with_google": "Continue with Google",
       "continue_with_facebook": "Continue with Facebook",
       "continue_with_qrcode": "Continue with Qr Code"
+    },
+    "track_order": {
+      "your_order_has_been_received": "Your order has been received",
+      "order_number": "Order number",
+      "order_date": "Order date",
+      "total": "Total",
+      "payment_method": "Payment method",
+      "order_details": "Order details",
+      "shipping": "Shipping",
+      "coupon": "Coupon",
+      "description": "Your order is currently being processed. You will receive an order confirmation email shortly with the expected delivery date for your items.",
+      "track_your_order": "Track Your Order"
     }
   },
   "home_page": {
