@@ -1,10 +1,11 @@
 import useAxios from "@hooks/useAxios";
 import useQueryHandler from "@hooks/useQueryHandler";
-import { useParams } from "react-router-dom";
+import { useAppSelector } from "@hooks/useRedux";
 
 const useRelatedProductsFeatures = () => {
-  const { category } = useParams();
   const axios = useAxios();
+  const { category } = useAppSelector(state => state.relatedProducts)
+
   const fetchRelatedProducts = async () => {
     const response = await axios({
       method: "GET",
