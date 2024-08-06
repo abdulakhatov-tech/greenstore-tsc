@@ -1,13 +1,14 @@
-import { useAppSelector } from "@hooks/useRedux";
-import useSearchParamsHook from "@hooks/useSearchParams";
 import { InputRef } from "antd";
 import { useEffect, useRef, useState } from "react";
 
+import { useAppSelector } from "@hooks/useRedux";
+import useSearchParamsHook from "@hooks/useSearchParams";
+
 const useSearchBarFeatures = () => {
   const { open } = useAppSelector((state) => state.search);
-  const {setParam, getParam, removeParam} = useSearchParamsHook()
+  const {setParam, getParam, removeParam} = useSearchParamsHook();
   const searchRef = useRef<InputRef | null>(null);
-  const [searchVal, setSearchVal] = useState('')
+  const [searchVal, setSearchVal] = useState('');
 
   useEffect(() => {
     if(!getParam('search') || !open) {
@@ -15,7 +16,7 @@ const useSearchBarFeatures = () => {
         setSearchVal('')
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getParam('search'), open])
+  }, [getParam('search'), open]);
 
   useEffect(() => {
     if (open && searchRef.current) {
@@ -23,7 +24,7 @@ const useSearchBarFeatures = () => {
     }
   
     const handleScroll = () => {
-      if (searchRef.current && document.activeElement !== searchRef.current) {
+      if (searchRef.current) {
         if (
           window.innerHeight + window.scrollY >=
           document.body.offsetHeight - 1
