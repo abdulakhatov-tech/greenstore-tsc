@@ -1,11 +1,12 @@
 import { useAppSelector } from "@hooks/useRedux";
 import useSearchParamsHook from "@hooks/useSearchParams";
+import { InputRef } from "antd";
 import { useEffect, useRef, useState } from "react";
 
 const useSearchBarFeatures = () => {
   const { open } = useAppSelector((state) => state.search);
   const {setParam, getParam, removeParam} = useSearchParamsHook()
-  const searchRef = useRef<HTMLInputElement | null>(null);
+  const searchRef = useRef<InputRef | null>(null);
   const [searchVal, setSearchVal] = useState('')
 
   useEffect(() => {
