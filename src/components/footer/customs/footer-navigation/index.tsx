@@ -6,6 +6,7 @@ import useOnlineStatus from "@hooks/useOnlineStatus";
 import FooterTitle from "../title";
 import { Image } from "@generic/index";
 import CustomSkeleton from "@tools/skeleton";
+import Typography from "@generic/typography";
 
 const FooterNavigation: FC = () => {
   const isOnline = useOnlineStatus();
@@ -15,7 +16,7 @@ const FooterNavigation: FC = () => {
     <div className='bg-[#FBFBFB] py-[30px] sm:my-0'>
       <ul className='grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 px-[15px] md:px-[22px] sm:py-[25px] md:py-[33px]'>
         <li>
-          <FooterTitle>{footer_navigation["title_1"]}</FooterTitle>
+          <Typography size='h4' className="font-bold leading-4">{footer_navigation["title_1"]}</Typography>
 
           <ul className='flex flex-col gap-1 mt-2'>
             {footer_navigation["navigation"]?.map(({ _id, title, path }) => (
@@ -32,7 +33,7 @@ const FooterNavigation: FC = () => {
         </li>
 
         <li>
-          <FooterTitle>{footer_navigation["title_2"]}</FooterTitle>
+          <Typography size='h4' className="font-bold leading-4">{footer_navigation["title_2"]}</Typography>
 
           <ul className='flex flex-col gap-1 mt-2'>
             {footer_navigation["categories"]?.map(({ _id, title, path }) => (
@@ -49,7 +50,7 @@ const FooterNavigation: FC = () => {
         </li>
 
         <li className='col-span-2 sm:col-span-1'>
-          <FooterTitle>{footer_navigation["title_3"]}</FooterTitle>
+          <Typography size='h4' className="font-bold leading-4">{footer_navigation["title_3"]}</Typography>
 
           <ul className='flex items-center gap-2 mt-4'>
             {isOnline

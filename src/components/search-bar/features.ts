@@ -20,19 +20,23 @@ const useSearchBarFeatures = () => {
     if (open && searchRef.current) {
       searchRef.current.focus();
     }
-
+  
     const handleScroll = () => {
-      if (
-        window.innerHeight + window.scrollY >=
-        document.body.offsetHeight - 1
-      ) {
-        searchRef.current?.focus();
+      if (searchRef.current && document.activeElement !== searchRef.current) {
+        if (
+          window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 1
+        ) {
+          // Only focus if it's not already focused
+          searchRef.current.focus({ preventScroll: true });
+        }
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [open]);
+  
 
 
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {

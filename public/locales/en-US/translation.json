@@ -135,19 +135,19 @@
       "title": "LET'S MAKE A BETTER",
       "subtitle": "WELCOME TO GREENSTORE",
       "description": "We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!",
-      "buttonText": "SHOP NOW"
+      "buttonText": "Shop Now"
     },
     "hero_slice_2": {
       "title": "LET'S LIVE IN A BETTER",
       "subtitle": "WELCOME TO GREENSTORE",
       "description": "We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!",
-      "buttonText": "LET'S START"
+      "buttonText": "Let's Start"
     },
     "hero_slice_3": {
       "title": "LET'S OBSERVE A BETTER",
       "subtitle": "WELCOME TO GREENSTORE",
       "description": "We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!",
-      "buttonText": "GET CREDITS"
+      "buttonText": "Get Credits"
     },
     "indoor_plant_gallery": {
       "categories": {
@@ -155,7 +155,8 @@
          "title_2": "Filter",
          "title_3": "Size",
          "price": "Price",
-         "filter": "Filter"
+         "filter": "Filter",
+         "reset": "Reset"
       },
       "products": {
          "nav_item_1": "All Plants",

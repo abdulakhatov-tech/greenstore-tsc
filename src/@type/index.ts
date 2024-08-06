@@ -1,5 +1,10 @@
 import { ReactNode } from "react";
 
+export const enum AuthQuery {
+  SignIn = "sign-in",
+  SignUp = "sign-up",
+}
+
 export type ReactNodeT = {
   children?: ReactNode;
 };
@@ -145,10 +150,18 @@ export interface BillingAddressPropsI {
 }
 
 export interface FormFieldPropsI {
-  labelKey: string;
+  labelKey?: string;
   name: string;
   rules: object[];
   type?: string;
   addonBefore?: string;
   placeholderKey?: string;
+  size?: 'small' | 'medium' | 'large';
+  dependencies?: string[]
+}
+
+export enum ELEMENT_SIZE {
+  SMALL = "small",
+  MEDIUM = "medium",
+  LARGE = "large",
 }

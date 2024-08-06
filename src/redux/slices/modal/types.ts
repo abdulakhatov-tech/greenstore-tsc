@@ -3,9 +3,7 @@ export type InitialStateT = {
         open: boolean;
         authQuery: string | null;
     },
-    sideMenuModalVisibility: {
-        open: boolean;
-    },
+    sideMenuModalVisibility: boolean;
     categoriesModalVisibility: boolean;
     categoryModalVisibility: boolean;
     trackOrderModalVisibility: boolean;

@@ -12,7 +12,7 @@ const Order: FC = () => {
   const { totalWithoutCoupon } = getTotalPrice();
 
   return (
-    <div className='w-full'>
+    <div className='w-full row-start-1 md:row-start-2 pb-14 md:pb-0'>
       <Header />
       <div className='flex flex-col gap-[10px] py-[10px] max-h-[470px] overflow-y-auto'>
         {cart?.map((value) => (

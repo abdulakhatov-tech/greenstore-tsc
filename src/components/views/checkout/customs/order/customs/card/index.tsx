@@ -10,7 +10,7 @@ const Card: FC<CartPropsI> = ({ main_image, title, _id, quantity, price }) => {
   const totalPrice = quantity * parseFloat(price);
 
   return (
-    <div className='bg-[#FBFBFB] w-full py-[1px] px-[5px] mt-[11px] flex justify-between items-center'>
+    <div className='bg-[#FBFBFB] w-full py-[1px] mt-[11px] flex justify-between items-center '>
       <div className={`flex items-center gap-2`}>
         <div className='w-[70px] h-[70px] flex-shrink-0 overflow-hidden'>
           <Image
@@ -35,11 +35,11 @@ const Card: FC<CartPropsI> = ({ main_image, title, _id, quantity, price }) => {
           </Descriptions>
         </div>
       </div>
-      <div className='flex items-center justify-between flex-col sm:flex-row gap-[2px] sm:gap-[10px] min-w-[120px]'>
+      <div className='flex items-end justify-between flex-col sm:flex-row gap-[2px] sm:gap-[10px] min-w-[100px]'>
         <div className='flex items-center justify-center'>
           <span className='text-[#727272]'>(x {quantity})</span>
         </div>
-        <div className='flex items-center justify-between pr-[10px]'>
+        <div className='flex items-center justify-between'>
           <h3>{formatPrice(totalPrice)}</h3>
         </div>
       </div>

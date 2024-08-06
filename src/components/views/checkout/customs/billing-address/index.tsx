@@ -12,7 +12,7 @@ const BillingAddress: FC = () => {
   const { onFinish, initialState, loading, form } = useBillingAddressFeatures();
 
   return (
-    <div>
+    <div className="row-start-2 md:row-start-0">
       <h2 className='text-[17px] font-bold leading-4 text-black mb-[20px]'>
         {t("checkout.billing_address")}
       </h2>
@@ -61,7 +61,6 @@ const BillingAddress: FC = () => {
             labelKey='checkout.additional_address'
             name='additional_street'
             rules={[]}
-            placeholderKey='checkout.additional_address'
           />
 
           <FormField
@@ -102,6 +101,7 @@ const BillingAddress: FC = () => {
                 minRows: 7,
                 maxRows: 10,
               }}
+              className="hover:border-green focus:outline-none focus:ring-2 focus:ring-[#46A358] focus:ring-opacity-50"
             />
           </Form.Item>
           <Form.Item>

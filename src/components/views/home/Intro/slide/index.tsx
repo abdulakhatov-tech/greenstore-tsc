@@ -1,13 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { FC } from "react";
+
 import Button from "@generic/button";
 import { useAuth } from "@config/auth";
 import CustomSkeleton from "@tools/skeleton";
-import { HeroCarouselSlideT } from "@type/index";
+import { AuthQuery, HeroCarouselSlideT } from "@type/index";
 import useOnlineStatus from "@hooks/useOnlineStatus";
 import useSearchParamsHook from "@hooks/useSearchParams";
-import { AuthQuery } from "@components/common/modals/auth/types";
+import Title from "@generic/typography";
+import Typography from "@generic/typography";
 
 type SliceT = Omit<HeroCarouselSlideT, "id">;
 
@@ -36,15 +38,15 @@ const Slide: FC<SliceT> = ({
   return (
     <div className='w-full flex min-h-[300px] md:min-h-[400px] pb-[30px]'>
       <div className='w-[60%] max-md:w-[100%] md:mt-[20px]'>
-        <h5 className='uppercase text-[14px] text-black font-medium'>
+        <Title size='h5' className='font-medium uppercase mb-2'>
           {subtitle}
-        </h5>
-        <h1 className='uppercase text-[30px] sm:text-[40px] md:text-[50px] lg:text-[60px] xl:text-[65px] font-bold leading-[35px] sm:leading-[50px] md:leading-[60px] lg:leading-[60px] xl:leading-[70px] mt-2 mb-2 text-black max-w-[630px]'>
+        </Title>
+        <Title size='h1' className="font-black mb-2 max-w-[320px] sm:max-w-[630px]">
           {title} <span className='text-green'>{t("home_page.planet")}</span>
-        </h1>
-        <p className='text-gray max-w-[630px] mb-4 md:mb-8 line-clamp-3'>
+        </Title>
+        <Typography size='p' className='max-w-[630px] mb-4 md:mb-8 line-clamp-3'>
           {description}
-        </p>
+        </Typography>
         <Button variant='primary' type='button' onClick={handleShop}>
           {buttonText}
         </Button>

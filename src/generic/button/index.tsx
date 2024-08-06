@@ -1,5 +1,6 @@
-import { forwardRef, memo } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
+import { forwardRef, memo } from "react";
+
 import { getButtonStyle } from "./style";
 import { ButtonPropsI } from "./types";
 

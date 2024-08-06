@@ -18,7 +18,7 @@ const Counter: FC<CounterPropsI> = ({ product }) => {
       <Button
         type='button'
         variant='primary'
-        className='rounded-[45%]'
+        className='rounded-[50%]'
         onClick={() => updateProductQuantity(product, false)}
       >
         <MinusOutlined />

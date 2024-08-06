@@ -2,9 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import { useAuth } from "@config/auth";
-import { ProductPropsI } from "@type/index";
+import { AuthQuery, ProductPropsI } from "@type/index";
 import useShoppingCartService from "@services/shopping-cart";
-import { AuthQuery } from "@components/common/modals/auth/types";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import useWishlistService from "@services/wishlist";
 
@@ -22,25 +21,25 @@ const useProductCardFeatures = () => {
       );
 
    const addToWishlistHandlar = async(product: ProductPropsI) => {
-      setLoading(true);
       if (!isAuthed()) {
          setParam('auth', AuthQuery.SignIn);
-
+         
          return;
       }
       
+      setLoading(true);
       await addCartItemToWishlist(product);
       setLoading(false);
    }
 
    const removeFromWishlistHandler = async (product: ProductPropsI) => {
-      setLoading(true);
       if (!isAuthed()) {
          setParam('auth', AuthQuery.SignIn);
-
+         
          return;
       }
       
+      setLoading(true);
       await removeFromWishlist(product)
       setLoading(false);
     }

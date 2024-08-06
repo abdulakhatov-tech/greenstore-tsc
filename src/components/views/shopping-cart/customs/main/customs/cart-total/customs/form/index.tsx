@@ -27,12 +27,12 @@ const ApplyCouponForm: FC = memo(() => {
           <Input
             type='text'
             placeholder={t("shopping_cart.apply_coupon")}
-            className='mr-0 w-full h-[35px] md:h-[40px] px-[12px] py-[11px] bg-white border border-green rounded-[6px] rounded-tr-none rounded-br-none outline-green'
+            className='w-full h-[35px] md:h-[40px] rounded-tr-none rounded-br-none'
           />
           <Button
             type='submit'
             variant='primary'
-            className='rounded-tl-[0px] rounded-bl-[0px] ml-0 h-[35px]'
+            className='rounded-tl-[0px] rounded-bl-[0px] ml-0 h-[35px] md:h-[40px]'
             loading={loading}
             disabled={!!coupon?.code}
           >

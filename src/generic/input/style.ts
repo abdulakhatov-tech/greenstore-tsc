@@ -1,17 +1,21 @@
-import { InputStyleProps } from "./types";
+import { InputStyleProps, SizeClassesT } from "./types";
 
-const sizeClasses = {
-  small:
-    "h-[25px] sm:h-[30px] md:h-[35px] px-[10px] md:px-[12px] text-[10px] md:text-[12px] lg:text-[14px]",
-  medium:
-    "h-[30px] sm:h-[35px] md:h-[40px] px-[12px] md:px-[14px] text-[12px] md:text-[14px] lg:text-[16px]",
-  large:
-    "h-[35px] sm:h-[40px] md:h-[45px] px-[14px] md:px-[16px] text-[14px] md:text-[16px] lg:text-[18px]",
-};
+const sizeClasses:SizeClassesT = {
+  small: 'px-[10px] sm:px-[12px] py-[3px] sm:py-[4px] text-[14px] sm:text-[16px] leading-6',
+  medium: 'px-[14px] sm:px-[16px] py-[5px] sm:py-[6px] text-[15px] sm:text-[17px] leading-6',
+  large: 'px-[18px] sm:px-[20px] py-[7px] sm:py-[8px] text-[16px] sm:text-[18px] leading-6',
+}
+
+const textStyle:string = 'text-black placeholder-gray focus:placeholder-custom-green'
+const boxStyle:string = 'bg-transparent focus:bg-transparent rounded-[5px] border-1 border-[#E8E8E8] hover:border-green focus:border-green'
+const ringStyle:string = 'focus:outline-none focus:ring-2 focus:ring-[#46A358] focus:ring-opacity-50'
+
+const cirlce = 'rounded-full'
 
 export const inputStyle = ({
   size,
   className = "",
+  circle
 }: InputStyleProps): string => {
-  return `bg-transparent placeholder-custom-green focus:bg-transparent placeholder-gray text-black border-2 rounded-[5px] border-gray outline-green focus:border-green focus:outline-green hover:border-green hover:outline-green ${sizeClasses[size]} ${className}`;
+  return `${textStyle} ${boxStyle} ${ringStyle} ${sizeClasses[size]} ${cirlce ? circle : ''} ${className}`;
 };

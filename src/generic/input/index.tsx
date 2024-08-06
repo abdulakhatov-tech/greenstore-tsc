@@ -1,20 +1,32 @@
+import { Input as InputC, InputRef } from 'antd'
 import { forwardRef, memo } from "react";
 import { inputStyle } from "./style";
 import { InputPropI } from "./types";
 
-// Define the props with forwardRef
 const Input = memo(
-  forwardRef<HTMLInputElement, InputPropI>(
+  forwardRef<InputRef , InputPropI>(
     (
-      { type = "text", placeholder, size = "medium", className, ...props },
+      { type = "text", placeholder, size = "large", className, circle, ...props },
       ref
     ) => {
+
+      if(type === 'password') {
+        return (
+          <InputC.Password
+            ref={ref}
+            placeholder={placeholder}
+            className={inputStyle({ size, className })}
+            {...props}
+          />
+        );
+      }
+
       return (
-        <input
+        <InputC
           ref={ref}
           type={type}
           placeholder={placeholder}
-          className={inputStyle({ size, className })}
+          className={inputStyle({ size, className, circle })}
           {...props}
         />
       );
