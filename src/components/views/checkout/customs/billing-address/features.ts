@@ -6,12 +6,11 @@ import { useCallback, useState } from "react";
 import { useAuth } from "@config/auth";
 import useAxios from "@hooks/useAxios";
 import { useAppDispatch } from "@hooks/useRedux";
-import { BillingAddressPropsI, PAYMENT_METHODS } from "@type/index";
+import { AuthQuery, BillingAddressPropsI, PAYMENT_METHODS } from "@type/index";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import { setNotification } from "@redux/slices/notification";
 import useShoppingCartService from "@services/shopping-cart";
 import { setPaymentMethod } from "@redux/slices/shopping-cart";
-import { AuthQuery } from "@components/common/modals/auth/types";
 
 const initialState: BillingAddressPropsI = {
   name: "",

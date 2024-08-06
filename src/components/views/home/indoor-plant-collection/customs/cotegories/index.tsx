@@ -1,5 +1,5 @@
 import useOnlineStatus from "@hooks/useOnlineStatus";
-import { CategoryList, DiscountImage, PriceRange, SizeList } from "./customs";
+import { CategoryList, DiscountImage, PriceRange } from "./customs";
 import useDiscountImageFeatures from "./customs/discount-image/features";
 import CustomSkeleton from "@tools/skeleton";
 
@@ -12,7 +12,6 @@ const Categories = () => {
       <div className='px-[18px] py-[22px] flex flex-col gap-[36px]'>
         <CategoryList />
         <PriceRange />
-        <SizeList />
       </div>
       <div className='w-full overflow-hidden flex items-center justify-center'>
         {isOnline && !imageLoading && !error ? (

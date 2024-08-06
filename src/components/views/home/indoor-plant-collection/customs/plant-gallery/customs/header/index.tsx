@@ -45,8 +45,8 @@ const Header: FC = memo(() => {
 
         <Tooltip title={t("home_page.indoor_plant_gallery.categories.title_1")}>
           <UnorderedListOutlined
-            onClick={() => dispatch(toggleCategoryModalVisibility())}
-            className='text-[18px] md:text-[23px] text-black block lg:hidden cursor-pointer hover:text-green'
+            onClick={() => dispatch(toggleCategoryModalVisibility(true))}
+            className='text-[18px] md:text-[23px] text-black block md:hidden cursor-pointer hover:text-green'
           />
         </Tooltip>
 

@@ -1,12 +1,14 @@
+import { InputRef } from "antd";
+import { useEffect, useRef, useState } from "react";
+
 import { useAppSelector } from "@hooks/useRedux";
 import useSearchParamsHook from "@hooks/useSearchParams";
-import { useEffect, useRef, useState } from "react";
 
 const useSearchBarFeatures = () => {
   const { open } = useAppSelector((state) => state.search);
-  const {setParam, getParam, removeParam} = useSearchParamsHook()
-  const searchRef = useRef<HTMLInputElement | null>(null);
-  const [searchVal, setSearchVal] = useState('')
+  const {setParam, getParam, removeParam} = useSearchParamsHook();
+  const searchRef = useRef<InputRef | null>(null);
+  const [searchVal, setSearchVal] = useState('');
 
   useEffect(() => {
     if(!getParam('search') || !open) {
@@ -14,25 +16,29 @@ const useSearchBarFeatures = () => {
         setSearchVal('')
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getParam('search'), open])
+  }, [getParam('search'), open]);
 
   useEffect(() => {
     if (open && searchRef.current) {
       searchRef.current.focus();
     }
-
+  
     const handleScroll = () => {
-      if (
-        window.innerHeight + window.scrollY >=
-        document.body.offsetHeight - 1
-      ) {
-        searchRef.current?.focus();
+      if (searchRef.current) {
+        if (
+          window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 1
+        ) {
+          // Only focus if it's not already focused
+          searchRef.current.focus({ preventScroll: true });
+        }
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [open]);
+  
 
 
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {

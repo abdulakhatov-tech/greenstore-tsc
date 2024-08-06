@@ -43,8 +43,8 @@ const CartProduct: FC<{ product: CartProductPropsI }> = ({ product }) => {
         <Button
           type='button'
           variant='primary'
-          className='rounded-[50%] w-[30px] h-[30px] text-[12px] font-bold'
-          onClick={() => updateProductQuantity(product)}
+          className='w-[30px]'
+          onClick={() => updateProductQuantity(product, false)}
         >
           <MinusOutlined />
         </Button>
@@ -54,13 +54,13 @@ const CartProduct: FC<{ product: CartProductPropsI }> = ({ product }) => {
         <Button
           type='button'
           variant='primary'
-          className='rounded-[50%] w-[30px] h-[30px] text-[12px] font-bold'
+          className='w-[30px]'
           onClick={() => updateProductQuantity(product)}
         >
           <PlusOutlined />
         </Button>
       </div>
-      <div className='flex items-center flex-col sm:flex-row justify-center sm:justify-between gap-1 sm:pr-[15px]'>
+      <div className='flex items-center flex-col sm:flex-row justify-center sm:justify-between gap-3 sm:pr-[15px]'>
         <h3 className='text-[16px] font-bold leading-4 text-green'>
           {formatPrice(price * quantity)}
         </h3>

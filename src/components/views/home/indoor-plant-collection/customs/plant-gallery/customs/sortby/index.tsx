@@ -19,7 +19,7 @@ const SortBy: React.FC<SortByPropsT> = ({ className }) => {
       defaultValue={sort}
       options={sortByOptions}
       className={classNames("text-[15px] font-normal leading-4", {
-        ["w-[100px] h-[28px] sm:w-[140px] sm:h-[32px] hidden lg:block"]: !className,
+        ["w-[100px] h-[28px] sm:w-[140px] sm:h-[32px] hidden md:block"]: !className,
         [className as string]: className,
       })}
       onChange={setSortType}

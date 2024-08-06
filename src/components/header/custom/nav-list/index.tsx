@@ -11,7 +11,7 @@ const NavList:FC<NavListPropsI> = ({ isMobile = false}) => {
 
   return <ul className={classNames({
     ['flex flex-col gap-[20px]']: isMobile,
-    ['hidden lg:flex items-center lg:gap-[30px] xl:gap-[45px] h-full']: !isMobile
+    ['hidden lg:flex items-center md:gap-[20px] lg:gap-[30px] xl:gap-[45px] h-full']: !isMobile
   })}>
     {appRoutes?.map(
             (item) =>

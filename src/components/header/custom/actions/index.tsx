@@ -28,29 +28,29 @@ const Actions = () => {
       <Tooltip color='#46A358' title={t("header.search")}>
         <SearchOutlined
           onClick={handleSearch}
-          className='cursor-pointer text-[18px] md:text-[22px] hover:text-green'
+          className='cursor-pointer text-[20px] md:text-[22px] hover:text-green'
         />
       </Tooltip>
       <Tooltip color='#46A358' title={t("header.shopping_cart")}>
-        <Badge count={cart?.length ?? 0} overflowCount={9}>
-          <ShoppingCartOutlined onClick={handleShoppingCart} className='cursor-pointer text-[18px] md:text-[22px] hover:text-green' />
+        <Badge count={cart?.length ?? 0} overflowCount={9} color='#46A358'>
+          <ShoppingCartOutlined onClick={handleShoppingCart} className='cursor-pointer text-[20px] md:text-[22px] hover:text-green' />
         </Badge>
       </Tooltip>
       <Tooltip color='#46A358' title={t("header.favourites")}>
-        <Badge count={wishlist?.data?.length ?? 0} overflowCount={9}>
-          <HeartOutlined onClick={handleWishlist} className='cursor-pointer text-[18px] md:text-[22px] hover:text-green' />
+        <Badge count={wishlist?.data?.length ?? 0} overflowCount={9} color='#46A358'>
+          <HeartOutlined onClick={handleWishlist} className='cursor-pointer text-[20px] md:text-[22px] hover:text-green' />
         </Badge>
       </Tooltip>
       <Locale />
       <AlignRightOutlined
         onClick={handleSideMenu}
-        className='text-[18px] md:text-[23px] text-black block lg:hidden cursor-pointer hover:text-green'
+        className='text-[20px] md:text-[23px] text-black block lg:hidden cursor-pointer hover:text-green'
       />
 
       {isAuthed() ? (
         <Tooltip
           title={`${getUser()?.user?.name} ${getUser()?.user?.surname}`}
-          className='hidden lg:block'
+          className='hidden md:block'
         >
           <div
             onClick={handleUser}
@@ -60,7 +60,7 @@ const Actions = () => {
               <Avatar
                 src={getUser()?.user?.profile_photo}
                 alt={getUser()?.user?.name}
-                size={40}
+                size={30}
               />
             ) : (
               <Avatar>{getUser()?.user?.name?.slice(0, 1)}</Avatar>
@@ -71,7 +71,7 @@ const Actions = () => {
         <Button
           variant='primary'
           type='button'
-          className='animate-bounce w-[100px] hidden lg:block'
+          className='animate-bounce font-normal hidden lg:block'
           onClick={handleAuth}
           aria-label='Login button'
         >

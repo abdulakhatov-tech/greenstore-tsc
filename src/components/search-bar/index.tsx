@@ -18,12 +18,12 @@ const SearchBar: FC = () => {
       <div className='container'>
         <div className='flex items-center justify-center'>
           <Input
-            size='small'
+            size='medium'
             ref={searchRef}
             placeholder='Search...'
             onChange={onSearchChange}
             value={searchVal}
-            className='max-w-[600px] min-w-[270px] sm:min-w-[320px] md:min-w-[400px]'
+            className='max-w-[600px] w-[70%] sm:min-w-[320px] md:min-w-[400px]'
           />
         </div>
       </div>

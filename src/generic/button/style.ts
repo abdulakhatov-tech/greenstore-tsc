@@ -1,30 +1,26 @@
-import { GetButtonStyleParamsI } from "./types";
+import { GetButtonStyleParamsI, SizeClassesT, VariantClassesT } from "./types";
+
+const ringStyle:string = 'focus:outline-none focus:ring-2 focus:ring-[#46A358] focus:ring-opacity-50'
 
 // tailwind classes for each button type
-const variantClasses = {
-  primary: "bg-green text-white border-green",
-  secondary: "bg-transparent text-green border-green",
-  default: "text-gray border-gray focus:border-green focus:text-green",
+const variantClasses:VariantClassesT = {
+  primary: `bg-green text-white border-green ${ringStyle}`,
+  secondary: `bg-transparent text-green border-green ${ringStyle}`,
+  default: `text-gray border-gray focus:border-green focus:text-green ${ringStyle}`,
   text: "text-green border-transparent bg-transparent",
-  link: "text-green border-transparent underline bg-transparent",
+  link: "text-green border-transparent underline bg-transparent focus:text-[blue]",
 };
 
-// Tailwind classes for each button size
-const sizeClasses = {
-  small:
-    "h-[25px] sm:h-[30px] md:h-[35px] px-[6px] sm:px-[8px] md:px-[10px] lg:px-[12px] text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px]",
-  medium:
-    "h-[30px] sm:h-[35px] md:h-[40px]  px-[8px] sm:px-[10px] md:px-[12px] lg:px-[14px] text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px]",
-  large:
-    "h-[35px] sm:h-[40px] md:h-[45px] px-[10px] sm:px-[12px] md:px-[14px] lg:px-[16px] text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px]",
-};
+const sizeClasses: SizeClassesT = {
+  small: 'px-[10px] sm:px-[12px] py-[2px] sm:py-[4px] text-[14px] sm:text-[16px] leading-6',
+  medium: 'px-[14px] sm:px-[16px] py-[4px] sm:py-[6px] text-[15px] sm:text-[17px] leading-6',
+  large: 'px-[18px] sm:px-[20px] py-[6px] sm:py-[8px] text-[16px] sm:text-[18px] leading-6',
+}
 
-const textStyle = "font-normal m-1";
-const boxStyle =
+const textStyle:string = "font-medium m-1";
+const boxStyle:string =
   "flex gap-2 items-center justify-center rounded-md active:scale-[0.98] transition-all border-[1px]";
 
-
-
-export const getButtonStyle = ({ variant, size, className }: GetButtonStyleParamsI) => {
+export const getButtonStyle = ({ variant, size, className }: GetButtonStyleParamsI): string => {
   return `${textStyle} ${boxStyle} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 };

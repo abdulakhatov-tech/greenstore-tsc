@@ -155,7 +155,8 @@
         "title_2": "Filtr",
         "title_3": "O'lcham",
         "price": "Narx",
-        "filter": "Filtrlash"
+        "filter": "Filtrlash",
+        "reset": "Qayta tiklash"
       },
       "products": {
         "nav_item_1": "Barcha O'simliklar",

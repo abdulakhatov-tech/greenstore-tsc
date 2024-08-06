@@ -6,6 +6,7 @@ export type ButtonVariantT =
   | "default"
   | "text"
   | "link";
+
 export type ButtonSizeT = "small" | "medium" | "large";
 type ButtonTypeT = "button" | "submit" | "reset";
 
@@ -26,3 +27,17 @@ export interface GetButtonStyleParamsI {
   size: ButtonSizeT;
   className?: string;
 }
+
+export type VariantClassesT = {
+  primary: string;
+  secondary: string;
+  default: string;
+  text: string;
+  link: string;
+};
+
+export type SizeClassesT = {
+  small: string;
+  medium: string;
+  large: string;
+};

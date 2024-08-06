@@ -93,12 +93,14 @@ const useShoppingCartService = () => {
       );
 
       if (!productExists) {
-        dispatchNotification({
-          type: "error",
-          message: `${title} not found in the cart`,
-          description:
-            "The product you're trying to add to the cart doesn't exist.",
-        });
+        addOrUpdateCartItem(product)
+        // dispatchNotification({
+        //   type: "error",
+        //   message: `${title} not found in the cart`,
+        //   description:
+        //     "The product you're trying to add to the cart doesn't exist.",
+        // });
+
 
         return;
       }

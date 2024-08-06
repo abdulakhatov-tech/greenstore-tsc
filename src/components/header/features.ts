@@ -4,8 +4,8 @@ import { UseHeaderFeaturesT } from "./types";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import { useNavigate } from "react-router-dom";
 import { toggleSideMenuModalVisibility } from "@redux/slices/modal";
-import { AuthQuery } from "@components/common/modals/auth/types";
 import { useAuth } from "@config/auth";
+import { AuthQuery } from "@type/index";
 
 const useHeaderFeatures = (): UseHeaderFeaturesT => {
   const navigate = useNavigate();

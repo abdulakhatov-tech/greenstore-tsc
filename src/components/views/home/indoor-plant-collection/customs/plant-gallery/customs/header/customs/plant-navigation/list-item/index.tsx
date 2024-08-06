@@ -3,6 +3,7 @@ import { FC } from "react";
 
 import useSearchParamsHook from "@hooks/useSearchParams";
 import { ListItemPropsI } from "./types";
+import Title from "@generic/typography";
 
 const ListItem: FC<ListItemPropsI> = ({ title, slug }) => {
   const { setParam, getParam } = useSearchParamsHook();
@@ -14,9 +15,9 @@ const ListItem: FC<ListItemPropsI> = ({ title, slug }) => {
 
   return (
     <li>
-      <span
+      <Title size='h5' 
         onClick={setActiveTypeHandler}
-        className={classNames('text-[13px] md:text-[14px] lg:text-[15px] leading-4 pb-[2px]',{
+        className={classNames('pb-[2px]',{
           ["text-green font-bold border-b-[2px] border-green"]:
             slug === activeType,
           ["text-black font-normal border-b-[2px] border-transparent"]:
@@ -24,7 +25,7 @@ const ListItem: FC<ListItemPropsI> = ({ title, slug }) => {
         })}
       >
         {title}
-      </span>
+      </Title>
     </li>
   );
 };

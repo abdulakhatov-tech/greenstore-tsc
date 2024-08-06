@@ -58,15 +58,15 @@ const ProductCard: FC<{ product: ProductPropsI }> = memo(({ product }) => {
           />
 
           <ul
-            className={`hidden absolute bottom-2 left-[50%] translate-x-[-50%] items-center justify-center gap-3 text-[22px] text-green ${styles.actions}`}
+            className={`hidden absolute bottom-2 left-[50%] translate-x-[-50%] items-center justify-center gap-1 md:gap-3 text-[22px] text-green ${styles.actions}`}
           >
             <li
-              className=' bg-white w-[30px] h-[30px] rounded-md flex items-center justify-center active:scale-[1] active:text-green hover:scale-[1.3] transition-all hover:text-black hover:font-bold'
+              className=' bg-white text-[18px] md:text-[20px] w-[25px] md:w-[30px] h-[25px] md:h-[30px] rounded-md flex items-center justify-center active:scale-[0.98] active:text-green hover:scale-[1.3] transition-all hover:text-black hover:font-bold'
               onClick={() => addToCartHandler(product)}
             >
               <ShoppingCartOutlined />
             </li>
-            <li className=' bg-white w-[30px] h-[30px] rounded-md flex items-center justify-center active:scale-[1] active:text-green hover:scale-[1.3] transition-all hover:text-black hover:font-bold'>
+            <li className=' bg-white text-[18px] md:text-[20px] w-[25px] md:w-[30px] h-[25px] md:h-[30px] rounded-md flex items-center justify-center active:scale-[0.98] active:text-green hover:scale-[1.3] transition-all hover:text-black hover:font-bold'>
               {loading ? (
                 <LoadingOutlined />
               ) : isInWishlist(product) ? (
@@ -76,7 +76,7 @@ const ProductCard: FC<{ product: ProductPropsI }> = memo(({ product }) => {
               )}
             </li>
             <li
-              className=' bg-white w-[30px] h-[30px] rounded-md flex items-center justify-center active:scale-[1] active:text-green hover:scale-[1.3] transition-all hover:text-black hover:font-bold'
+              className=' bg-white text-[18px] md:text-[20px] w-[25px] md:w-[30px] h-[25px] md:h-[30px] rounded-md flex items-center justify-center active:scale-[0.98] active:text-green hover:scale-[1.3] transition-all hover:text-black hover:font-bold'
               onClick={() => viewProductHandler(product)}
             >
               <SearchOutlined />

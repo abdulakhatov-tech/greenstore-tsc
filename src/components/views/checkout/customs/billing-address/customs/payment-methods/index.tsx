@@ -10,6 +10,8 @@ import { Image } from "@generic/index";
 const PaymentMethods: FC = () => {
   const { t } = useTranslation();
 
+  const radioStyle: string = "hover:text-green w-full h-[45px] px-[14px] py-[18px] border-[1px] border-[#EAEAEA] flex items-center gap-[10px] rounded-[3px] hover:outline-none hover:ring-2 hover:ring-[#46A358] hover:ring-opacity-50"
+
   return (
     <Form.Item
       name="method"
@@ -24,7 +26,7 @@ const PaymentMethods: FC = () => {
       <Radio.Group className="w-full flex flex-col gap-[15px]" id="payment_methods">
         <Radio
           value={PAYMENT_METHODS.PAY_BY_CARD ?? "pay-by-card"}
-          className="w-full h-[45px] px-[14px] py-[18px] border-[1px] border-[#EAEAEA] flex items-center gap-[10px] rounded-[3px]"
+          className={radioStyle}
         >
           <div className="flex items-center gap-4">
             <Image
@@ -51,7 +53,7 @@ const PaymentMethods: FC = () => {
         </Radio>
         <Radio
           value={PAYMENT_METHODS.DIRECT_BANK_TRANSFER ?? "direct-bank-transfer"}
-          className="w-full h-[45px] px-[14px] py-[18px] border-[1px] border-[#EAEAEA] flex items-center gap-[10px] rounded-[3px]"
+          className={radioStyle}
         >
           <span className="text-[15px] font-normal leading-4">
             {t("checkout.direct_bank_transfer")}
@@ -59,7 +61,7 @@ const PaymentMethods: FC = () => {
         </Radio>
         <Radio
           value={PAYMENT_METHODS.CASH_ON_DELIVERY ?? "cash-on-delivery"}
-          className="w-full h-[45px] px-[14px] py-[18px] border-[1px] border-[#EAEAEA] flex items-center gap-[10px] rounded-[3px]"
+          className={radioStyle}
         >
           <span className="text-[15px] font-normal leading-4">
             {t("checkout.cash_on_delivery")}

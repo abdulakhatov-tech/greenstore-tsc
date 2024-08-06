@@ -6,21 +6,23 @@ import { memo } from "react";
 import Button from "@generic/button";
 import { formatPrice } from "@helpers/index";
 import usePriceRangeFeatures from "./features";
+import Title from "@generic/typography";
 
 const PriceRange: React.FC = memo(() => {
   const { t } = useTranslation();
-  const { range, onSliderChange, filterHandler } = usePriceRangeFeatures();
+  const { range, onSliderChange, filterHandler, resetHandler } =
+    usePriceRangeFeatures();
 
   return (
     <div>
-      <h4 className='text-black text-[18px] font-bold leading-[16px] mb-[14px]'>
+      <Title size='h4' className='font-bold mb-[14px]'>
         {t("home_page.indoor_plant_gallery.categories.title_2")}
-      </h4>
+      </Title>
 
       <div className='pl-[12px]'>
         <Slider
           range
-          defaultValue={range}
+          value={range}
           onChange={onSliderChange}
           id='slider'
           min={1}
@@ -34,9 +36,15 @@ const PriceRange: React.FC = memo(() => {
           </span>
         </p>
 
-        <Button onClick={filterHandler} variant='primary' type='button'>
-          {t("home_page.indoor_plant_gallery.categories.filter")}
-        </Button>
+        <div className='flex items-center flex-wrap gap-[2px]'>
+          <Button onClick={filterHandler} variant='primary' type='button' size='small'>
+            {t("home_page.indoor_plant_gallery.categories.filter")}
+          </Button>
+
+          <Button onClick={resetHandler} variant='secondary' type='button' size='small'>
+            {t("home_page.indoor_plant_gallery.categories.reset")}
+          </Button>
+        </div>
       </div>
     </div>
   );
