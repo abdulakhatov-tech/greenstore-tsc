@@ -271,5 +271,14 @@
       "click_here": "Click here",
       "direct_bank_transfer": "Direct bank transfer",
       "cash_on_delivery": "Cash on delivery"
+   },
+   "profile": {
+      "log_out": "Log out",
+      "log_out_messaage": "Are you sure that you want to log out?",
+      "cancelText": "Cancel",
+      "log_out_error": "Oops! Something went wrong",
+      "my_account": "My Account",
+      "categories": "Categories",
+      "select_chart_type": "Select chart type"
    }
 }

@@ -271,5 +271,14 @@
     "click_here": "Bu yerni bosing",
     "direct_bank_transfer": "To'g'ridan-to'g'ri bank o'tkazmasi",
     "cash_on_delivery": "Yetkazib berishda naqd pul"
+  },
+  "profile": {
+    "log_out": "Chiqish",
+    "log_out_messaage": "Chiqishni xohlayotganingizga ishonchingiz komilmi?",
+    "cancelText": "Bekor qilish",
+    "log_out_error": "Xatolik yuz berdi",
+    "my_account": "Mening hisobim",
+    "categories": "Kategoriyalar",
+    "select_chart_type": "Diagramma turini tanlang"
   }
 }
