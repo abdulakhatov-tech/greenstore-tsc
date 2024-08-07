@@ -271,5 +271,14 @@
     "click_here": "Нажмите здесь",
     "direct_bank_transfer": "Прямой банковский перевод",
     "cash_on_delivery": "Оплата при доставке"
+  },
+  "profile": {
+    "log_out": "Выйти",
+    "log_out_messaage": "Вы уверены, что хотите выйти?",
+    "cancelText": "Отмена",
+    "log_out_error": "Ой! Что-то пошло не так",
+    "my_account": "Мой аккаунт",
+    "categories": "Категории",
+    "select_chart_type": "Выберите тип диаграммы"
   }
 }

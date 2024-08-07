@@ -1,7 +1,8 @@
 import { FC } from "react";
+import ProfileComponent from "@components/views/profile";
 
 const Profile: FC = () => {
-  return <div>Profile</div>;
+  return <ProfileComponent />
 };
 
 export default Profile;
