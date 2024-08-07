@@ -1,7 +1,8 @@
 import { FC } from "react";
+import AccountDetailsComponent from "@components/views/profile/account-details";
 
 const AccountDetails: FC = () => {
-  return <div>AccountDetails</div>;
+  return <AccountDetailsComponent />
 };
 
 export default AccountDetails;

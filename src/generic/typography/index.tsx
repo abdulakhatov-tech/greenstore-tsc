@@ -26,7 +26,7 @@ const Typography:FC<TitlePropsT> = ({children, className, size='h1', onClick}) =
     'h1': 'text-[35px] sm:text-[45px] md:text-[50px] lg:text-[60px] xl:text-[65px] leading-[40px] sm:leading-[50px] md:leading-[60px] lg:leading-[60px] xl:leading-[70px]',
     'h2': '',
     'h3': '',
-    'h4': `text-[16px] lg:text-[18px]`,
+    'h4': `text-[16px] lg:text-[18px] leading-4`,
     'h5': `text-[14px] md:text-[16px]`,
     'h6': '',
     'p': 'text-[14px] leading-6 font-normal text-gray' 
