@@ -157,11 +157,20 @@ export interface FormFieldPropsI {
   addonBefore?: string;
   placeholderKey?: string;
   size?: 'small' | 'medium' | 'large';
-  dependencies?: string[]
+  dependencies?: string[];
 }
 
 export enum ELEMENT_SIZE {
   SMALL = "small",
   MEDIUM = "medium",
   LARGE = "large",
+}
+
+export interface AccountDetailsUserI {
+  _id: string;
+  name: string;
+  surname: string;
+  email: string;
+  phone_number: string;
+  username: string;
 }

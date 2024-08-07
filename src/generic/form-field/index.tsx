@@ -13,7 +13,7 @@ const FormField: FC<FormFieldPropsI> = ({
   type = "text",
   placeholderKey,
   size='medium',
-  dependencies
+  dependencies,
 }) => {
   const { t } = useTranslation();
   
