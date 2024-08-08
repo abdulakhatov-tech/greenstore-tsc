@@ -281,7 +281,19 @@
     "categories": "Категории",
     "select_chart_type": "Выберите тип диаграммы",
     "personal_info": "Личная информация",
-    "password_change": "Изменение пароля"
+    "password_change": "Изменение пароля",
+    "created_at": "Создано",
+    "status": "Статус",
+    "views": "Просмотры",
+    "actions": "Действия",
+    "edit": "Редактировать",
+    "delete": "Удалить",
+    "yes": "Да",
+    "no": "Нет",
+    "add_new": "Добавить новый",
+    "my_products": "Мои продукты",
+    "products": "Продукты",
+  "delete_description": "Вы уверены, что хотите удалить этот цветок?"
   },
   "form": {
     "billing_address": "Платежный адрес",

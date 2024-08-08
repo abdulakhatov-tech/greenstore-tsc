@@ -281,7 +281,19 @@
     "categories": "Kategoriyalar",
     "select_chart_type": "Diagramma turini tanlang",
     "personal_info": "Shaxsiy ma'lumotlar",
-    "password_change": "Parolni o'zgartirish"
+    "password_change": "Parolni o'zgartirish",
+    "created_at": "Yaratilgan sana",
+    "status": "Holat",
+    "views": "Ko'rishlar",
+    "actions": "Harakatlar",
+    "edit": "Tahrirlash",
+    "delete": "O'chirish",
+    "yes": "Ha",
+    "no": "Yo'q",
+    "add_new": "Yangi qo'shish",
+    "my_products": "Mening mahsulotlarim",
+    "products": "Mahsulotlar",
+  "delete_description": "Ushbu gulni o'chirmoqchimisiz?"
   },
   "form": {
     "billing_address": "To'lov manzili",
@@ -335,6 +347,6 @@
     "save": "Saqlash",
     "save_changes": "O'zgarishlarni saqlash",
     "change": "O'zgartirish",
-    "remove": "O'chirish"  
+    "remove": "O'chirish" 
   }
 }
