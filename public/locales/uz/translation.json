@@ -348,6 +348,11 @@
     "save_changes": "O'zgarishlarni saqlash",
     "change": "O'zgartirish",
     "remove": "O'chirish",
-    "upload": "Yuklash"
+    "upload": "Yuklash",
+    "billing_address_description": "Quyidagi manzillar toʻlov sahifasida standart tarzda ishlatiladi.",
+    "shipping_address": "Yetkazib berish manzili",
+    "shipping_address_description": "Bu turdagi manzilni hali sozlamadingizmi?",
+    "same_as_billing_address": "Hisob-faktura manziliga o'xshash",
+    "add": "Qo'shish"
   }
 }

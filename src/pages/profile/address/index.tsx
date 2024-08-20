@@ -1,7 +1,8 @@
 import { FC } from "react";
+import AddressComponent from "@components/views/profile/address";
 
 const Address: FC = () => {
-  return <div>Address</div>;
+  return <AddressComponent />
 };
 
 export default Address;
