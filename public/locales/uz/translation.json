@@ -293,7 +293,16 @@
     "add_new": "Yangi qo'shish",
     "my_products": "Mening mahsulotlarim",
     "products": "Mahsulotlar",
-  "delete_description": "Ushbu gulni o'chirmoqchimisiz?"
+    "delete_description": "Ushbu gulni o'chirmoqchimisiz?",
+    "track_order": {
+      "title": "Buyurtmangizni kuzatish",
+      "order_number": "Buyurtma raqami",
+      "date": "Sana",
+      "total": "Jami",
+      "more": "Ko'proq",
+      "get_details": "Detallarni olish",
+      "detailed_info": "To'liq ma'lumot"
+    }
   },
   "form": {
     "billing_address": "To'lov manzili",

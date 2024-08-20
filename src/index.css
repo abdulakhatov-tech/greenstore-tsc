@@ -38,6 +38,12 @@ footer {
   width: 100%;
 }
 
+.truncate-single-line {
+  white-space: nowrap; /* Prevents text from wrapping */
+  overflow: hidden; /* Hides text that overflows */
+  text-overflow: ellipsis; /* Adds "..." at the end of the truncated text */
+}
+
 /* custom select style */
 .ant-select-selector {
   border-color: #46a358 !important;
@@ -84,6 +90,18 @@ footer {
   :where(.css-dev-only-do-not-override-98ntnt).ant-skeleton.ant-skeleton-element
   .ant-skeleton-input {
   min-width: 40px !important;
+}
+
+#track-order .ant-skeleton.ant-skeleton-element .ant-skeleton-input {
+  min-width: 90px !important;
+  width: 120px;
+}
+
+@media screen and (max-width: 428px) {
+  #track-order .ant-skeleton.ant-skeleton-element .ant-skeleton-input {
+    min-width: 10px !important;
+    width: 110px;
+  }
 }
 
 #payment_methods .ant-radio-wrapper:hover .ant-radio-inner {
@@ -178,11 +196,10 @@ footer {
   outline: none;
 }
 
-
 /* pagination */
 
 .ant-pagination .ant-pagination-item-active {
-  background-color:#46a358 !important;
+  background-color: #46a358 !important;
   color: #ffffff !important;
   border-color: #46a358 !important;
 }
