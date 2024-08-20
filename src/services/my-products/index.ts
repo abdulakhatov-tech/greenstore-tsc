@@ -4,7 +4,7 @@ import useAxios from "@hooks/useAxios";
 import useQueryHandler from "@hooks/useQueryHandler";
 import { useAppDispatch } from "@hooks/useRedux";
 import { setNotification } from "@redux/slices/notification";
-import { AddingEditingProductI } from "@type/index";
+import { AddingEditingProductI, ProductPropsI } from "@type/index";
 
 const useMyProductsService = () => {
   const axios = useAxios();
