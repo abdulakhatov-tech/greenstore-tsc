@@ -1,7 +1,9 @@
 import { FC } from "react";
 
+import WishlistComponent from "@components/views/profile/wishlist";
+
 const Wishlist: FC = () => {
-  return <div>Wishlist</div>;
+  return <WishlistComponent />;
 };
 
 export default Wishlist;

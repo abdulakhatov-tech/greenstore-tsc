@@ -7,19 +7,21 @@ import useQueryHandler from "@hooks/useQueryHandler";
 import { setNotification } from "@redux/slices/notification";
 import { NotificationPropsI, ProductPropsI } from "@type/index";
 
-const useWishlistService = () => {
-  const axios = useAxios();
+const useNotification = () => {
   const dispatch = useAppDispatch();
-  const queryClient = useQueryClient();
 
-  // function for dispatching notifications
-  const dispatchNotification = useCallback(
+  return useCallback(
     ({ type, message, description }: NotificationPropsI) => {
       dispatch(setNotification({ type, message, description }));
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [dispatch]
   );
+};
+
+const useWishlistService = () => {
+  const axios = useAxios();
+  const queryClient = useQueryClient();
+  const dispatchNotification = useNotification(); 
 
   const wishlist = useQueryHandler({
     queryKey: ["wishlist"],
@@ -28,7 +30,7 @@ const useWishlistService = () => {
         method: "GET",
         url: "/user/wishlist",
       });
-      return response?.data?.data;
+      return response?.data?.data.filter((item: any) => Boolean(item)) || [];
     },
     onError: (error) => {
       dispatchNotification({
