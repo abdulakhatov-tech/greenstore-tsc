@@ -7,6 +7,8 @@ import {
   CiShoppingBasket,
 } from "react-icons/ci";
 
+export const UPLOAD_URL = "http://localhost:8080/api/upload?access_token=64bebc1e2c6d3f056a8c85b7"
+
 export const logo: string =
   "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Flogo.svg?alt=media&token=fc9659d6-f435-43b9-a624-8b0d3a574baa";
 

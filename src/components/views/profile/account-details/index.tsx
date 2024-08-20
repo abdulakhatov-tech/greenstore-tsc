@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { Form, Upload } from "antd";
-import Cookies from "js-cookie";
 
 import { UploadOutlined } from "@ant-design/icons";
 
@@ -9,12 +8,14 @@ import FormField from "@generic/form-field";
 import Typography from "@generic/typography";
 import useAccountDetailsFeatures from "./features";
 import useFormRules from "@utils/form";
+import { useAuth } from "@config/auth";
+import { UPLOAD_URL } from "@utils/index";
 
 const AccountDetailsComponent: React.FC = () => {
+  const { getToken } = useAuth();
   const { t } = useTranslation();
   const { accountDetailsFormRules } = useFormRules();
   const { form, onFinish, loading, user } = useAccountDetailsFeatures();
-
 
   return (
     <div>
@@ -41,6 +42,7 @@ const AccountDetailsComponent: React.FC = () => {
             labelKey='form.email'
             rules={accountDetailsFormRules.email || []}
             placeholderKey='form.email'
+            disabled={true}
           />
           <FormField
             name='phone_number'
@@ -56,37 +58,32 @@ const AccountDetailsComponent: React.FC = () => {
           />
 
           <Form.Item
-            label='Photo'
+            label={t("form.profile_photo")}
             name='profile_photo'
             rules={accountDetailsFormRules.profile_photo || []}
           >
             <Upload
               name='image'
-              action={
-                "http://localhost:8080/api/upload?access_token=64bebc1e2c6d3f056a8c85b7"
-              }
+              action={UPLOAD_URL}
               listType='picture'
               data={{ type: "img" }}
               headers={{
-                Authorization: `Bearer ${
-                  Cookies.get("token") ?? localStorage.getItem("token")
-                }`,
+                Authorization: `Bearer ${getToken()}`,
               }}
               accept='.png,.jpg,.jpeg'
             >
-              <div className="flex items-center gap-4">
-              {user?.profile_photo && (
-                <img
-                  src={user?.profile_photo}
-                  alt='avatar'
-                  className="w-14 h-14 rounded-[50%] object-cover"
-                />
-              ) }
+              <div className='flex items-center gap-4'>
+                {user?.profile_photo && (
+                  <img
+                    src={user?.profile_photo}
+                    alt='avatar'
+                    className='w-14 h-14 rounded-[50%] object-cover'
+                  />
+                )}
                 <Button>
-                  <UploadOutlined /> Upload
+                  <UploadOutlined /> {t("form.upload")}
                 </Button>
               </div>
-              
             </Upload>
           </Form.Item>
         </div>

@@ -6,6 +6,7 @@ import useSearchParamsHook from "@hooks/useSearchParams";
 import {
   AuthModal,
   CategoryMenu,
+  ProductFormModal,
   SideMenuModal,
   TrackOrderModal,
 } from "./modals";
@@ -20,8 +21,9 @@ const ModalVisibility: FC = () => {
     sideMenuModalVisibility,
     categoryModalVisibility,
     trackOrderModalVisibility,
+    productFormModalVisibility
   } = useAppSelector((state) => state.modal);
-  const { handleAuthParam, handleTrackOrderParam } =
+  const { handleAuthParam, handleTrackOrderParam, handleProductFormParam } =
     useModalVisibilityFeatures();
     const dispatch = useAppDispatch();
     
@@ -31,9 +33,10 @@ const ModalVisibility: FC = () => {
   useEffect(() => {
     handleAuthParam(getParam("auth"));
     handleTrackOrderParam(getParam("order"));
+    handleProductFormParam(getParam('action-type'))
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getParam("auth"), getParam("order")]);
+  }, [getParam("auth"), getParam("order"), getParam('action-type')]);
 
   useEffect(() => {
     if(isAbove767) {
@@ -49,6 +52,7 @@ const ModalVisibility: FC = () => {
       {sideMenuModalVisibility && <SideMenuModal />}
       {categoryModalVisibility && <CategoryMenu />}
       {trackOrderModalVisibility && <TrackOrderModal />}
+      {productFormModalVisibility && <ProductFormModal />}
     </>
   );
 };

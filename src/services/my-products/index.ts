@@ -4,7 +4,7 @@ import useAxios from "@hooks/useAxios";
 import useQueryHandler from "@hooks/useQueryHandler";
 import { useAppDispatch } from "@hooks/useRedux";
 import { setNotification } from "@redux/slices/notification";
-import { ProductPropsI } from "@type/index";
+import { AddingEditingProductI } from "@type/index";
 
 const useMyProductsService = () => {
   const axios = useAxios();
@@ -60,7 +60,36 @@ const useMyProductsService = () => {
     },
   });
 
-  return { myProducts, removeProduct: removeProduct.mutateAsync };
+  const addProduct = useMutation({
+    mutationFn: async(product: AddingEditingProductI) => {
+      const { data } = await axios({
+        method: "POST",
+        url: `/flower/category/${product?.category}`,
+        data: product,
+      });
+
+      return data?.data;
+    },
+    onSuccess: () => {
+      dispatch(
+        setNotification({
+          type: "success",
+          message: "Product added successfully",
+        })
+      );
+      queryClient.invalidateQueries({ queryKey: ["my-products"] });
+    },
+    onError: () => {
+      dispatch(
+        setNotification({
+          type: "error",
+          message: "Failed to add product",
+        })
+      );
+    }
+  })
+
+  return { myProducts, removeProduct: removeProduct.mutateAsync, addProduct: addProduct.mutateAsync };
 };
 
 export default useMyProductsService;

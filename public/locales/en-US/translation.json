@@ -347,6 +347,7 @@
       "save": "save",
       "save_changes": "Save changes",
       "change": "Change",
-      "remove": "Remove"
+      "remove": "Remove",
+      "upload": "Upload"
    }
 }
