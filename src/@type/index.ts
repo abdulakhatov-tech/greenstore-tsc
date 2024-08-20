@@ -35,6 +35,19 @@ interface BillingAddressI {
   zip?: string;
 }
 
+export interface AddressFormValuesI {
+  country: string;
+  extra_address: string;
+  state: string;
+  town: string;
+  street_address: string;
+  zip: string;
+  name?: string;
+  surname?: string;
+  email?: string;
+  phone_number?: string;
+}
+
 export interface UserI {
   _id?: string;
   name?: string;
@@ -55,6 +68,7 @@ export interface UserI {
   created_by?: string;
   order_list?: string[];
   created_at?: string;
+  phone_number?: string;
   __v?: number;
 }
 
@@ -164,7 +178,7 @@ export interface BillingAddressPropsI {
 export interface FormFieldPropsI {
   labelKey?: string;
   name: string;
-  rules: object[];
+  rules?: object[];
   type?: string;
   addonBefore?: string;
   placeholderKey?: string;
