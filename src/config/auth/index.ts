@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import useSearchParamsHook from "@hooks/useSearchParams";
-import Cookies from "js-cookie";
+import cookie from "js-cookie";
 import { AuthStateI, SignInDataI } from "./types";
 
 const initialAuthState: AuthStateI = {
@@ -15,9 +15,9 @@ export const useAuth = () => {
 
   // Function to sync state with cookies
   const syncAuthStateWithCookies = useCallback(() => {
-    const token = Cookies.get("token");
-    const tokenType = Cookies.get("tokenType") as string;
-    const user = Cookies.get("user") ? JSON.parse(Cookies.get("user")!) : null;
+    const token = cookie.get("token");
+    const tokenType = cookie.get("tokenType") as string;
+    const user = cookie.get("user") ? JSON.parse(cookie.get("user")!) : null;
 
     if (token && user) {
       setAuthState({ token, tokenType, user });
@@ -34,9 +34,9 @@ export const useAuth = () => {
   }, [syncAuthStateWithCookies]);
 
   const signIn = ({ token, user, tokenType = "Bearer" }: SignInDataI) => {
-    Cookies.set("token", token, { expires: 7 });
-    Cookies.set("tokenType", tokenType, { expires: 7 });
-    Cookies.set("user", JSON.stringify(user));
+    cookie.set("token", token, { expires: 7 });
+    cookie.set("tokenType", tokenType, { expires: 7 });
+    cookie.set("user", JSON.stringify(user));
 
     setAuthState({ token, tokenType, user });
   };
@@ -45,10 +45,20 @@ export const useAuth = () => {
     signIn({ token, user, tokenType });
   };
 
+  const updateUser = ({ setter }: any) => {
+    cookie.set("user", JSON.stringify(setter));
+
+    // Update the state with the new user data
+    setAuthState((prevState) => ({
+      ...prevState,
+      user: setter,
+    }));
+  };
+
   const signOut = () => {
-    Cookies.remove("token");
-    Cookies.remove("tokenType");
-    Cookies.remove("user");
+    cookie.remove("token");
+    cookie.remove("tokenType");
+    cookie.remove("user");
 
     setAuthState(initialAuthState);
     window.location.reload();
@@ -62,5 +72,9 @@ export const useAuth = () => {
     return !!authState?.token;
   };
 
-  return { signIn, signOut, getUser, isAuthed, signUp };
+  const getToken = (): string => {
+    return authState?.token || "";
+  };
+
+  return { signIn, signOut, getUser, isAuthed, signUp, getToken, updateUser };
 };

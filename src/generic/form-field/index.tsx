@@ -14,6 +14,7 @@ const FormField: FC<FormFieldPropsI> = ({
   placeholderKey,
   size='medium',
   dependencies,
+  disabled = false,
 }) => {
   const { t } = useTranslation();
   
@@ -23,6 +24,7 @@ const FormField: FC<FormFieldPropsI> = ({
         type={type as InputT}
         placeholder={placeholderKey ? t(placeholderKey) : undefined}
         size={size}
+        disabled={disabled}
       />
     </Form.Item>
   );

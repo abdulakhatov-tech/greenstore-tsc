@@ -2,9 +2,11 @@ import useSearchParamsHook from "@hooks/useSearchParams";
 import axios from "axios";
 // import { useNavigate } from "react-router-dom"; 
 import { AxiosProp } from "./types";
+import { useAuth } from "@config/auth";
 
 const useAxios = () => {
   // const navigate = useNavigate();
+  const { getToken } = useAuth();
   const { setParam } = useSearchParamsHook()
 
   const request = async ({
@@ -21,7 +23,7 @@ const useAxios = () => {
       const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
       // headers
-      const token = localStorage.getItem("token");
+      const token = getToken();
       const authHeader =
         includeToken && token ? { Authorization: `Bearer ${token}` } : {};
 

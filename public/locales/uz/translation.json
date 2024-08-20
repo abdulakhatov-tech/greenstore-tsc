@@ -347,6 +347,7 @@
     "save": "Saqlash",
     "save_changes": "O'zgarishlarni saqlash",
     "change": "O'zgartirish",
-    "remove": "O'chirish" 
+    "remove": "O'chirish",
+    "upload": "Yuklash"
   }
 }

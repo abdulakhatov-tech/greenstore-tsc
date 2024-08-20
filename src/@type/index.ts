@@ -99,6 +99,18 @@ export interface ProductPropsI {
   __v: number;
 }
 
+export interface AddingEditingProductI {
+  title: string;
+  price: number;
+  category: string;
+  discount: boolean;
+  discount_price: number;
+  short_description: string;
+  description: string;
+  main_image: string;
+  detailed_images: string[];
+}
+
 export interface CartProductPropsI extends ProductPropsI {
   quantity: number;
 }
@@ -158,6 +170,7 @@ export interface FormFieldPropsI {
   placeholderKey?: string;
   size?: 'small' | 'medium' | 'large';
   dependencies?: string[];
+  disabled?: boolean;
 }
 
 export enum ELEMENT_SIZE {
@@ -173,4 +186,5 @@ export interface AccountDetailsUserI {
   email: string;
   phone_number: string;
   username: string;
+  profile_photo?: any;
 }
