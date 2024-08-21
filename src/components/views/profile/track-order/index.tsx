@@ -35,7 +35,7 @@ const TrackOrderComponent = () => {
             </div>
           }
         /> : currentProducts?.map((order: any, index: any) => {
-              return <Order key={order?._id ?? index} {...order} />;
+              return <Order key={order?._id ?? index} order={order} />;
             })}
       </div>
       <div className='flex justify-end mt-[50px]'>

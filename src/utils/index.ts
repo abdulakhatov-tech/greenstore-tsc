@@ -8,6 +8,7 @@ import {
 } from "@type/index";
 import Cookies from "js-cookie";
 
+export const shipping = 16
 const userCookie = Cookies.get("user");
 
 const access_token = userCookie

@@ -155,6 +155,11 @@
       "cancel": "Bekor qilish",
       "save": "Saqlash",
       "add": "Qo'shish"
+    },
+    "order_details": {
+      "title": "Batafsil Buyurtma",
+      "delete": "Buyurtmani O'chirish",
+      "cancel": "Bekor Qilish"
     }
   },
   "home_page": {

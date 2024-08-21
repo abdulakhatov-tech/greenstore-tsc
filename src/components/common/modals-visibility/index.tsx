@@ -23,7 +23,7 @@ const ModalVisibility: FC = () => {
     categoryModalVisibility,
     trackOrderModalVisibility,
     productFormModalVisibility,
-    getOrderDetailsModalVisibility,
+    orderDetailsModalVisibility,
   } = useAppSelector((state) => state.modal);
   const { handleAuthParam, handleTrackOrderParam, handleProductFormParam } =
     useModalVisibilityFeatures();
@@ -55,7 +55,7 @@ const ModalVisibility: FC = () => {
       {categoryModalVisibility && <CategoryMenu />}
       {trackOrderModalVisibility && <TrackOrderModal />}
       {productFormModalVisibility && <ProductFormModal />}
-      {getOrderDetailsModalVisibility && <OrderDetailsModal />}
+      {orderDetailsModalVisibility.open && <OrderDetailsModal />}
     </>
   );
 };

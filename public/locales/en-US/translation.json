@@ -155,6 +155,11 @@
       "cancel": "Cancel",
       "save": "Save",
       "add": "Add"
+    },
+    "order_details": {
+      "title": "Detailed Order",
+      "delete": "Delete Order",
+      "cancel": "Cancel"
     }
   },
   "home_page": {
