@@ -10,7 +10,11 @@ const useAxios = () => {
   const { getToken } = useAuth();
   const { setParam } = useSearchParamsHook();
 
-  const user = JSON.parse(Cookies.get('user') as string)
+  const userCookie = Cookies.get("user");
+
+const access_token = userCookie
+  ? JSON.parse(userCookie)?._id
+  : '64bebc1e2c6d3f056a8c85b7';
 
   const request = async ({
     method = "GET",
@@ -36,7 +40,7 @@ const useAxios = () => {
         url: `${API_BASE_URL}${url}`,
         data,
         params: {
-          access_token: user?._id ?? "64bebc1e2c6d3f056a8c85b7",
+          access_token: access_token,
           ...params,
         },
         headers: {

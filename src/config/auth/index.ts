@@ -43,7 +43,7 @@ export const useAuth = () => {
     try {
       cookie.set("token", token, { expires: 7 });
       cookie.set("tokenType", tokenType, { expires: 7 });
-      cookie.set("user", JSON.stringify(user));
+      cookie.set("user", JSON.stringify(user), { expires: 7 });
 
       setAuthState({ token, tokenType, user });
     } catch (error) {
