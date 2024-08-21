@@ -1,3 +1,7 @@
+import { Form } from "antd";
+import { useTranslation } from "react-i18next";
+import { useCallback, useEffect, useState } from "react";
+
 import {
   AuthQueryT,
   InitialStateT,
@@ -6,13 +10,10 @@ import {
   ErrorT,
   ResponseT,
 } from "./types";
-import { Form } from "antd";
-import { useCallback, useEffect, useState } from "react";
 import useAxios from "@hooks/useAxios";
-import { useAppDispatch } from "@hooks/useRedux";
 import useSearchParamsHook from "@hooks/useSearchParams";
-import { setNotification } from "@redux/slices/notification";
 import { useAuth } from "@config/auth";
+import { useNotification } from "@tools/notification/notification";
 
 // Define initial form values for both sign-in and sign-up
 const initialValues: InitialStateT = {
@@ -30,9 +31,10 @@ const initialValues: InitialStateT = {
 };
 
 const useAuthModalFeatures = (): UseAuthModalFeaturesT => {
+  const { t } = useTranslation();
   const axios = useAxios();
   const [form] = Form.useForm();
-  const dispatch = useAppDispatch();
+  const dispatchNotification = useNotification();
   const { signIn, signUp } = useAuth();
   const { removeParam, getParam } = useSearchParamsHook();
 
@@ -69,11 +71,11 @@ const useAuthModalFeatures = (): UseAuthModalFeaturesT => {
                 password: formValue.password,
               };
 
-        const response: ResponseT = await axios({
+        const response: ResponseT = (await axios({
           method: "POST",
           url: `/user/${authType}`,
           data,
-        }) as ResponseT;
+        })) as ResponseT;
 
         const { token, user } = response.data.data;
 
@@ -85,30 +87,25 @@ const useAuthModalFeatures = (): UseAuthModalFeaturesT => {
 
         form.resetFields();
         removeParam("auth");
-        dispatch(
-          setNotification({
-            type: "success",
-            message: `Welcome, ${user.name} ${user.surname}!`,
-            description: `You have successfully ${
-              authType === "sign-in" ? "logged in" : "registered"
-            } successfully`,
-            duration: 3, 
-          })
-        );
+        dispatchNotification({
+          type: "success",
+          message: `${t("modal.auth.auth_success_message")}, ${user.name} ${
+            user.surname
+          }!`,
+          description: t("modal.auth.auth_success_description"),
+        });
         setTimeout(() => {
           window.location.reload();
         }, 500);
       } catch (error) {
         const err = error as ErrorT;
-        dispatch(
-          setNotification({
-            type: "error",
-            message: "Failed to authenticate",
-            description: err.response?.data?.extraMessage
-              ? err.response.data.extraMessage
-              : "Please check your credentials and try again.",
-          })
-        );
+        dispatchNotification({
+          type: "error",
+          message: t("modal.auth.auth_error_message"),
+          description: err.response?.data?.extraMessage
+            ? err?.response?.data?.extraMessage
+            : t("modal.auth.auth_error_description"),
+        });
       } finally {
         setLoading(false);
       }

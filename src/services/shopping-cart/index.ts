@@ -1,23 +1,23 @@
+import { useTranslation } from "react-i18next";
 import { useCallback, useEffect, useState } from "react";
 
-import useAxios from "@hooks/useAxios";
 import {
   setCoupon,
   setPaymentMethod,
   setShoppingCart,
 } from "@redux/slices/shopping-cart";
-import { setNotification } from "@redux/slices/notification";
-import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
+import useAxios from "@hooks/useAxios";
 import { getTotalPricePropsI } from "./types";
-import {
-  CartProductPropsI,
-  NotificationPropsI,
-  ProductPropsI,
-} from "@type/index";
+import { CartProductPropsI, ProductPropsI } from "@type/index";
+import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
+import { useNotification } from "@tools/notification/notification";
+import { calculateTotals, formatDiscount } from "@helpers/index";
 
 const useShoppingCartService = () => {
   const axios = useAxios();
+  const { t } = useTranslation()
   const dispatch = useAppDispatch();
+  const dispatchNotification = useNotification();
   const { cart, coupon, shipping, payment_method } = useAppSelector(
     (state) => state.shoppingCart
   );
@@ -32,51 +32,27 @@ const useShoppingCartService = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart.length]);
 
-  // function for dispatching notifications
-  const dispatchNotification = useCallback(
-    ({ type, message, description }: NotificationPropsI): void => {
-      dispatch(setNotification({ type, message, description }));
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  );
-
   const addOrUpdateCartItem = useCallback(
     (product: ProductPropsI) => {
       setLoading(true);
+      const { _id } = product;
+      const existingProduct = cart.find((item) => item._id === _id);
 
-      const { _id, title } = product;
-      const existingProduct = cart?.find(
-        (item: CartProductPropsI) => item._id === _id
-      );
+      const updatedCart = existingProduct
+        ? cart.map((item) =>
+            item._id === _id ? { ...item, quantity: item.quantity + 1 } : item
+          )
+        : [...cart, { ...product, quantity: 1 }];
 
-      if (existingProduct) {
-        const updatedCart = cart?.map(
-          (item: CartProductPropsI): CartProductPropsI =>
-            item?._id === _id ? { ...item, quantity: item?.quantity + 1 } : item
-        );
+      dispatch(setShoppingCart(updatedCart));
 
-        dispatch(setShoppingCart(updatedCart));
-
-        dispatchNotification({
-          type: "info",
-          message: "Product quantity updated",
-          description: `You have ${existingProduct?.quantity} ${title} in the cart now.`,
-        });
-      } else {
-        const updatedCart: CartProductPropsI[] = [
-          ...cart,
-          { ...product, quantity: 1 },
-        ];
-
-        dispatch(setShoppingCart(updatedCart));
-
-        dispatchNotification({
-          type: "success",
-          message: "Product added to cart",
-          description: `You added ${title} to your cart`,
-        });
-      }
+      dispatchNotification({
+        type: existingProduct ? "info" : "success",
+        message: existingProduct
+          ? t('notification.product_quantity_updated')
+          : t('notification.product_added_to_cart'),
+        description: t('notification.product_cart_description'),
+      });
 
       setLoading(false);
     },
@@ -86,22 +62,14 @@ const useShoppingCartService = () => {
 
   const updateProductQuantity = useCallback(
     (product: ProductPropsI, isIncrement: boolean = true) => {
-      const { _id, title } = product;
+      const { _id } = product;
 
       const productExists = cart.find(
         (item: CartProductPropsI) => item._id === _id
       );
 
       if (!productExists) {
-        addOrUpdateCartItem(product)
-        // dispatchNotification({
-        //   type: "error",
-        //   message: `${title} not found in the cart`,
-        //   description:
-        //     "The product you're trying to add to the cart doesn't exist.",
-        // });
-
-
+        addOrUpdateCartItem(product);
         return;
       }
 
@@ -121,8 +89,8 @@ const useShoppingCartService = () => {
 
       dispatchNotification({
         type: "info",
-        message: "Product quantity updated",
-        description: `You have ${productExists?.quantity} ${title} in the cart now.`,
+        message: t('notification.product_quantity_updated'),
+        description: t('notification.product_cart_description'),
       });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -131,7 +99,7 @@ const useShoppingCartService = () => {
 
   const removeCartItem = useCallback(
     (product: ProductPropsI) => {
-      const { _id, title } = product;
+      const { _id } = product;
       const existingProduct = cart?.find(
         (item: CartProductPropsI) => item?._id === _id
       );
@@ -139,9 +107,8 @@ const useShoppingCartService = () => {
       if (!existingProduct) {
         dispatchNotification({
           type: "error",
-          message: `${title} not found in the cart`,
-          description:
-            "The product you're trying to remove from the cart doesn't exist.",
+          message: t('notification.product_not_found_in_cart_message'),
+          description: t('notification.product_not_found_in_cart_description')
         });
       }
 
@@ -152,8 +119,8 @@ const useShoppingCartService = () => {
       dispatch(setShoppingCart(updatedCart));
       dispatchNotification({
         type: "success",
-        message: "Product removed from cart",
-        description: `You removed ${title} from your cart`,
+        message: t('notification.product_removed_from_cart_message'),
+        description: t('notification.product_removed_from_cart_description'),
       });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -164,40 +131,19 @@ const useShoppingCartService = () => {
     (
       couponPercentage: number = coupon?.discount_for ?? 0
     ): getTotalPricePropsI => {
-      // Calculating the total price without any discount or coupon
-      const totalWithoutCoupon: number = cart.reduce(
-        (total: number, item: CartProductPropsI): number =>
-          total + item.price * item.quantity,
-        0
-      );
-
-      // Calculating the total price with the shipping cost included
-      const totalWithShipping: number = cart.length
-        ? totalWithoutCoupon + shipping
-        : 0;
-
-      // Calculating the total price with the coupon discount applied
-      const totalWithCoupon: number = cart.length
-        ? totalWithoutCoupon * ((100 - couponPercentage) / 100) + shipping
-        : 0;
-
-      return {
-        totalWithoutCoupon,
-        totalWithShipping,
-        totalWithCoupon,
-      };
+      return calculateTotals(cart, shipping, couponPercentage);
     },
     [cart, coupon, shipping]
   );
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     dispatch(setShoppingCart([]));
     dispatch(setCoupon({}));
     dispatch(setPaymentMethod(""));
     localStorage.removeItem("cart");
     localStorage.removeItem("coupon");
     localStorage.removeItem("payment_method");
-  };
+  }, [dispatch]);
 
   const applyCoupon = useCallback(
     async (value: any) => {
@@ -213,18 +159,18 @@ const useShoppingCartService = () => {
           dispatch(setCoupon(response?.data?.data));
           dispatchNotification({
             type: "success",
-            message: "Coupon applied successfully",
-            description: `You applied ${value?.coupon_code} as your coupon`,
+            message: t('notification.coupon_applied_message'),
+            description: t('notification.coupon_applied_description'),
           });
         }
       } catch (error) {
         const errorMessage =
-          error instanceof Error ? error.message : "Unknown error";
+          error instanceof Error ? error.message : t('notification.coupon_not_found_message');
 
         dispatchNotification({
           type: "error",
           message: errorMessage,
-          description: "Failed to apply coupon",
+          description: t('notification.coupon_not_found_description'),
         });
       }
     },
@@ -232,9 +178,7 @@ const useShoppingCartService = () => {
     [dispatch, dispatchNotification]
   );
 
-  const formattedDiscount = coupon?.discount_for
-    ? `${coupon.discount_for}%`
-    : "0%";
+  const formattedDiscount = formatDiscount(coupon);
 
   return {
     addOrUpdateCartItem,

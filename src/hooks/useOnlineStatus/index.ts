@@ -9,7 +9,7 @@ const useOnlineStatus = () => {
     window.addEventListener("online", updateOnlineStatus);
     window.addEventListener("offline", updateOnlineStatus);
 
-    // Cleanup event listeners on component unmount
+    // Cleaning up event listeners on component unmount
     return () => {
       window.removeEventListener("online", updateOnlineStatus);
       window.removeEventListener("offline", updateOnlineStatus);

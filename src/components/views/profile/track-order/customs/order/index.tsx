@@ -1,9 +1,12 @@
-import { formatPrice, formattedDate } from "@helpers/index";
+import { formatPrice, formatDate } from "@helpers/index";
+import { useAppDispatch } from "@hooks/useRedux";
+import { toggleGetOrderDetailsModalVisibility } from "@redux/slices/modal";
 import Tooltip from "@tools/tooltip";
 import { useTranslation } from "react-i18next";
 
 const Order = ({ _id, created_at, extra_shop_info }: any) => {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
 
   const total = extra_shop_info?.total_price ?? 0;
   const hasCoupon = extra_shop_info?.coupon?.has_coupon ?? false;
@@ -22,7 +25,7 @@ const Order = ({ _id, created_at, extra_shop_info }: any) => {
         </div>
         <div className='md:border-r p-2  md:border-[#46A35833]'>
           <h4 className='font-light mb-2'>{t("profile.track_order.date")}</h4>
-          <p>{formattedDate(created_at)}</p>
+          <p>{formatDate(created_at)}</p>
         </div>
         <div className='border-r p-2  border-[#46A35833]'>
           <h4 className='font-light mb-2'>{t("profile.track_order.total")}</h4>
@@ -46,7 +49,7 @@ const Order = ({ _id, created_at, extra_shop_info }: any) => {
         <div className='p-2 '>
           <h4 className='font-light mb-2'>{t("profile.track_order.more")}</h4>
           <Tooltip title={t("profile.track_order.detailed_info")}>
-            <h4 className='text-green cursor-pointer'>
+            <h4 className='text-green cursor-pointer' onClick={() => dispatch(toggleGetOrderDetailsModalVisibility(true))}>
               {t("profile.track_order.get_details")}
             </h4>
           </Tooltip>

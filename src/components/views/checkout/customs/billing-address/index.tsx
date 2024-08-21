@@ -71,7 +71,7 @@ const BillingAddress: FC = () => {
 
           <FormField
             labelKey='checkout.postal_code'
-            name='postal_code'
+            name='zip'
             rules={[
               { required: true, message: t("checkout.postal_code_error") },
             ]}
@@ -87,8 +87,7 @@ const BillingAddress: FC = () => {
           <FormField
             labelKey='checkout.phone'
             name='phone_number'
-            type='number'
-            addonBefore='+998'
+            type='string'
             rules={[{ required: true, message: t("checkout.phone_error") }]}
           />
 

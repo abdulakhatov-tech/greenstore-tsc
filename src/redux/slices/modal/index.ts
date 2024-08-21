@@ -11,6 +11,7 @@ const initialState: InitialStateT = {
   categoryModalVisibility: false,
   trackOrderModalVisibility: false,
   productFormModalVisibility: false,
+  getOrderDetailsModalVisibility: false, 
 };
 
 const modalSlice = createSlice({
@@ -38,6 +39,9 @@ const modalSlice = createSlice({
     toggleProductFormModalVisibility: (state, action) => {
       state.productFormModalVisibility = action.payload;
     },
+    toggleGetOrderDetailsModalVisibility: (state, action) => {
+      state.getOrderDetailsModalVisibility = action.payload;
+    },
   },
 });
 
@@ -47,7 +51,8 @@ export const {
   toggleCategoriesModalVisibility,
   toggleCategoryModalVisibility,
   toggleTrackOrderModalVisibility,
-  toggleProductFormModalVisibility
+  toggleProductFormModalVisibility,
+  toggleGetOrderDetailsModalVisibility
 } = modalSlice.actions;
 
 export default modalSlice.reducer;

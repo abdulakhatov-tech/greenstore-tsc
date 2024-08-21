@@ -1,27 +1,14 @@
 import { useMutation } from "@tanstack/react-query";
 
 import useAxios from "@hooks/useAxios";
-import { useAppDispatch } from "@hooks/useRedux";
-import { setNotification } from "@redux/slices/notification";
-
-// Define type for address data
-interface AddressDataI {
-  _id?: string;
-  country: string;
-  extra_address: string;
-  state: string;
-  town: string;
-  street_address: string;
-  zip: string;
-  name?: string;
-  surname?: string;
-  email?: string;
-  phone_number?: string;
-}
+import { useNotification } from "@tools/notification/notification";
+import { AddressDataI } from "@type/index";
+import { useTranslation } from "react-i18next";
 
 const useAddressService = () => {
+  const { t } = useTranslation();
   const axios = useAxios();
-  const dispatch = useAppDispatch();
+  const dispatchNotification = useNotification();
 
   const { mutateAsync: postAddress } = useMutation({
     mutationFn: async (address: AddressDataI) => {
@@ -34,27 +21,23 @@ const useAddressService = () => {
       return response?.data;
     },
     onSuccess: () => {
-      dispatch(
-        setNotification({
-          type: "success",
-          message: "Address",
-          description: "Address updated successfully",
-        })
-      );
+      dispatchNotification({
+        type: "success",
+        message: t('notification.address_success_message'),
+        description: t('notification.address_success_description'),
+      });
     },
     onError: (error: any) => {
       const errorMessage =
         error?.response?.data?.message ||
         error.message ||
-        "An unexpected error occurred.";
+        t('notification.address_error_description');
 
-      dispatch(
-        setNotification({
-          type: "error",
-          message: "Failed to update address",
-          description: errorMessage,
-        })
-      );
+      dispatchNotification({
+        type: "error",
+        message: t('notification.address_error_message'),
+        description: errorMessage,
+      });
     },
   });
 

@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-interface InitialStateI {
-    category: string;
-}
+import { InitialStateI } from "./types";
 
 const initialState: InitialStateI = {
     category: 'house-plants',

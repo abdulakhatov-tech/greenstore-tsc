@@ -202,3 +202,35 @@ export interface AccountDetailsUserI {
   username: string;
   profile_photo?: any;
 }
+
+export interface LanguageOptionI {
+  key: string;   
+  src: string;  
+  alt: string;   
+  label: string; 
+}
+
+export interface PlantGalleryNavigationI {
+  _id: string;  
+  title: string; 
+  slug: string;  
+} 
+
+export interface SortingOptionI {
+  value: string; // Value used to identify the sort option
+  label: string; // Localized label for the sort option
+}
+
+export interface AddressDataI {
+  _id?: string;
+  country: string;
+  extra_address: string;
+  state: string;
+  town: string;
+  street_address: string;
+  zip: string;
+  name?: string;
+  surname?: string;
+  email?: string;
+  phone_number?: string;
+}

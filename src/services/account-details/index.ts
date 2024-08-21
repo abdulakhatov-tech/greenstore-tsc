@@ -1,11 +1,13 @@
+import { useTranslation } from "react-i18next"; 
+
 import useAxios from "@hooks/useAxios";
-import { useAppDispatch } from "@hooks/useRedux";
-import { setNotification } from "@redux/slices/notification";
-import { useMutation } from "@tanstack/react-query";
 import { AccountDetailsUserI } from "@type/index";
+import { useMutation } from "@tanstack/react-query";
+import { useNotification } from "@tools/notification/notification";
 
 const useAccountDetailsService = () => {
-  const dispatch = useAppDispatch();
+  const { t } = useTranslation();
+  const dispatchNotification = useNotification();
   const axios = useAxios();
 
   const postAccountDetails = useMutation({
@@ -19,21 +21,18 @@ const useAccountDetailsService = () => {
       return response?.data;
     },
     onSuccess: () => {
-      dispatch(
-        setNotification({
-          type: "success",
-          message: "Account details updated successfully",
-        })
-      );
+      dispatchNotification({
+        type: "success",
+        message: t('notification.account_details_success_message'),
+        description: t('notification.account_details_success_description'),
+      });
     },
-    onError: (error) => {
-      dispatch(
-        setNotification({
-          type: "error",
-          message: "Failed to update account details",
-          description: error.message,
-        })
-      );
+    onError: () => {
+      dispatchNotification({
+        type: "error",
+        message: t('notification.account_details_error_message'),
+        description: t('notification.account_details_error_description'),
+      });
     },
   });
 

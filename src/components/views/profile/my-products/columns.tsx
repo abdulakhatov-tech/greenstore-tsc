@@ -1,17 +1,15 @@
 import { Image, Popconfirm } from "antd";
+import { useTranslation } from "react-i18next";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 import useMyProductsFeatures from "./features";
-import useSearchParamsHook from "@hooks/useSearchParams";
 import { ProductPropsI } from "@type/index";
-import { formattedDate } from "@helpers/index";
+import { formatDate } from "@helpers/index";
 import Tooltip from "@tools/tooltip";
-import { useTranslation } from "react-i18next";
 
 const useTableColumns = () => {
    const {t } = useTranslation();
-   const { removeProductHander } = useMyProductsFeatures();
-   const { setParam } = useSearchParamsHook()
+   const { removeProductHander, editProductHandler } = useMyProductsFeatures();
 
    const columns = [
       {
@@ -41,7 +39,7 @@ const useTableColumns = () => {
          dataIndex: "created_at",
          key: "created_at",
          width: 130,
-         render: (created_at:string) => formattedDate(created_at),
+         render: (created_at:string) => formatDate(created_at),
       },
       {
          title: t('profile.status'),
@@ -63,9 +61,9 @@ const useTableColumns = () => {
          width: 90,
          render: (_:any, record:ProductPropsI) => (
             <div className="flex items-center gap-3 text-[18px]">
-               <EditOutlined onClick={() => setParam('action-type', 'edit')} />
+               <EditOutlined onClick={editProductHandler} />
                <Popconfirm
-                  title={`${t('profile.delete')} ${record?.title}`}
+                  title={`${t('profile.delete')}`}
                   description={t('profile.delete_description')}
                   onConfirm={() => removeProductHander(record)}
                   okText={t('profile.yes')}

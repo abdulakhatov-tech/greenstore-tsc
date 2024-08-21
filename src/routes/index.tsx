@@ -48,8 +48,8 @@ const AppRoutes = () => {
             </Route>
           );
         })}
-        <Route path='*' element={<Navigate to='/not-found' />} />
       </Route>
+      <Route path='*' element={<Navigate to='/not-found' />} />
     </Routes>
   );
 };
