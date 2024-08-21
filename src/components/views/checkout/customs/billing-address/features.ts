@@ -5,12 +5,12 @@ import { useCallback, useState } from "react";
 
 import { useAuth } from "@config/auth";
 import useAxios from "@hooks/useAxios";
-import { useAppDispatch } from "@hooks/useRedux";
 import { AuthQuery, BillingAddressPropsI, PAYMENT_METHODS } from "@type/index";
 import useSearchParamsHook from "@hooks/useSearchParams";
-import { setNotification } from "@redux/slices/notification";
 import useShoppingCartService from "@services/shopping-cart";
 import { setPaymentMethod } from "@redux/slices/shopping-cart";
+import { useNotification } from "@tools/notification/notification";
+import { useAppDispatch } from "@hooks/useRedux";
 
 const initialState: BillingAddressPropsI = {
   name: "",
@@ -28,12 +28,13 @@ const initialState: BillingAddressPropsI = {
 };
 
 const useBillingAddressFeatures = () => {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
   // hooks
   const axios = useAxios();
   const [form] = Form.useForm();
   const { isAuthed } = useAuth();
   const dispatch = useAppDispatch();
+  const dispatchNotification = useNotification();
   const { setParam } = useSearchParamsHook();
   const navigate = useNavigate();
   const { cart, coupon, getTotalPrice } = useShoppingCartService();
@@ -51,14 +52,11 @@ const useBillingAddressFeatures = () => {
 
   const handleError = useCallback(
     (error: any) => {
-      dispatch(
-        setNotification({
-          type: "error",
-          message: error?.response?.data?.message || error?.message,
-          description: "Failed to make an order",
-          duration: 5000,
-        })
-      );
+      dispatchNotification({
+        type: "error",
+        message: error?.response?.data?.message || error?.message,
+        description: "Failed to make an order",
+      });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
@@ -68,13 +66,11 @@ const useBillingAddressFeatures = () => {
     async (values: BillingAddressPropsI) => {
       try {
         if (!cart.length) {
-          dispatch(
-            setNotification({
-              type: "error",
-              message: t("shopping_cart.empty_cart"),
-              description: t("shopping_cart.empty_cart_description"),
-            })
-          );
+          dispatchNotification({
+            type: "error",
+            message: t("shopping_cart.empty_cart"),
+            description: t("shopping_cart.empty_cart_description"),
+          });
           navigate("/");
           return;
         }
@@ -100,7 +96,6 @@ const useBillingAddressFeatures = () => {
             shop_list,
             billing_address: {
               ...values,
-              phone_number: `+998${values.phone_number}`,
             },
             extra_shop_info: {
               total_price,

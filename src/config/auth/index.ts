@@ -1,17 +1,22 @@
-import { useCallback, useEffect, useState } from "react";
-import useSearchParamsHook from "@hooks/useSearchParams";
 import cookie from "js-cookie";
-import { AuthStateI, SignInDataI } from "./types";
+import { useCallback, useEffect, useState } from "react";
 
+import useSearchParamsHook from "@hooks/useSearchParams";
+import { AuthStateI, SignInDataI } from "./types";
+import { useNotification } from "@tools/notification/notification";
+
+// initial authentication state
 const initialAuthState: AuthStateI = {
   token: null,
   tokenType: null,
   user: null,
 };
 
+// Custom hook for authentication
 export const useAuth = () => {
-  const [authState, setAuthState] = useState<AuthStateI>(initialAuthState);
+  const dispatchNotification = useNotification();
   const { removeParam } = useSearchParamsHook();
+  const [authState, setAuthState] = useState<AuthStateI>(initialAuthState);
 
   // Function to sync state with cookies
   const syncAuthStateWithCookies = useCallback(() => {
@@ -29,16 +34,25 @@ export const useAuth = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Syncing authentication state with cookies on component mount or update
   useEffect(() => {
     syncAuthStateWithCookies();
   }, [syncAuthStateWithCookies]);
 
   const signIn = ({ token, user, tokenType = "Bearer" }: SignInDataI) => {
-    cookie.set("token", token, { expires: 7 });
-    cookie.set("tokenType", tokenType, { expires: 7 });
-    cookie.set("user", JSON.stringify(user));
+    try {
+      cookie.set("token", token, { expires: 7 });
+      cookie.set("tokenType", tokenType, { expires: 7 });
+      cookie.set("user", JSON.stringify(user));
 
-    setAuthState({ token, tokenType, user });
+      setAuthState({ token, tokenType, user });
+    } catch (error) {
+      dispatchNotification({
+        type: "error",
+        message: "Authentication",
+        description: "Failed to authenticate",
+      });
+    }
   };
 
   const signUp = ({ token, user, tokenType = "Bearer" }: SignInDataI) => {
@@ -46,22 +60,38 @@ export const useAuth = () => {
   };
 
   const updateUser = ({ setter }: any) => {
-    cookie.set("user", JSON.stringify(setter));
+    try {
+      cookie.set("user", JSON.stringify(setter));
 
-    // Update the state with the new user data
-    setAuthState((prevState) => ({
-      ...prevState,
-      user: setter,
-    }));
+      // Update the state with the new user data
+      setAuthState((prevState) => ({
+        ...prevState,
+        user: setter,
+      }));
+    } catch (error) {
+      dispatchNotification({
+        type: "error",
+        message: "Update User",
+        description: "Failed to update user",
+      });
+    }
   };
 
   const signOut = () => {
-    cookie.remove("token");
-    cookie.remove("tokenType");
-    cookie.remove("user");
+    try {
+      cookie.remove("token");
+      cookie.remove("tokenType");
+      cookie.remove("user");
 
-    setAuthState(initialAuthState);
-    window.location.reload();
+      setAuthState(initialAuthState);
+      window.location.reload();
+    } catch (error) {
+      dispatchNotification({
+        type: "error",
+        message: "Sign Out",
+        description: "Failed to sign out",
+      });
+    }
   };
 
   const getUser = (): AuthStateI => {

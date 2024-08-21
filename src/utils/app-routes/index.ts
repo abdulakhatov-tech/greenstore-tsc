@@ -6,8 +6,9 @@ import {
   DashboardOutlined,
 } from "@ant-design/icons";
 import { lazy, useId } from "react";
-import { RoutePropT } from "./types";
 import { useTranslation } from "react-i18next";
+
+import { RoutePropT } from "./types";
 
 const Home = lazy(() => import("@pages/home"));
 const Shop = lazy(() => import("@pages/shop"));
@@ -142,6 +143,7 @@ const useAppRoutes = () => {
         title: t("meta.home.title") ?? "Green Store",
         description: t("meta.home.description") ?? "Welcome to Green Store",
       },
+      isPrivate: false,
     },
     {
       _id: generateId(),
@@ -155,6 +157,7 @@ const useAppRoutes = () => {
       },
       hasChildren: true,
       children: shopRoutes,
+      isPrivate: true,
     },
     {
       _id: generateId(),
@@ -168,6 +171,7 @@ const useAppRoutes = () => {
           t("meta.plant_care.description") ??
           "Learn about the best plants for your home",
       },
+      isPrivate: true,
     },
     {
       _id: generateId(),
@@ -181,6 +185,7 @@ const useAppRoutes = () => {
           t("meta.blogs.description") ??
           "Latest news and updates from Green Store",
       },
+      isPrivate: true,
     },
     {
       _id: generateId(),
@@ -194,6 +199,7 @@ const useAppRoutes = () => {
       },
       hasChildren: true,
       children: dashboardRoutes,
+      isPrivate: true,
     },
     {
       _id: generateId(),
@@ -207,6 +213,7 @@ const useAppRoutes = () => {
           t("meta.not_found.description") ??
           "Sorry, the page you are looking for does not exist",
       },
+      isPrivate: true,
     },
     {
       _id: generateId(),
@@ -219,6 +226,7 @@ const useAppRoutes = () => {
         description:
           t("meta.error.description") ?? "An error occurred on the server",
       },
+      isPrivate: true,
     },
   ];
 

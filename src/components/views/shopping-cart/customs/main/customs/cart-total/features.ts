@@ -3,13 +3,12 @@ import { useState } from "react";
 import { Form } from "antd";
 
 import useShoppingCartService from "@services/shopping-cart";
-import { useAppDispatch } from "@hooks/useRedux";
-import { setNotification } from "@redux/slices/notification";
+import { useNotification } from "@tools/notification/notification";
 
 const useCartTotalFeatures = () => {
   const { t } = useTranslation();
   const [form] = Form.useForm();
-  const dispatch = useAppDispatch();
+  const dispatchNotification = useNotification();
   const {
     cart,
     applyCoupon,
@@ -30,13 +29,11 @@ const useCartTotalFeatures = () => {
     setLoading(true);
 
     if (!cart?.length) {
-      dispatch(
-        setNotification({
-          type: "warning",
-          message: t("shopping_cart.empty_cart"),
-          description: t("shopping_cart.empty_cart_description"),
-        })
-      );
+      dispatchNotification({
+        type: "warning",
+        message: t("shopping_cart.empty_cart"),
+        description: t("shopping_cart.empty_cart_description"),
+      });
 
       setLoading(false);
       return;

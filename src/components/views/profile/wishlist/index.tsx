@@ -3,11 +3,14 @@ import ProductSkeleton from "@tools/product-skeleton";
 import { ProductPropsI } from "@type/index";
 import React from "react";
 import useWishlistFeatures from "./features";
-import { Empty } from "antd";
+import { Empty, Pagination } from "antd";
 import Typography from "@generic/typography";
+import usePaginationFeatures from "./pagination";
 
 const WishlistComponent: React.FC = () => {
-  const { isLoading, isError, data } = useWishlistFeatures();
+  const { isLoading, isError, data: products } = useWishlistFeatures();
+  const { currentProducts, handlePageChange, currentPage, itemsPerPage } =
+    usePaginationFeatures();
 
 
   if (isLoading || isError) {
@@ -20,7 +23,7 @@ const WishlistComponent: React.FC = () => {
     );
   }
 
-  if (!data.length) {
+  if (!products.length) {
     return (
       <Empty
         className='mt-[10px]'
@@ -41,9 +44,18 @@ const WishlistComponent: React.FC = () => {
         Wishlist
       </Typography>
       <div className='grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7'>
-        {data.map((product: ProductPropsI) => (
+        {currentProducts?.map((product: ProductPropsI) => (
           <MemoizedProductCard key={product._id} product={product} />
         ))}
+      </div>
+      <div className='flex justify-end mt-[90px]'>
+        <Pagination
+          current={currentPage}
+          defaultCurrent={1}
+          total={products?.length ?? 0}
+          pageSize={itemsPerPage}
+          onChange={handlePageChange}
+        />
       </div>
     </div>
   );

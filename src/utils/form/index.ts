@@ -22,35 +22,12 @@ const useFormRules = () => {
             );
           }
 
-          // Validate length
+          // Validating length
           if (password.length <= 2) {
             return Promise.reject(
               new Error(t("modal.auth.form.password_error_2"))
             );
           }
-
-          // // Validate characters, numbers, and symbols
-          // const hasNumber = /\d/;
-          // const hasCharacter = /[a-zA-Z]/;
-          // const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/;
-
-          // if (!hasNumber.test(password)) {
-          //    return Promise.reject(
-          //       new Error(t("modal.auth.form.password_error_3")),
-          //    );
-          // }
-
-          // if (!hasCharacter.test(password)) {
-          //    return Promise.reject(
-          //       new Error(t("modal.auth.form.password_error_4")),
-          //    );
-          // }
-
-          // if (!hasSymbol.test(password)) {
-          //    return Promise.reject(
-          //       new Error(t("modal.auth.form.password_error_5")),
-          //    );
-          // }
 
           return Promise.resolve();
         },
@@ -90,10 +67,21 @@ const useFormRules = () => {
     profile_photo: [{ required: true, message: t("form.profile_photo_error") }],
   };
 
+  const plantFormRules = {
+    title: [{ required: true, message: t('modal.plant_form_modal.title_error')}],
+    category: [{ required: true, message: t('modal.plant_form_modal.category_error')}],
+    price: [{ required: true, message: t('modal.plant_form_modal.price_error')}],
+    discount_price: [{ required: true, message: t('modal.plant_form_modal.discount_price_error')}],
+    short_description: [{ required: true, message: t('modal.plant_form_modal.short_description_error')}],
+    description: [{ required: true, message: t('modal.plant_form_modal.description_error')}],
+    image: [{ required: true, message: t('modal.plant_form_modal.image_error')}],
+  }
+
   return {
     authRegisterFormRules,
     authSignInFormRules,
     accountDetailsFormRules,
+    plantFormRules
   };
 };
 

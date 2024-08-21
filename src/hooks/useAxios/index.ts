@@ -3,11 +3,14 @@ import axios from "axios";
 // import { useNavigate } from "react-router-dom"; 
 import { AxiosProp } from "./types";
 import { useAuth } from "@config/auth";
+import Cookies from "js-cookie";
 
 const useAxios = () => {
   // const navigate = useNavigate();
   const { getToken } = useAuth();
-  const { setParam } = useSearchParamsHook()
+  const { setParam } = useSearchParamsHook();
+
+  const user = JSON.parse(Cookies.get('user') as string)
 
   const request = async ({
     method = "GET",
@@ -33,7 +36,7 @@ const useAxios = () => {
         url: `${API_BASE_URL}${url}`,
         data,
         params: {
-          access_token: "64bebc1e2c6d3f056a8c85b7",
+          access_token: user?._id ?? "64bebc1e2c6d3f056a8c85b7",
           ...params,
         },
         headers: {

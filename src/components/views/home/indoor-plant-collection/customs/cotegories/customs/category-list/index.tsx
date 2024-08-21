@@ -17,7 +17,7 @@ const CategoryList:FC = memo(() => {
         {t("home_page.indoor_plant_gallery.categories.title_1")}
       </Title>
 
-      <ul className='flex flex-col pl-[12px] text-[14px]'>
+      <ul className='flex flex-col gap-3 pl-[12px] text-[14px]'>
         {isLoading || isError
           ? Array.from({ length: 9 }, (_, i) => i + 1).map((category) => (
               <CustomSkeleton

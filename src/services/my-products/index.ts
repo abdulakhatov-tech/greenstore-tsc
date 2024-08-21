@@ -1,15 +1,16 @@
+import { useTranslation } from "react-i18next";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import useAxios from "@hooks/useAxios";
 import useQueryHandler from "@hooks/useQueryHandler";
-import { useAppDispatch } from "@hooks/useRedux";
-import { setNotification } from "@redux/slices/notification";
 import { AddingEditingProductI, ProductPropsI } from "@type/index";
+import { useNotification } from "@tools/notification/notification";
 
 const useMyProductsService = () => {
+  const { t } = useTranslation();
   const axios = useAxios();
-  const dispatch = useAppDispatch();
   const queryClient = useQueryClient();
+  const dispatchNotification = useNotification();
 
   const myProducts = useQueryHandler({
     queryKey: ["my-products"],
@@ -19,12 +20,11 @@ const useMyProductsService = () => {
       return data?.data || [];
     },
     onError: () => {
-      dispatch(
-        setNotification({
-          type: "error",
-          message: "Failed to fetch my products",
-        })
-      );
+      dispatchNotification({
+        type: "error",
+        message: t('notification.products_error_message'),
+        description: t('notification.products_error_description'),
+      });
     },
   });
 
@@ -36,32 +36,33 @@ const useMyProductsService = () => {
         method: "DELETE",
         url: `/user/product/${category}`,
         data: { _id },
-     });
+      });
 
-     return response?.data;
+      queryClient.setQueryData(["my-products"], (prev: any) => {
+        return prev?.filter((item: any) => item?._id !== _id);
+      });
+
+      return response?.data;
     },
     onSuccess: () => {
-      dispatch(
-        setNotification({
-          type: "success",
-          message: "Product removed successfully",
-        })
-      );
+      dispatchNotification({
+        type: "success",
+        message: t('notification.remove_product_success_message'),
+        description: t('notification.remove_product_success_description'),
+      })
       queryClient.invalidateQueries({ queryKey: ["my-products"] });
     },
-    onError: (error: any) => {
-      dispatch(
-        setNotification({
-          type: "error",
-          message: "Failed to remove product",
-          description: error.message,
-        })
-      );
+    onError: () => {
+      dispatchNotification({
+        type: "error",
+        message: t('notification.remove_product_error_message'),
+        description: t('notification.remove_product_error_description'),
+      })
     },
   });
 
   const addProduct = useMutation({
-    mutationFn: async(product: AddingEditingProductI) => {
+    mutationFn: async (product: AddingEditingProductI) => {
       const { data } = await axios({
         method: "POST",
         url: `/flower/category/${product?.category}`,
@@ -71,25 +72,29 @@ const useMyProductsService = () => {
       return data?.data;
     },
     onSuccess: () => {
-      dispatch(
-        setNotification({
-          type: "success",
-          message: "Product added successfully",
-        })
-      );
+      dispatchNotification({
+        type: "success",
+        message: t('notification.add_product_success_message'),
+        description: t('notification.add_product_success_description'),
+      })
       queryClient.invalidateQueries({ queryKey: ["my-products"] });
     },
     onError: () => {
-      dispatch(
-        setNotification({
-          type: "error",
-          message: "Failed to add product",
-        })
-      );
-    }
-  })
+      dispatchNotification({
+        type: "error",
+        message: t("notification.add_product_error_message"),
+        description: t("notification.add_product_error_description"),
+      })
+    },
+  });
 
-  return { myProducts, removeProduct: removeProduct.mutateAsync, addProduct: addProduct.mutateAsync };
+  
+
+  return {
+    myProducts,
+    removeProduct: removeProduct.mutateAsync,
+    addProduct: addProduct.mutateAsync,
+  };
 };
 
 export default useMyProductsService;

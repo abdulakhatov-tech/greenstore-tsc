@@ -40,7 +40,7 @@ const useProductCardFeatures = () => {
       }
       
       setLoading(true);
-      await removeFromWishlist(product)
+      await removeFromWishlist(product);
       setLoading(false);
     }
 

@@ -13,4 +13,5 @@ export type RoutePropT = {
     title: string;
     description: string;
   };
+  isPrivate?: boolean,
 };

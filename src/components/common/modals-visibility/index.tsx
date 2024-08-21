@@ -6,6 +6,7 @@ import useSearchParamsHook from "@hooks/useSearchParams";
 import {
   AuthModal,
   CategoryMenu,
+  OrderDetailsModal,
   ProductFormModal,
   SideMenuModal,
   TrackOrderModal,
@@ -21,7 +22,8 @@ const ModalVisibility: FC = () => {
     sideMenuModalVisibility,
     categoryModalVisibility,
     trackOrderModalVisibility,
-    productFormModalVisibility
+    productFormModalVisibility,
+    getOrderDetailsModalVisibility,
   } = useAppSelector((state) => state.modal);
   const { handleAuthParam, handleTrackOrderParam, handleProductFormParam } =
     useModalVisibilityFeatures();
@@ -53,6 +55,7 @@ const ModalVisibility: FC = () => {
       {categoryModalVisibility && <CategoryMenu />}
       {trackOrderModalVisibility && <TrackOrderModal />}
       {productFormModalVisibility && <ProductFormModal />}
+      {getOrderDetailsModalVisibility && <OrderDetailsModal />}
     </>
   );
 };

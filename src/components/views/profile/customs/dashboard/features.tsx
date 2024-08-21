@@ -5,30 +5,27 @@ import { useTranslation } from "react-i18next";
 const { confirm } = Modal;
 
 const useDashboardFeatures = () => {
-   const { t } = useTranslation();
+  const { t } = useTranslation();
   const { signOut } = useAuth();
   const [messageApi, contextHolder] = message.useMessage();
 
   const logoutHandler = () => {
     confirm({
-      title: t('profile.log_out_message'),
+      title: t("profile.log_out_message"),
       icon: <ExclamationCircleFilled />,
-      content:
-        "",
-      okText: t('profile.log_out'),
-      cancelText: t('profile.cancelText'),
+      content: "",
+      okText: t("profile.log_out"),
+      cancelText: t("profile.cancelText"),
       okType: "danger",
       async onOk() {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            Math.random() > 0.5 ? resolve(signOut()) : reject;
-          }, 1000);
-        }).catch(() =>
+        try {
+          signOut();
+        } catch (error) {
           messageApi.open({
             type: "error",
-            content: t('profile.log_out_error'),
-          })
-        );
+            content: t("profile.log_out_error"),
+          });
+        }
       },
       onCancel() {},
     });

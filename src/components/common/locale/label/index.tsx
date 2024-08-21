@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { MdOutlineDone } from "react-icons/md";
 import { LabelT } from "../types";
 
 export const Label = ({ item }: { item: LabelT }): JSX.Element => {
@@ -18,6 +19,9 @@ export const Label = ({ item }: { item: LabelT }): JSX.Element => {
     >
       <img src={src} alt={alt} className='inline-block w-[30px] h-[20px]' />
       <span>{label}</span>
+      {i18n.language === key && (
+        <MdOutlineDone className='text-[20px] font-bold text-green' />
+      )}
     </div>
   );
 };

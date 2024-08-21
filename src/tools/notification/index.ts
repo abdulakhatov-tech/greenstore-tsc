@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { notification } from "antd";
-import { closeNotification } from "@redux/slices/notification";
+
 import { RootState } from "@redux/store";
+import { closeNotification } from "@redux/slices/notification";
 import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
 import { NotificationPropsI, NotificationTypeT } from "@type/index";
 

@@ -19,7 +19,7 @@ const MyProductsComponent: React.FC = () => {
         <Typography size='h4' className='font-medium mb-5'>
           {t("profile.my_products")}
         </Typography>
-        <Button type='button' variant='secondary' onClick={()=>setParam('action-type', 'add')}>
+        <Button type='button' variant='secondary' onClick={()=>setParam('action-type', 'add')} disabled={isLoading}>
           {t("profile.add_new")}
         </Button>
       </div>
