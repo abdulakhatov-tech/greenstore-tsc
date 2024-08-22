@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-interface ProductStateI {
-    product: any;  
-}
+import { ProductStateI } from "./types";
 
 const initialState: ProductStateI = {
     product: null,

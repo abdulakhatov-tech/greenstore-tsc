@@ -21,7 +21,6 @@ const PlantForm: React.FC = () => {
   const {
     onFinish,
     onCancel,
-    actionType,
     loading,
     form,
     handleChange,
@@ -35,6 +34,7 @@ const PlantForm: React.FC = () => {
     setDetailedImage3FileList,
     setDetailedImage4FileList,
     setMainImageFileList,
+    allImagesUploaded
   } = useProductFormModalFeatures();
 
   const uploadProps: UploadProps<any> = {
@@ -108,7 +108,7 @@ const PlantForm: React.FC = () => {
         <Input.TextArea
           showCount
           style={{ height: "200px", resize: "none" }}
-          maxLength={5000}
+          maxLength={10000}
           placeholder={t("modal.plant_form_modal.description")}
         />
       </Form.Item>
@@ -219,10 +219,8 @@ const PlantForm: React.FC = () => {
           {t("modal.plant_form_modal.cancel")}
         </Button>
 
-        <Button type='submit' variant='primary' loading={loading}>
-          {actionType === "add"
-            ? t("modal.plant_form_modal.add")
-            : t("modal.plant_form_modal.save")}
+        <Button type='submit' variant='primary' loading={loading} disabled={!allImagesUploaded}>
+          {t("modal.plant_form_modal.add")}
         </Button>
       </div>
     </Form>

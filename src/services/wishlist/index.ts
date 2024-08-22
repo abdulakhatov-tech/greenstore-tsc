@@ -41,17 +41,17 @@ const useWishlistService = () => {
 
       const { _id, category } = product;
 
+      queryClient.setQueryData(['wishlist'], (prev: any) => {
+        console.log(prev, product, 'previous')
+        return [...prev, product]
+      } );
+      
       const response = await axios({
         method: "POST",
         url: "/user/create-wishlist",
         data: { flower_id: _id, route_path: category },
       });
 
-      queryClient.setQueryData(['wishlist'], (prev: any) => {
-        console.log(prev, product, 'previous')
-        return [...prev, product]
-      } );
-      
       return response?.data;
     },
     onSuccess: () => {
@@ -83,12 +83,6 @@ const useWishlistService = () => {
     mutationFn: async (product: ProductPropsI) => {
       const { _id } = product;
 
-      const response = await axios({
-        method: "DELETE",
-        url: `/user/delete-wishlist`,
-        data: { _id }
-      });
-
       queryClient.setQueryData(['wishlist'], (prev: ProductPropsI[]) => {
         return prev.filter(item => item?._id !== _id)
       })
@@ -99,6 +93,12 @@ const useWishlistService = () => {
           wishlist: user?.wishlist?.filter((item: any) => item?._id!== _id),
         }
       })
+
+      const response = await axios({
+        method: "DELETE",
+        url: `/user/delete-wishlist`,
+        data: { _id }
+      });      
 
       return response?.data;
     },

@@ -327,6 +327,7 @@
     "my_products": "Мои продукты",
     "products": "Продукты",
     "delete_description": "Вы уверены, что хотите удалить этот цветок?",
+    "price": "Цена",
     "track_order": {
       "title": "Отследить ваш заказ",
       "order_number": "Номер заказа",

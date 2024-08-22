@@ -1,28 +1,51 @@
+import { useAuth } from "@config/auth";
+import { useAppDispatch } from "@hooks/useRedux";
+import { toggleProductFormModalVisibility } from "@redux/slices/modal";
 import useMyProductsService from "@services/my-products";
 import { useNotification } from "@tools/notification/notification";
 import { ProductPropsI } from "@type/index";
 
 const useMyProductsFeatures = () => {
-    const { myProducts, removeProduct } = useMyProductsService();
-   const dispatchNotification = useNotification();
+  const { myProducts, removeProduct } = useMyProductsService();
+  const dispatch = useAppDispatch();
+  const dispatchNotification = useNotification();
+  const { getUser } = useAuth();
 
-    const removeProductHander = async(product: ProductPropsI) => {
-        await new Promise((resolve) => {
-          setTimeout(() => resolve(removeProduct(product)), 3000);
-        });
-    }
+  const { user } = getUser();
 
-    const editProductHandler = () => {
+  const removeProductHander = async (product: ProductPropsI) => {
+    await new Promise((resolve) => {
+      setTimeout(() => resolve(removeProduct(product)), 200);
+    });
+  };
+
+  const addProductHandler = () => {
+    if (!user?.permission?.create) {
       dispatchNotification({
-        type: "error",
-        message: "Editing",
-        description: "Editing product is not allowed"
-      })
-      // setParam('action-type', 'edit');
-      // dispatch(setProduct(product))
-    }
+        type: "info",
+        message: "Creating product is not allowed.",
+        description: "You don't have permission to create product.",
+      });
 
-  return {removeProductHander, editProductHandler, ...myProducts};
+      return;
+    }
+    dispatch(toggleProductFormModalVisibility(true));
+  };
+
+  const editProductHandler = () => {
+    dispatchNotification({
+      type: "error",
+      message: "Editing is not working currently. ",
+      description: "Coming soon...",
+    });
+  };
+
+  return {
+    removeProductHander,
+    editProductHandler,
+    addProductHandler,
+    ...myProducts,
+  };
 };
 
 export default useMyProductsFeatures;
