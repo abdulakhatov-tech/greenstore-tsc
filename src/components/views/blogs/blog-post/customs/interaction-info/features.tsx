@@ -29,10 +29,10 @@ const useInteractionsInfoFeatures = () => {
   const IMAGE_URL = post?.image_url || `${VITE_BASE_URL}/default-image.jpg`; // Replace with your image logic
 
   const socialPlatforms = [
-    { key: '1', Component: TelegramShareButton, Icon: TelegramIcon, labelKey: 'telegram' },
-    { key: '2', Component: LinkedinShareButton, Icon: LinkedinIcon, labelKey: 'linkedin' },
+    { key: '1', Component: TelegramShareButton, Icon: TelegramIcon, labelKey: 'telegram', supportsImage: true },
+    { key: '2', Component: LinkedinShareButton, Icon: LinkedinIcon, labelKey: 'linkedin', supportsImage: true },
     { key: '3', Component: EmailShareButton, Icon: EmailIcon, labelKey: 'email' },
-    { key: '4', Component: WhatsappShareButton, Icon: WhatsappIcon, labelKey: 'whatsapp' },
+    { key: '4', Component: WhatsappShareButton, Icon: WhatsappIcon, labelKey: 'whatsapp', supportsImage: true },
     { key: '5', Component: TwitterShareButton, Icon: TwitterIcon, labelKey: 'twitter', supportsImage: true },
     { key: '6', Component: FacebookShareButton, Icon: FacebookIcon, labelKey: 'facebook', supportsImage: true },
   ];
