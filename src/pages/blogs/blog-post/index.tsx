@@ -15,15 +15,17 @@ const BlogPost = () => {
   return (
     <>
       <Helmet>
-        <title>{post?.title}</title>
-        <meta property='og:title' content={post?.title ?? ''} />
-        <meta property='og:description' content={post?.short_description ?? ''} />
-        <meta property='og:image' content={author?.profile_photo} />
+        <title>{post?.title  || 'GreenStore - Blog Post'}</title>
+        <meta property='og:title' content={post?.title || 'GreenStore - Check out this Blog Post'} />
+        <meta property='og:description' content={post?.short_description || 'Discover insightful articles and updates on our blog. Stay informed and inspired with GreenStore.'} />
+        <meta property='og:image' content={author?.profile_photo || `${VITE_BASE_URL}/default-image.jpg`} />
         <meta property='og:url' content={`${VITE_BASE_URL}/blog/${post?.created_by}/${post?._id}`} />
+        <meta property="og:type" content="article" />
+
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={post?.title ?? ''} />
-        <meta name='twitter:description' content={post?.short_description ?? ''} />
-        <meta name='twitter:image' content={author?.profile_photo} />
+        <meta name='twitter:title' content={post?.title || 'GreenStore - Blog Post'} />
+        <meta name='twitter:description' content={post?.short_description || 'Discover insightful articles and updates on our blog. Stay informed and inspired with GreenStore.'} />
+        <meta name='twitter:image' content={author?.profile_photo || `${VITE_BASE_URL}/default-image.jpg`} />
       </Helmet>
 
       <BlogPostComponent />
