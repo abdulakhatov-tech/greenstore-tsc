@@ -44,6 +44,15 @@ footer {
   text-overflow: ellipsis; /* Adds "..." at the end of the truncated text */
 }
 
+.blog-post-multiple-lines {
+  display: -webkit-box; /* Needed for proper multi-line truncation */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4; /* Limits the text to 5 lines */
+  overflow: hidden; /* Hides the overflowing text */
+  text-overflow: ellipsis; /* Adds "..." at the end of the truncated text */
+}
+
+
 /* custom select style */
 .ant-select-selector {
   border-color: #46a358 !important;
@@ -71,6 +80,10 @@ footer {
     font-size: 9px;
     line-height: 14px;
   }
+}
+
+.shadow {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 /* skeleton */

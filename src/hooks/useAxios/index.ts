@@ -1,6 +1,6 @@
 import useSearchParamsHook from "@hooks/useSearchParams";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom"; 
+// import { useNavigate } from "react-router-dom";
 import { AxiosProp } from "./types";
 import { useAuth } from "@config/auth";
 import Cookies from "js-cookie";
@@ -12,9 +12,9 @@ const useAxios = () => {
 
   const userCookie = Cookies.get("user");
 
-const access_token = userCookie
-  ? JSON.parse(userCookie)?._id
-  : '64bebc1e2c6d3f056a8c85b7';
+  const access_token = userCookie
+    ? JSON.parse(userCookie)?._id
+    : "64bebc1e2c6d3f056a8c85b7";
 
   const request = async ({
     method = "GET",
@@ -55,7 +55,7 @@ const access_token = userCookie
       return response;
     } catch (error: any) {
       if (error.response.status === 401) {
-        setParam('auth', 'sign-in')
+        setParam("auth", "sign-in");
       } else {
         // navigate("/error");
       }

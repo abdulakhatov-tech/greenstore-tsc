@@ -453,5 +453,21 @@
     "newsletter_success_description": "Siz bizning axborot byulletenimizga muvaffaqiyatli obuna bo'ldingiz",
     "newsletter_error_message": "Axborot byulleteniga obuna bo'lishda xatolik yuz berdi",
     "newsletter_error_description": "Axborot byulleteniga obuna bo'lishda kutilmagan xatolik yuz berdi"
-  }
+  },
+  "blog": {
+  "my_feed": "Mening Lentalarim",
+  "search": "Qidirish",
+  "load_more": "Ko'proq Yuklash",
+  "load_less": "Kamroq Yuklash",
+  "followers": "Obunachilar",
+  "follow": "Obuna Bo'lish",
+  "unfollow": "Obunani Bekor Qilish",
+  "view": "Ko'rish",
+  "telegram": "Telegram",
+  "linkedin": "Linkedin",
+  "email": "Email",
+  "whatsapp": "Whatsapp",
+  "twitter": "Twitter",
+  "facebook": "Facebook"
+}
 }

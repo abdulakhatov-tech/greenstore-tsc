@@ -1,0 +1,25 @@
+
+#blog-post .avatar-skeleton svg {
+    width: 25px !important;
+    height: 25px !important;
+}
+
+#blog-post .name-skeleton {
+    width: 270px;
+    height: 25px;
+}
+
+#blog-post .followers-skeleton {
+    width: 20px;
+    height: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    #blog-post .name-skeleton {
+        width: 200px;
+    }
+
+    #blog-post .followers-skeleton {
+        width: 130px;
+    }
+}
