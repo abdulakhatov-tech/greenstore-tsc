@@ -26,7 +26,7 @@ const useInteractionsInfoFeatures = () => {
     ? encodeURI(`${VITE_BASE_URL}/blog/${post.created_by}/${post._id}`)
     : VITE_BASE_URL;
 
-  const IMAGE_URL = post?.image_url || `${VITE_BASE_URL}/default-image.jpg`; // Replace with your image logic
+  const IMAGE_URL = post?.image_url || `/public/default-image.jpg`; // Replace with your image logic
 
   const socialPlatforms = [
     { key: '1', Component: TelegramShareButton, Icon: TelegramIcon, labelKey: 'telegram', supportsImage: true },
