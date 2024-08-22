@@ -453,5 +453,21 @@
       "newsletter_success_description": "You have successfully subscribed to our newsletter",
       "newsletter_error_message": "Failed to subscribe to newsletter",
       "newsletter_error_description": "An unexpected error occurred while subscribing to our newsletter"
+   },
+   "blog": {
+    "my_feed": "My Feed",
+    "search": "Search",
+    "load_more": "Load More",
+    "load_less": "Load Less",
+    "followers": "Followers",
+    "follow": "Follow",
+    "unfollow": "Unfollow",
+    "view": "View",
+    "telegram": "Telegram",
+    "linkedin": "Linkedin",
+    "email": "Email",
+    "whatsapp": "Whatsapp",
+    "twitter": "Twitter",
+    "facebook": "Facebook"
    }
 }

@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { store } from "@redux/store";
 import SuspenseWrapper from "@tools/suspense-wrapper";
 import "@locale";
+import { HelmetProvider } from "react-helmet-async";
 
 // the type for the props that the AppProvider will receive
 interface AppProviderProps {
@@ -18,16 +19,18 @@ const queryClient = new QueryClient();
 
 const AppProvider: FC<AppProviderProps> = ({ children }) => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Provider store={store}>
-          <SuspenseWrapper>
-            {children}
-            <ReactQueryDevtools initialIsOpen={false} />
-          </SuspenseWrapper>
-        </Provider>
-      </BrowserRouter>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Provider store={store}>
+            <SuspenseWrapper>
+              {children}
+              <ReactQueryDevtools initialIsOpen={false} />
+            </SuspenseWrapper>
+          </Provider>
+        </BrowserRouter>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 };
 

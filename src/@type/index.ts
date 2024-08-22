@@ -234,3 +234,13 @@ export interface AddressDataI {
   email?: string;
   phone_number?: string;
 }
+
+export type BlogCardType = {
+  title: string;
+  _id: string;
+  content: string;
+  short_description: string;
+  created_by: string;
+  views: number;
+  reaction_length: number;
+};

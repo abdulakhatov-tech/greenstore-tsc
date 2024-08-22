@@ -7,13 +7,17 @@ interface QueryHandlerProps {
   options?: object;
   retry?: number;
   onSuccess?: () => void;
-  enabled?: any
+  enabled?: any;
+  staleTime?: number;
+  select?: any
 }
 
 const useQueryHandler = ({
   queryKey,
   queryFn,
   options = {},
+  staleTime,
+  select,
 }: QueryHandlerProps) => {
   const queryRequest = useQuery({
     queryKey,
@@ -23,6 +27,8 @@ const useQueryHandler = ({
       refetchOnWindowFocus: false,
       ...options,
     },
+    staleTime,
+    select,
   });
 
   return { ...queryRequest };

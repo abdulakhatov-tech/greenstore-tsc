@@ -17,7 +17,7 @@ const sizeClasses: SizeClassesT = {
   large: 'px-[18px] sm:px-[20px] py-[6px] sm:py-[8px] text-[16px] sm:text-[18px] leading-6',
 }
 
-const textStyle:string = "font-medium m-1";
+const textStyle:string = "font-medium";
 const boxStyle:string =
   "flex gap-2 items-center justify-center rounded-md active:scale-[0.98] transition-all border-[1px]";
 

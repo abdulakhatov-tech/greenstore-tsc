@@ -453,5 +453,21 @@
     "newsletter_success_description": "Вы успешно подписались на нашу рассылку",
     "newsletter_error_message": "Не удалось подписаться на рассылку",
     "newsletter_error_description": "Произошла непредвиденная ошибка при подписке на нашу рассылку"
+  },
+  "blog": {
+    "my_feed": "Моя Лента",
+    "search": "Поиск",
+    "load_more": "Загрузить Ещё",
+    "load_less": "Загрузить Меньше",
+    "followers": "Подписчики",
+    "follow": "Подписаться",
+    "unfollow": "Отписаться",
+    "view": "Просмотр",
+    "telegram": "Telegram",
+    "linkedin": "Linkedin",
+    "email": "Email",
+    "whatsapp": "Whatsapp",
+    "twitter": "Twitter",
+    "facebook": "Facebook"
   }
 }

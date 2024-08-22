@@ -1,0 +1,22 @@
+
+#blog-skeleton .title {
+    width: 100% !important;
+    margin-bottom: 19px;
+    height: 30px;
+
+}
+
+#blog-skeleton .description-1 {
+    width: 100% !important;
+    height: 20px;
+}
+
+#blog-skeleton .description-2 {
+    width: 90% !important;
+    height: 20px;
+}
+
+#blog-skeleton .description-3 {
+    width: 80% !important;
+    height: 20px;
+}

@@ -15,7 +15,7 @@ const Shop = lazy(() => import("@pages/shop"));
 const ProductDetails = lazy(() => import("@pages/product-details"));
 const ShoppingCart = lazy(() => import("@pages/shopping-cart"));
 const Checkout = lazy(() => import("@pages/checkout"));
-const PlantCare = lazy(() => import("@pages/plant-care"));
+// const PlantCare = lazy(() => import("@pages/plant-care"));
 const Blogs = lazy(() => import("@pages/blogs"));
 const Profile = lazy(() => import("@pages/profile"));
 const AccountDetails = lazy(() => import("@pages/profile/account-details"));
@@ -25,6 +25,7 @@ const Wishlist = lazy(() => import("@pages/profile/wishlist"));
 const TrackOrder = lazy(() => import("@pages/profile/track-order"));
 const NotFound = lazy(() => import("@pages/not-found"));
 const Error = lazy(() => import("@pages/error"));
+const BlogPost = lazy(() => import("@pages/blogs/blog-post"));
 
 const useAppRoutes = () => {
   const { t } = useTranslation();
@@ -159,23 +160,23 @@ const useAppRoutes = () => {
       children: shopRoutes,
       isPrivate: true,
     },
+    // {
+    //   _id: generateId(),
+    //   path: "/plant-care",
+    //   Component: PlantCare,
+    //   label: t("routes.plant_care") ?? "Plant Care",
+    //   hidden: false,
+    //   meta: {
+    //     title: t("meta.plant_care.title") ?? "Plant Care",
+    //     description:
+    //       t("meta.plant_care.description") ??
+    //       "Learn about the best plants for your home",
+    //   },
+    //   isPrivate: true,
+    // },
     {
       _id: generateId(),
-      path: "/plant-care",
-      Component: PlantCare,
-      label: t("routes.plant_care") ?? "Plant Care",
-      hidden: false,
-      meta: {
-        title: t("meta.plant_care.title") ?? "Plant Care",
-        description:
-          t("meta.plant_care.description") ??
-          "Learn about the best plants for your home",
-      },
-      isPrivate: true,
-    },
-    {
-      _id: generateId(),
-      path: "/blogs",
+      path: "/blog",
       Component: Blogs,
       label: t("routes.blogs") ?? "Blogs",
       hidden: false,
@@ -186,6 +187,22 @@ const useAppRoutes = () => {
           "Latest news and updates from Green Store",
       },
       isPrivate: true,
+      hasChildren: true,
+      children: [
+        {
+          _id: generateId(),
+          path: "/blog/:authorId/:blogId",
+          Component: BlogPost,
+          label: t("routes.blog_details") ?? "Blog Details",
+          hidden: true,
+          meta: {
+            title: t("meta.blog_details.title") ?? "Blog Details",
+            description:
+              t("meta.blog_details.description") ??
+              "Read more about this blog post",
+          },
+        }
+      ]
     },
     {
       _id: generateId(),
@@ -228,6 +245,7 @@ const useAppRoutes = () => {
       },
       isPrivate: true,
     },
+    
   ];
 
   return { appRoutes, dashboardRoutes };

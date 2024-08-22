@@ -1,0 +1,19 @@
+#blog-post .title-skeleton {
+    width: 500px !important;
+}
+
+#blog-post .description-skeleton:nth-child(odd) {
+    width: 100% !important;
+    height: 20px;
+}
+
+#blog-post .description-skeleton:nth-child(even) {
+    width: 90% !important;
+    height: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    #blog-post .title-skeleton {
+        width: 100% !important;
+    }
+}
