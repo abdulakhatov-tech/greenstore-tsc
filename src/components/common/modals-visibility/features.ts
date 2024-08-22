@@ -1,4 +1,4 @@
-import { toggleAuthModalVisibility, toggleProductFormModalVisibility, toggleTrackOrderModalVisibility } from "@redux/slices/modal";
+import { toggleAuthModalVisibility, toggleTrackOrderModalVisibility } from "@redux/slices/modal";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import { ModalVisibilityFeaturesI } from "./types";
 import { useAppDispatch } from "@hooks/useRedux";
@@ -6,7 +6,6 @@ import { AuthQuery } from "@type/index";
 
 const AUTH_QUERY_DEFAULT = AuthQuery.SignIn;
 const TRACK_ORDER_QUERY_DEFAULT = "track-order";
-const PRODUCT_ACTION_TYPE = 'edit'
 
 const useModalVisibilityFeatures = ():ModalVisibilityFeaturesI => {
   const { setParam } = useSearchParamsHook();
@@ -39,17 +38,8 @@ const useModalVisibilityFeatures = ():ModalVisibilityFeaturesI => {
     dispatch(toggleTrackOrderModalVisibility(Boolean(trackOrderParam)));
   };
 
-  const handleProductFormParam = (actionType: string | null) => {
-    const isValidActionType = (actionType === 'edit' || actionType === 'add')
 
-    if(actionType && !isValidActionType) {
-      setParam('action-type',  PRODUCT_ACTION_TYPE)
-    }
-
-    dispatch(toggleProductFormModalVisibility(Boolean(actionType)))
-  } 
-
-  return { handleAuthParam, handleTrackOrderParam, handleProductFormParam };
+  return { handleAuthParam, handleTrackOrderParam };
 };
 
 export default useModalVisibilityFeatures;

@@ -17,7 +17,7 @@ const TrackOrderComponent = () => {
 
   return (
     <div>
-      <Typography size='h4' className='font-bold mb-5'>
+      <Typography size='h4' className='font-semibold mb-5'>
         { t('profile.track_order.title') }
       </Typography>
       <div className='flex flex-col gap-2'>

@@ -25,7 +25,7 @@ const ModalVisibility: FC = () => {
     productFormModalVisibility,
     orderDetailsModalVisibility,
   } = useAppSelector((state) => state.modal);
-  const { handleAuthParam, handleTrackOrderParam, handleProductFormParam } =
+  const { handleAuthParam, handleTrackOrderParam } =
     useModalVisibilityFeatures();
     const dispatch = useAppDispatch();
     
@@ -35,10 +35,9 @@ const ModalVisibility: FC = () => {
   useEffect(() => {
     handleAuthParam(getParam("auth"));
     handleTrackOrderParam(getParam("order"));
-    handleProductFormParam(getParam('action-type'))
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getParam("auth"), getParam("order"), getParam('action-type')]);
+  }, [getParam("auth"), getParam("order")]);
 
   useEffect(() => {
     if(isAbove767) {

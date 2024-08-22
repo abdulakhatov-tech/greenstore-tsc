@@ -327,6 +327,7 @@
     "my_products": "Mening mahsulotlarim",
     "products": "Mahsulotlar",
     "delete_description": "Ushbu gulni o'chirmoqchimisiz?",
+    "price": "Narx",
     "track_order": {
       "title": "Buyurtmangizni kuzatish",
       "order_number": "Buyurtma raqami",
