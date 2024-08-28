@@ -1,15 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { useAuth } from "@config/auth";
 import { AuthQuery, ProductPropsI } from "@type/index";
 import useShoppingCartService from "@services/shopping-cart";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import useWishlistService from "@services/wishlist";
+import { useAppSelector } from "@hooks/useRedux";
 
 const useProductCardFeatures = () => {
    const navigate = useNavigate();
-   const { isAuthed } = useAuth();
+  const { isAuthed } = useAppSelector(({ auth }) => auth);
    const { setParam } = useSearchParamsHook();
    const { addOrUpdateCartItem } = useShoppingCartService();
    const { wishlist, addCartItemToWishlist, removeFromWishlist } = useWishlistService();
@@ -21,7 +21,7 @@ const useProductCardFeatures = () => {
       );
 
    const addToWishlistHandlar = async(product: ProductPropsI) => {
-      if (!isAuthed()) {
+      if (!isAuthed) {
          setParam('auth', AuthQuery.SignIn);
          
          return;
@@ -33,7 +33,7 @@ const useProductCardFeatures = () => {
    }
 
    const removeFromWishlistHandler = async (product: ProductPropsI) => {
-      if (!isAuthed()) {
+      if (!isAuthed) {
          setParam('auth', AuthQuery.SignIn);
          
          return;
@@ -45,7 +45,7 @@ const useProductCardFeatures = () => {
     }
 
    const addToCartHandler = (product: ProductPropsI) => {
-      if (!isAuthed()) {
+      if (!isAuthed) {
          setParam('auth', AuthQuery.SignIn);
 
          return;
@@ -55,13 +55,13 @@ const useProductCardFeatures = () => {
    };
 
    const viewProductHandler = (product: ProductPropsI) => {
-      if (!isAuthed()) {
+      if (!isAuthed) {
          setParam('auth', AuthQuery.SignIn);
 
          return;
       }
-      
-      navigate(`/shop/product/${product?.category}/${product?._id}`);
+   
+      navigate(`/product/${product?.category}/${product?._id}`);
    };
 
    return { addToCartHandler, viewProductHandler, addToWishlistHandlar, removeFromWishlistHandler, isInWishlist, loading };

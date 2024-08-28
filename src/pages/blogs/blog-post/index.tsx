@@ -4,11 +4,11 @@ import useBlogsServices from "@services/blogs";
 import useUsersService from "@services/users";
 
 const BlogPost = () => {
-  const { blogById } = useBlogsServices();
-  const { user } = useUsersService();
+  const { getUserById } = useUsersService();
+  const { getBlogById } = useBlogsServices();
 
-  const { data: post } = blogById;
-  const { data: author } = user
+  const { data: post } = getBlogById;
+  const { data: author } = getUserById;
 
   const  VITE_BASE_URL = import.meta.env.VITE_BASE_URL
 

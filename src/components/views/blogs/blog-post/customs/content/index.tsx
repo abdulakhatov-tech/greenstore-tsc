@@ -5,8 +5,8 @@ import "./style.css";
 
 const Content: React.FC = () => {
   const isOnline = useOnlineStatus();
-  const { blogById } = useBlogsServices();
-  const { isLoading, isError, data } = blogById;
+  const { getBlogById } = useBlogsServices();
+  const { isLoading, isError, data } = getBlogById;
 
   const loading = isLoading || isError || !isOnline;
 

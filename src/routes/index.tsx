@@ -1,8 +1,11 @@
+import { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import useAppRoutes from "@utils/app-routes";
 import MainLayout from "@layout/main-layout";
 
+const NotFound = lazy(() => import("@pages/not-found"))
+const Error = lazy(() => import("@pages/error"));
 const AppRoutes = () => {
   const { appRoutes } = useAppRoutes();
 
@@ -49,6 +52,8 @@ const AppRoutes = () => {
           );
         })}
       </Route>
+      <Route path='/not-found' element={<NotFound />} />
+      <Route path='/error' element={<Error />} />
       <Route path='*' element={<Navigate to='/not-found' />} />
     </Routes>
   );

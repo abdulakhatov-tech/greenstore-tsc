@@ -1,10 +1,10 @@
-import useOnlineStatus from "@hooks/useOnlineStatus";
-import { CategoryList, DiscountImage, PriceRange } from "./customs";
-import useDiscountImageFeatures from "./customs/discount-image/features";
 import CustomSkeleton from "@tools/skeleton";
+import useOnlineStatus from "@hooks/useOnlineStatus";
+import useDiscountImageService from "@services/discount-image";
+import { CategoryList, DiscountImage, PriceRange } from "./customs";
 
 const Categories = () => {
-  const { imageLoading, error } = useDiscountImageFeatures();
+  const { isLoading, isError } = useDiscountImageService();
   const isOnline = useOnlineStatus();
 
   return (
@@ -14,7 +14,7 @@ const Categories = () => {
         <PriceRange />
       </div>
       <div className='w-full overflow-hidden flex items-center justify-center'>
-        {isOnline && !imageLoading && !error ? (
+        {isOnline && !isLoading && !isError ? (
           <DiscountImage />
         ) : (
           <CustomSkeleton

@@ -1,12 +1,13 @@
-import { FC, Fragment } from "react";
+import React from "react";
+
 import Intro from "./Intro";
 import IndoorPlantCollection from "./indoor-plant-collection";
 
-const HomeComponent:FC = () => {
-  return <Fragment>
+const HomeComponent:React.FC = () => {
+  return <>
     <Intro />
     <IndoorPlantCollection />
-  </Fragment>;
+  </>;
 };
 
 export default HomeComponent;

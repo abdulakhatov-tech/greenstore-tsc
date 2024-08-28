@@ -1,19 +1,18 @@
 import { useCallback, useEffect, useState } from "react";
 import { Form } from "antd";
 
-import { useAuth } from "@config/auth";
 import useAddressService from "@services/address";
-import { AddressFormValuesI, UserI } from "@type/index";
+import { AddressFormValuesI } from "@type/index";
+import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
+import { updateUser } from "@redux/slices/auth";
 
 const useAddressFormFeatures = () => {
+  const dispatch = useAppDispatch();
   const [form] = Form.useForm();
-  const { getUser, updateUser } = useAuth();
+  const { user } = useAppSelector(({ auth }) => auth);
   const { postAddress } = useAddressService();
 
   const [loading, setLoading] = useState<boolean>(false);
-
-  // Retrieve user from auth hook
-  const user = getUser().user as UserI;
 
   // Setting form fields when user data changes
   useEffect(() => {
@@ -40,7 +39,7 @@ const useAddressFormFeatures = () => {
 
       setLoading(true);
       await postAddress(userAddress);
-      updateUser({
+      dispatch(updateUser({
         setter: {
           ...user,
           name: String(userAddress?.name),
@@ -56,10 +55,11 @@ const useAddressFormFeatures = () => {
             zip: String(userAddress?.zip),
           },
         },
-      });
+      }));
 
       setLoading(false);
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [user, postAddress, updateUser]
   );
   return { form, onFinish, loading };

@@ -15,8 +15,6 @@ const useProductFormModalFeatures = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [allImagesUploaded, setAllImagesUploaded] = useState<boolean>(false);
 
-  console.log(!allImagesUploaded, 'allImagesUploaded')
-
   const [mainImageFileList, setMainImageFileList] = useState<any[]>([]);
   const [detailedImage1FileList, setDetailedImage1FileList] = useState<any[]>(
     []

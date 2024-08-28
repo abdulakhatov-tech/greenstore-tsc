@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 import { Form, Input, Select, Upload } from "antd";
 
 import Button from "@generic/button";
-import { useAuth } from "@config/auth";
 import useFormRules from "@utils/form";
 import { UPLOAD_URL } from "@utils/index";
 import FormField from "@generic/form-field";
@@ -11,11 +10,12 @@ import useCategoryService from "@services/category";
 import useProductFormModalFeatures from "../../features";
 
 import type { UploadProps } from "antd/es/upload/interface";
+import { useAppSelector } from "@hooks/useRedux";
 
 const PlantForm: React.FC = () => {
   const { t } = useTranslation();
 
-  const { getToken } = useAuth();
+  const { token } = useAppSelector(({ auth }) => auth);
   const { plantFormRules } = useFormRules();
   const { isLoading, data } = useCategoryService();
   const {
@@ -45,7 +45,7 @@ const PlantForm: React.FC = () => {
     className: "w-full",
     data: { type: "img" },
     headers: {
-      Authorization: `Bearer ${getToken()}`,
+      Authorization: `Bearer ${token}`,
     },
     accept: ".png,.jpg,.jpeg",
     maxCount: 1,

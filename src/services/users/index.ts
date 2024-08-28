@@ -6,7 +6,7 @@ const useUsersService = () => {
   const axios = useAxios();
   const { authorId } = useParams();
 
-  const user = useQueryHandler({
+  const getUserById = useQueryHandler({
     queryKey: ["user", authorId],
     queryFn: async () => {
       const { data } = await axios({
@@ -17,7 +17,7 @@ const useUsersService = () => {
     },
   });
 
-  return { user };
+  return { getUserById };
 };
 
 export default useUsersService;

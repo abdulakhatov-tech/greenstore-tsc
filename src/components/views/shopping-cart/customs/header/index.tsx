@@ -9,12 +9,8 @@ const Header:FC = () => {
          path: "/",
       },
       {
-         breadcrumbName: "Shop",
-         path: "/shop",
-      },
-      {
          breadcrumbName: "Shopping Cart",
-         path: `/shop/shopping-cart`,
+         path: `/shopping-cart`,
       },
    ];
 

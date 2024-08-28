@@ -17,7 +17,7 @@ const CategoryMenu: FC = () => {
   return (
     <Modal open={categoryModalVisibility} onCancel={onCancelHandler} footer={null}>
       <div className='px-[0px] py-[20px] flex flex-col gap-[36px]'>
-        <CategoryList />
+        <CategoryList isMobile />
         <PriceRange />
       </div>
     </Modal>

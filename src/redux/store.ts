@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { layout, modal, notification, product, relatedProducts, search, shoppingCart } from "./slices";
+import { auth, layout, modal, notification, product, relatedProducts, search, shoppingCart } from "./slices";
 
 export const store = configureStore({
   reducer: {
@@ -9,7 +9,8 @@ export const store = configureStore({
     layout,
     shoppingCart,
     relatedProducts,
-    product
+    product,
+    auth
   },
 });
 

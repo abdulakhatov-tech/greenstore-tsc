@@ -1,11 +1,10 @@
+import { toggleSideMenuModalVisibility } from "@redux/slices/modal";
 import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
 import useSearchParamsHook from "@hooks/useSearchParams";
-import { toggleSideMenuModalVisibility } from "@redux/slices/modal";
-import { useAuth } from "@config/auth";
+import { signOut } from "@redux/slices/auth";
 import { AuthQuery } from "@type/index";
 
 const useSideMenuModalFeatures = () => {
-  const { signOut } = useAuth();
   const dispatch = useAppDispatch();
   const { setParam } = useSearchParamsHook();
   const { sideMenuModalVisibility } = useAppSelector((state) => state.modal);
@@ -19,7 +18,7 @@ const useSideMenuModalFeatures = () => {
   }
 
   const handleSignOut = () => {
-    signOut();
+    dispatch(signOut())
     onClose();
   }
 

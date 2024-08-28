@@ -452,7 +452,23 @@
       "newsletter_success_message": "Subscribed to newsletter successfully",
       "newsletter_success_description": "You have successfully subscribed to our newsletter",
       "newsletter_error_message": "Failed to subscribe to newsletter",
-      "newsletter_error_description": "An unexpected error occurred while subscribing to our newsletter"
+      "newsletter_error_description": "An unexpected error occurred while subscribing to our newsletter",
+      "blog_get_blogs_message": "Failed to retrieve blogs",
+      "blog_get_blogs_description": "An unexpected error occurred while retrieving blogs",
+      "blog_delete_success_message": "The blog was deleted successfully",
+      "blog_delete_success_description": "The blog was successfully deleted",
+      "blog_delete_error_message": "Something went wrong",
+      "blog_delete_error_description": "An unexpected error occurred while deleting the blog post",
+      "blog_create_success_message": "Blog created successfully",
+      "blog_create_success_description": "You have successfully created a new blog post",
+      "blog_create_error_message": "Failed to create blog",
+      "blog_create_error_description": "An unexpected error occurred while creating a new blog post",
+      "blog_edit_success_message": "The blog was successfully updated",
+      "blog_edit_success_description": "You have successfully updated the blog post",
+      "blog_edit_error_message": "Failed to edit blog",
+      "blog_edit_error_description": "An unexpected error occurred while editing the blog post",
+      "blog_view_error_message": "Something went wrong!",
+      "blog_view_error_description": "An unexpected error occurred"
    },
    "blog": {
     "my_feed": "My Feed",
@@ -468,6 +484,27 @@
     "email": "Email",
     "whatsapp": "Whatsapp",
     "twitter": "Twitter",
-    "facebook": "Facebook"
+    "facebook": "Facebook",
+    "intro": {
+      "title": "Monetize your content with",
+      "description": "Greenshop - a platform for buying and selling, publishing and monetizing all types of flowers: acrticles, notes, video, photos, podcasts or songs.",
+      "join": "Join Greenstore"
+    },
+    "new_article": "New Article",
+    "edit": "Edit",
+    "save": "Save",
+    "create": "Create",
+    "form": {
+      "title": "Title",
+      "short_description": "Short description",
+      "content": "Content",
+      "title_error_message": "Please enter title!",
+      "short_description_error_message": "Please enter short description!",
+      "content_error_message": "Please enter content!"    
+    },
+    "delete": "Delete",
+    "sure": "Are you sure to delete this post?",
+    "ok_text": "Yes",
+    "cancel_text": "No"
    }
 }

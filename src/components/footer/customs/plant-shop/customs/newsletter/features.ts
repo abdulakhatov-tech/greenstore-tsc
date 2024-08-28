@@ -1,46 +1,24 @@
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { FormEvent, useState } from "react";
 
-import useAxios from "@hooks/useAxios";
-import { useNotification } from "@tools/notification/notification";
+import useEmailSubscripition from "@services/email-subscription";
 
 const useNewsletterFeatures = () => {
-  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
-  const axios = useAxios();
-  const dispatchNotification = useNotification();
+  const { subscribeToNewsletter } = useEmailSubscripition();
 
-  const onSubmit = async (e: any) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const email = (e.target as HTMLFormElement).elements[0] as HTMLInputElement;
+
+    setLoading(true);
     try {
-      setLoading(true);
-      const response = await axios({
-        method: "POST",
-        url: "/features/email-subscribe",
-        data: { email: e.target[0].value },
-      });
-
-      dispatchNotification({
-        type: "success",
-        message: t("notification.newsletter_success_message"),
-        description:
-          response?.data?.extraMessage ??
-          t("notification.newsletter_success_description"),
-      });
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error
-          ? error.message
-          : t("notification.newsletter_error_message");
-
-      dispatchNotification({
-        type: "error",
-        message: errorMessage,
-        description: t("notification.newsletter_error_description"),
-      });
+      await subscribeToNewsletter({ email: email.value });
+      email.value = ''
+      
+    } catch (error: any) {
+      throw new Error(error);
     } finally {
       setLoading(false);
-      e.target.reset();
     }
   };
 

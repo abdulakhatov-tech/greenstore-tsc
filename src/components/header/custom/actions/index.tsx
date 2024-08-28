@@ -1,14 +1,12 @@
 import { Avatar, Badge, Tooltip } from "antd";
 import {
   LoginOutlined,
-  SearchOutlined,
   ShoppingCartOutlined,
   AlignRightOutlined,
   HeartOutlined,
 } from "@ant-design/icons";
 
 import Button from "@generic/button";
-import { useAuth } from "@config/auth";
 import { useTranslation } from "react-i18next";
 import Locale from "@components/common/locale";
 import { useAppSelector } from "@hooks/useRedux";
@@ -17,28 +15,37 @@ import useWishlistService from "@services/wishlist";
 
 const Actions = () => {
   const { t } = useTranslation();
-  const { isAuthed, getUser } = useAuth();
-  const { handleSearch, handleAuth, handleUser, handleSideMenu, handleShoppingCart, handleWishlist } =
-    useHeaderFeatures();
+  const { isAuthed, user } = useAppSelector(({ auth }) => auth);
+  const {
+    handleAuth,
+    handleUser,
+    handleSideMenu,
+    handleShoppingCart,
+    handleWishlist,
+  } = useHeaderFeatures();
   const { cart } = useAppSelector((state) => state.shoppingCart);
   const { wishlist } = useWishlistService();
 
   return (
     <div className='flex items-center gap-4 sm:gap-5 md:gap-6'>
-      <Tooltip color='#46A358' title={t("header.search")}>
-        <SearchOutlined
-          onClick={handleSearch}
-          className='cursor-pointer text-[20px] md:text-[22px] hover:text-green'
-        />
-      </Tooltip>
       <Tooltip color='#46A358' title={t("header.shopping_cart")}>
         <Badge count={cart?.length ?? 0} overflowCount={9} color='#46A358'>
-          <ShoppingCartOutlined onClick={handleShoppingCart} className='cursor-pointer text-[20px] md:text-[22px] hover:text-green' />
+          <ShoppingCartOutlined
+            onClick={handleShoppingCart}
+            className='cursor-pointer text-[20px] md:text-[22px] hover:text-green'
+          />
         </Badge>
       </Tooltip>
       <Tooltip color='#46A358' title={t("header.favourites")}>
-        <Badge count={wishlist?.data?.length ?? 0} overflowCount={9} color='#46A358'>
-          <HeartOutlined onClick={handleWishlist} className='cursor-pointer text-[20px] md:text-[22px] hover:text-green' />
+        <Badge
+          count={wishlist?.data?.length ?? 0}
+          overflowCount={9}
+          color='#46A358'
+        >
+          <HeartOutlined
+            onClick={handleWishlist}
+            className='cursor-pointer text-[20px] md:text-[22px] hover:text-green'
+          />
         </Badge>
       </Tooltip>
       <Locale />
@@ -47,23 +54,19 @@ const Actions = () => {
         className='text-[20px] md:text-[23px] text-black block lg:hidden cursor-pointer hover:text-green'
       />
 
-      {isAuthed() ? (
+      {isAuthed ? (
         <Tooltip
-          title={`${getUser()?.user?.name} ${getUser()?.user?.surname}`}
+          title={`${user?.name} ${user?.surname}`}
           className='hidden md:block'
         >
           <div
             onClick={handleUser}
             className='border-2  border-green rounded-full'
           >
-            {getUser()?.user?.profile_photo ? (
-              <Avatar
-                src={getUser()?.user?.profile_photo}
-                alt={getUser()?.user?.name}
-                size={30}
-              />
+            {user?.profile_photo ? (
+              <Avatar src={user?.profile_photo} alt={user?.name} size={30} />
             ) : (
-              <Avatar>{getUser()?.user?.name?.slice(0, 1)}</Avatar>
+              <Avatar>{user?.name?.slice(0, 1)}</Avatar>
             )}
           </div>
         </Tooltip>

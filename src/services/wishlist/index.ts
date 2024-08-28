@@ -1,21 +1,22 @@
 import { useTranslation } from "react-i18next";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-import { useAuth } from "@config/auth";
 import useAxios from "@hooks/useAxios";
 import { ProductPropsI } from "@type/index";
 import useQueryHandler from "@hooks/useQueryHandler";
 import { useNotification } from "@tools/notification/notification";
+import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
+import { updateUser } from "@redux/slices/auth";
 
 const useWishlistService = () => {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
   const queryClient = useQueryClient();
 
   const axios = useAxios();
-  const { getUser, updateUser } = useAuth();
+  
+  const { user } = useAppSelector(({ auth }) => auth);
   const dispatchNotification = useNotification(); 
-
-  const { user } = getUser();
 
   const wishlist = useQueryHandler({
     queryKey: ["wishlist"],
@@ -42,7 +43,6 @@ const useWishlistService = () => {
       const { _id, category } = product;
 
       queryClient.setQueryData(['wishlist'], (prev: any) => {
-        console.log(prev, product, 'previous')
         return [...prev, product]
       } );
       
@@ -87,12 +87,12 @@ const useWishlistService = () => {
         return prev.filter(item => item?._id !== _id)
       })
 
-      updateUser({
+      dispatch(updateUser({
         setter: {
           ...user,
           wishlist: user?.wishlist?.filter((item: any) => item?._id!== _id),
         }
-      })
+      }))
 
       const response = await axios({
         method: "DELETE",

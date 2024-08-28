@@ -452,7 +452,23 @@
     "newsletter_success_message": "Вы успешно подписались на рассылку",
     "newsletter_success_description": "Вы успешно подписались на нашу рассылку",
     "newsletter_error_message": "Не удалось подписаться на рассылку",
-    "newsletter_error_description": "Произошла непредвиденная ошибка при подписке на нашу рассылку"
+    "newsletter_error_description": "Произошла непредвиденная ошибка при подписке на нашу рассылку",
+    "blog_get_blogs_message": "Не удалось получить блоги",
+    "blog_get_blogs_description": "Произошла неожиданная ошибка при получении блогов",
+    "blog_delete_success_message": "Блог успешно удален",
+    "blog_delete_success_description": "Блог был успешно удален",
+    "blog_delete_error_message": "Что-то пошло не так",
+    "blog_delete_error_description": "Произошла неожиданная ошибка при удалении поста в блоге",
+    "blog_create_success_message": "Блог успешно создан",
+    "blog_create_success_description": "Вы успешно создали новый пост в блоге",
+    "blog_create_error_message": "Не удалось создать блог",
+    "blog_create_error_description": "Произошла неожиданная ошибка при создании нового поста в блоге",
+    "blog_edit_success_message": "Блог успешно обновлен",
+    "blog_edit_success_description": "Вы успешно обновили пост в блоге",
+    "blog_edit_error_message": "Не удалось отредактировать блог",
+    "blog_edit_error_description": "Произошла неожиданная ошибка при редактировании поста в блоге",
+    "blog_view_error_message": "Что-то пошло не так!",
+    "blog_view_error_description": "Произошла неожиданная ошибка"
   },
   "blog": {
     "my_feed": "Моя Лента",
@@ -468,6 +484,27 @@
     "email": "Email",
     "whatsapp": "Whatsapp",
     "twitter": "Twitter",
-    "facebook": "Facebook"
+    "facebook": "Facebook",
+    "intro": {
+      "title": "Монетизируйте свой контент с помощью",
+      "description": "Greenshop - платформа для покупки и продажи, публикации и монетизации всех видов цветов: статей, заметок, видео, фотографий, подкастов или песен.",
+      "join": "Присоединяйтесь к Greenstore"
+    },
+    "new_article": "Новая статья",
+    "edit": "Редактировать",
+    "save": "Сохранить",
+    "create": "Создать",
+    "form": {
+      "title": "Заголовок",
+      "short_description": "Краткое описание",
+      "content": "Содержание",
+      "title_error_message": "Пожалуйста, введите заголовок!",
+      "short_description_error_message": "Пожалуйста, введите краткое описание!",
+      "content_error_message": "Пожалуйста, введите содержание!"
+    },
+    "delete": "Удалить",
+    "sure": "Вы уверены, что хотите удалить этот пост?",
+    "ok_text": "Да",
+    "cancel_text": "Нет"
   }
 }

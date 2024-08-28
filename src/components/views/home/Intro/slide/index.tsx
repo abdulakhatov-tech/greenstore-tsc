@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { FC } from "react";
 
 import Button from "@generic/button";
-import { useAuth } from "@config/auth";
 import CustomSkeleton from "@tools/skeleton";
 import { AuthQuery, HeroCarouselSlideT } from "@type/index";
 import useOnlineStatus from "@hooks/useOnlineStatus";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import Title from "@generic/typography";
 import Typography from "@generic/typography";
+import { useAppSelector } from "@hooks/useRedux";
 
 type SliceT = Omit<HeroCarouselSlideT, "id">;
 
@@ -24,12 +24,12 @@ const Slide: FC<SliceT> = ({
   const { t } = useTranslation();
   const isOnline = useOnlineStatus();
   const navigate = useNavigate();
-  const { isAuthed } = useAuth();
+  const { isAuthed } = useAppSelector(({ auth }) => auth);
   const { setParam } = useSearchParamsHook();
 
   const handleShop = () => {
-    if (isAuthed()) {
-      navigate("/shop");
+    if (isAuthed) {
+      navigate("#indoor-plant-collection");
     } else {
       setParam("auth", AuthQuery.SignIn);
     }

@@ -1,9 +1,10 @@
 import { memo } from "react";
+
 import { Image } from "@generic/index";
-import useDiscountImageFeatures from "./features";
+import useDiscountImageService from "@services/discount-image";
 
 const DiscountImage: React.FC = memo(() => {
-  const { data } = useDiscountImageFeatures();
+  const { data } = useDiscountImageService();
 
   return (
     <div className='pt-5 bg-[linear-gradient(90deg,_rgba(70,163,88,0.01),_rgba(70,163,88,0.3))] overflow-hidden'>

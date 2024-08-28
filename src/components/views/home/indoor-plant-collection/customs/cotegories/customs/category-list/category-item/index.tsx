@@ -1,13 +1,9 @@
 import classNames from "classnames";
+
 import useCategoryItemFeatures from "./features";
+import { CategoryItemPropsT } from "./types";
 
-interface CategoryItemPropsI {
-  title: string;
-  count: number;
-  route_path: string;
-}
-
-const CategoryItem: React.FC<CategoryItemPropsI> = ({
+const CategoryItem: React.FC<CategoryItemPropsT> = ({
   title,
   count,
   route_path,

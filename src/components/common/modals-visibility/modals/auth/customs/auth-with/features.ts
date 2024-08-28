@@ -1,18 +1,20 @@
-import useAxios from "@hooks/useAxios";
-import useSearchParamsHook from "@hooks/useSearchParams";
-import { ResponseT } from "../../types";
-import useAuthModalFeatures from "../../features";
-import { ErrorResponse } from "./types";
-import { useAuth } from "@config/auth";
-import { signInWithGoogle } from "@config/firebase";
-import { AuthQuery } from "@type/index";
-import { useNotification } from "@tools/notification/notification";
 import { useTranslation } from "react-i18next";
+
+import useAxios from "@hooks/useAxios";
+import { ResponseT } from "../../types";
+import { ErrorResponse } from "./types";
+import { AuthQuery } from "@type/index";
+import { useAppDispatch } from "@hooks/useRedux";
+import useAuthModalFeatures from "../../features";
+import { signInWithGoogle } from "@config/firebase";
+import { signIn, signUp } from "@redux/slices/auth";
+import useSearchParamsHook from "@hooks/useSearchParams";
+import { useNotification } from "@tools/notification/notification";
 
 const useAuthWithFeatures = () => {
   const { t } = useTranslation();
   const axios = useAxios();
-  const { signIn, signUp } = useAuth();
+  const dispatch = useAppDispatch();
   const dispatchNotification = useNotification();
   const { authType } = useAuthModalFeatures();
   const { removeParam } = useSearchParamsHook();
@@ -36,9 +38,25 @@ const useAuthWithFeatures = () => {
       })) as ResponseT;
 
       const { token, user: userAuth } = response.data.data;
-      const authAction = authType === AuthQuery.SignIn ? signIn : signUp;
-      authAction({ token, user: userAuth });
 
+      if(authType === AuthQuery.SignIn) {
+        dispatch(
+          signIn({
+            token,
+            user: userAuth,
+            tokenType: "Bearer",
+          })
+        )
+      } else {
+        dispatch(
+          signUp({
+            token,
+            user: userAuth,
+            tokenType: "Bearer",
+          })
+        );
+      }
+        
       removeParam("auth");
       dispatchNotification({
         type: "success",

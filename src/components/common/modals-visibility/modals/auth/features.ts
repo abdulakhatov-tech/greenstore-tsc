@@ -12,8 +12,9 @@ import {
 } from "./types";
 import useAxios from "@hooks/useAxios";
 import useSearchParamsHook from "@hooks/useSearchParams";
-import { useAuth } from "@config/auth";
 import { useNotification } from "@tools/notification/notification";
+import { useAppDispatch } from "@hooks/useRedux";
+import { signIn, signUp } from "@redux/slices/auth";
 
 // Define initial form values for both sign-in and sign-up
 const initialValues: InitialStateT = {
@@ -34,8 +35,8 @@ const useAuthModalFeatures = (): UseAuthModalFeaturesT => {
   const { t } = useTranslation();
   const axios = useAxios();
   const [form] = Form.useForm();
+  const dispatch = useAppDispatch();
   const dispatchNotification = useNotification();
-  const { signIn, signUp } = useAuth();
   const { removeParam, getParam } = useSearchParamsHook();
 
   // State to manage loading and auth type
@@ -78,11 +79,12 @@ const useAuthModalFeatures = (): UseAuthModalFeaturesT => {
         })) as ResponseT;
 
         const { token, user } = response.data.data;
+        const tokenType = 'Bearer'
 
         if (authType === "sign-in") {
-          signIn({ token, user });
+          dispatch(signIn({ token, user, tokenType }))
         } else if (authType === "sign-up") {
-          signUp({ token, user });
+          dispatch(signUp({ token, user, tokenType }))
         }
 
         form.resetFields();

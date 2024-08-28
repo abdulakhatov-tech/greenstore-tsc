@@ -23,12 +23,12 @@ const PostList: React.FC = () => {
 
   const renderPosts = () => {
     if (!isOnline || isLoading || isError) {
-      return Array.from({ length: 6 }).map((_, index) => (
+      return Array.from({ length: 9 }).map((_, index) => (
         <BlogSkeleton key={index} />
       ));
     }
     return loadedBlog.map((post: BlogCardType) => (
-      <Post key={post._id} {...post} />
+      <Post key={post?._id} {...post} />
     ));
   };
 

@@ -21,7 +21,7 @@ const useActionsFeatures = () => {
       return;
     }
 
-    navigate("/shop/checkout");
+    navigate("/checkout");
     dispatchNotification({
       type: "success",
       message: t("shopping_cart.checkout_success"),

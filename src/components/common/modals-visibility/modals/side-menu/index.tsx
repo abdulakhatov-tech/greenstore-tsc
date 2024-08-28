@@ -6,12 +6,12 @@ import { FC } from "react";
 import { Header, ProfileMenu } from "./customs";
 import useSideMenuModalFeatures from "./features";
 import { NavList } from "@components/header/custom";
-import { useAuth } from "@config/auth";
 import Button from "@generic/button";
+import { useAppSelector } from "@hooks/useRedux";
 
 const SideMenuModal: FC = () => {
   const { t } = useTranslation();
-  const { isAuthed } = useAuth();
+  const { isAuthed } = useAppSelector(({ auth }) => auth);
   const { sideMenuModalVisibility, onClose, onAuthModal, handleSignOut } =
     useSideMenuModalFeatures();
 
@@ -28,10 +28,10 @@ const SideMenuModal: FC = () => {
     >
       <div className='flex flex-col justify-between h-full'>
         <div>
-          {isAuthed() && <ProfileMenu />}
+          {isAuthed && <ProfileMenu />}
           <NavList isMobile={true} />
 
-          {!isAuthed() && (
+          {!isAuthed && (
             <Button
               variant='primary'
               type='button'
@@ -45,7 +45,7 @@ const SideMenuModal: FC = () => {
         </div>
 
         <div>
-          {isAuthed() && (
+          {isAuthed && (
             <Button
                 onClick={handleSignOut}
               variant='secondary'

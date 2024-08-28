@@ -1,12 +1,13 @@
 import { ExclamationCircleFilled } from "@ant-design/icons";
-import { useAuth } from "@config/auth";
+import { useAppDispatch } from "@hooks/useRedux";
+import { signOut } from "@redux/slices/auth";
 import { message, Modal } from "antd";
 import { useTranslation } from "react-i18next";
 const { confirm } = Modal;
 
 const useDashboardFeatures = () => {
   const { t } = useTranslation();
-  const { signOut } = useAuth();
+  const dispatch = useAppDispatch();
   const [messageApi, contextHolder] = message.useMessage();
 
   const logoutHandler = () => {
@@ -19,7 +20,7 @@ const useDashboardFeatures = () => {
       okType: "danger",
       async onOk() {
         try {
-          signOut();
+          dispatch(signOut())
         } catch (error) {
           messageApi.open({
             type: "error",

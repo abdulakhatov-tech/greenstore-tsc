@@ -5,8 +5,8 @@ import useBlogsServices from '@services/blogs';
 import { BlogCardType } from '@type/index';
 
 const usePostListFeatures = () => {
-  const { blogs } = useBlogsServices();
-  const { isLoading, isError, data } = blogs;
+  const { getAllBlogs } = useBlogsServices();
+  const { isLoading, isError, data } = getAllBlogs;
 
   const [loadedBlog, setLoadedBlog] = useState<BlogCardType[]>([]);
   const [isLoadMoreVisible, setIsLoadMoreVisible] = useState(true);
@@ -21,11 +21,11 @@ const usePostListFeatures = () => {
 
   const loadMoreHandler = () => {
     if (data && loadedBlog.length < data.length) {
-      const moreBlogs = data.slice(loadedBlog.length, loadedBlog.length + 3);
+      const nextLength = loadedBlog.length + 3;
+      const moreBlogs = data.slice(loadedBlog.length, nextLength);
+
       setLoadedBlog((prevBlogs) => [...prevBlogs, ...moreBlogs]);
-      if (loadedBlog.length + moreBlogs.length >= data.length) {
-        setIsLoadMoreVisible(false);
-      }
+      setIsLoadMoreVisible(nextLength < data.length);
     } else {
       message.info('No more blog posts to load');
     }

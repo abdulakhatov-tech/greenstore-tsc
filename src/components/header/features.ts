@@ -1,21 +1,15 @@
-import { useAppDispatch } from "@hooks/useRedux";
-import { toggleSearchbar } from "@redux/slices/search";
+import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
 import { UseHeaderFeaturesT } from "./types";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import { useNavigate } from "react-router-dom";
 import { toggleSideMenuModalVisibility } from "@redux/slices/modal";
-import { useAuth } from "@config/auth";
 import { AuthQuery } from "@type/index";
 
 const useHeaderFeatures = (): UseHeaderFeaturesT => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { setParam } = useSearchParamsHook();
-  const { isAuthed } = useAuth();
-
-  const handleSearch = () => {
-    dispatch(toggleSearchbar());
-  };
+  const { isAuthed } = useAppSelector(({ auth }) => auth);
 
   const handleAuth = () => {
     setParam("auth", AuthQuery.SignIn);
@@ -30,15 +24,15 @@ const useHeaderFeatures = (): UseHeaderFeaturesT => {
   };
 
   const handleShoppingCart = () => {
-    if (isAuthed()) {
-      navigate("/shop/shopping-cart");
+    if (isAuthed) {
+      navigate("/shopping-cart");
     } else {
       setParam("auth", AuthQuery.SignIn);
     }
   };
 
   const handleWishlist = () => {
-    if(isAuthed()) {
+    if(isAuthed) {
        navigate('/profile/wishlist')
     } else {
       setParam("auth", AuthQuery.SignIn);
@@ -46,7 +40,6 @@ const useHeaderFeatures = (): UseHeaderFeaturesT => {
  }
 
   return {
-    handleSearch,
     handleAuth,
     handleUser,
     handleSideMenu,

@@ -244,3 +244,16 @@ export type BlogCardType = {
   views: number;
   reaction_length: number;
 };
+
+export type BlogIntroMockT = {
+  _id: number;
+  image_url: string;
+  alt: string;
+  className: string
+}
+
+export type BlogDataT = {
+  title: string;
+  short_description: string;
+  content: string;
+}

@@ -1,20 +1,21 @@
 import { Form } from "antd";
 import { useCallback, useEffect, useState } from "react";
 
-import { useAuth } from "@config/auth";
 import { AccountDetailsUserI } from "@type/index";
 import useAccountDetailsService from "@services/account-details";
 import { useNotification } from "@tools/notification/notification";
+import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
+import { updateUser } from "@redux/slices/auth";
 
 const useAccountDetailsFeatures = () => {
+  const dispatch = useAppDispatch();
   const dispatchNotification = useNotification();
   const [form] = Form.useForm();
-  const { getUser, updateUser } = useAuth();
+  
+  const { user} = useAppSelector(({ auth }) => auth);
   const { postAccountDetails } = useAccountDetailsService();
   const [loading, setLoading] = useState(false);
 
-  // Retrieve user from auth hook
-  const user = getUser().user;
 
   // Set form fields when user data changes
   useEffect(() => {
@@ -59,7 +60,7 @@ const useAccountDetailsFeatures = () => {
 
     setLoading(true);
     await postAccountDetails(user_info);
-    updateUser({
+    dispatch(updateUser({
       setter: {
         ...user,
         ...values,
@@ -67,7 +68,7 @@ const useAccountDetailsFeatures = () => {
           values?.profile_photo?.file?.response?.image_url?.url ??
           user?.profile_photo,
       },
-    });
+    }))
     setLoading(false);
   };
 

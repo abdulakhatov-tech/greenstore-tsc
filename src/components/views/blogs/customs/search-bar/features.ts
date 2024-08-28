@@ -1,6 +1,5 @@
 import { InputRef } from 'antd';
-import { useEffect, useRef, useState } from 'react';
-
+import { useEffect, useMemo, useRef, useState } from 'react';
 import useSearchParamsHook from '@hooks/useSearchParams';
 
 const useSearchBarFeatures = () => {
@@ -8,38 +7,46 @@ const useSearchBarFeatures = () => {
   const searchBlogRef = useRef<InputRef | null>(null);
   const [searchVal, setSearchVal] = useState('');
 
-  useEffect(() => {
-    const query = getParam('q');
-    if (!query) {
-      removeParam('q');
-      setSearchVal('');
-    } else {
+  // Memoize the query parameter value
+  const query = useMemo(() => getParam('q'), [getParam]);
+
+  // Function to handle query and update searchVal
+  const handleQuery = () => {
+    if (query) {
       setSearchVal(query as string);
-      searchBlogRef.current?.focus();
+    } else {
+      setSearchVal('');
+      removeParam('q'); 
     }
-  }, [getParam, removeParam]);
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (
-        searchBlogRef.current &&
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 1
-      ) {
-        searchBlogRef.current.focus({ preventScroll: true });
-      }
+    handleQuery();
+
+    // Focus the input on mount
+    if (searchBlogRef.current) {
+      searchBlogRef.current.focus();
+    }
+
+    return () => {
+      setSearchVal(''); 
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  // Handle search input changes
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim().replace(/\s+/g, '-');
     setParam('q', value);
     setSearchVal(e.target.value);
   };
 
-  return { searchBlogRef, onSearchChange, searchVal };
+  // Focus the input when the user clicks on it
+  const focusInput = () => {
+    searchBlogRef.current?.focus();
+  };
+
+  return { searchBlogRef, onSearchChange, searchVal, focusInput };
 };
 
 export default useSearchBarFeatures;

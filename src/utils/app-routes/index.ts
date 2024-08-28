@@ -11,11 +11,9 @@ import { useTranslation } from "react-i18next";
 import { RoutePropT } from "./types";
 
 const Home = lazy(() => import("@pages/home"));
-const Shop = lazy(() => import("@pages/shop"));
 const ProductDetails = lazy(() => import("@pages/product-details"));
 const ShoppingCart = lazy(() => import("@pages/shopping-cart"));
 const Checkout = lazy(() => import("@pages/checkout"));
-// const PlantCare = lazy(() => import("@pages/plant-care"));
 const Blogs = lazy(() => import("@pages/blogs"));
 const Profile = lazy(() => import("@pages/profile"));
 const AccountDetails = lazy(() => import("@pages/profile/account-details"));
@@ -23,9 +21,10 @@ const MyProducts = lazy(() => import("@pages/profile/my-products"));
 const Address = lazy(() => import("@pages/profile/address"));
 const Wishlist = lazy(() => import("@pages/profile/wishlist"));
 const TrackOrder = lazy(() => import("@pages/profile/track-order"));
-const NotFound = lazy(() => import("@pages/not-found"));
-const Error = lazy(() => import("@pages/error"));
+
 const BlogPost = lazy(() => import("@pages/blogs/blog-post"));
+const CreateBlog = lazy(() => import("@pages/blogs/create"));
+const EditBlog = lazy(() => import('@pages/blogs/edit'));
 
 const useAppRoutes = () => {
   const { t } = useTranslation();
@@ -94,45 +93,6 @@ const useAppRoutes = () => {
     },
   ];
 
-  const shopRoutes: RoutePropT[] = [
-    {
-      _id: generateId(),
-      path: "product/:category/:productId",
-      Component: ProductDetails,
-      label: t("routes.product_details") ?? "Product Details",
-      hidden: true,
-      meta: {
-        title: t("meta.product_details.title") ?? "Product Detail",
-        description:
-          t("meta.product_details.description") ??
-          "Learn more about this product",
-      },
-    },
-    {
-      _id: generateId(),
-      path: "shopping-cart",
-      Component: ShoppingCart,
-      label: t("routes.shopping_cart") ?? "Shopping Cart",
-      hidden: true,
-      meta: {
-        title: t("meta.shopping_cart") ?? "Shopping Cart",
-        description: t("meta.shopping_cart.description") ?? "Shopping Cart",
-      },
-    },
-
-    {
-      _id: generateId(),
-      path: "checkout",
-      Component: Checkout,
-      label: t("routes.checkout") ?? "Checkout",
-      hidden: true,
-      meta: {
-        title: t("meta.checkout.title") ?? "Checkout",
-        description: t("meta.checkout.description") ?? "Checkout",
-      },
-    },
-  ];
-
   const appRoutes: RoutePropT[] = [
     {
       _id: generateId(),
@@ -146,34 +106,6 @@ const useAppRoutes = () => {
       },
       isPrivate: false,
     },
-    {
-      _id: generateId(),
-      path: "/shop",
-      Component: Shop,
-      label: t("routes.shop") ?? "Shop",
-      hidden: false,
-      meta: {
-        title: t("meta.shop.title") ?? "Shop",
-        description: t("meta.shop.description") ?? "Discover our products",
-      },
-      hasChildren: true,
-      children: shopRoutes,
-      isPrivate: true,
-    },
-    // {
-    //   _id: generateId(),
-    //   path: "/plant-care",
-    //   Component: PlantCare,
-    //   label: t("routes.plant_care") ?? "Plant Care",
-    //   hidden: false,
-    //   meta: {
-    //     title: t("meta.plant_care.title") ?? "Plant Care",
-    //     description:
-    //       t("meta.plant_care.description") ??
-    //       "Learn about the best plants for your home",
-    //   },
-    //   isPrivate: true,
-    // },
     {
       _id: generateId(),
       path: "/blog",
@@ -201,8 +133,69 @@ const useAppRoutes = () => {
               t("meta.blog_details.description") ??
               "Read more about this blog post",
           },
+        },
+        {
+          _id: generateId(),
+          path: "/blog/create",
+          Component: CreateBlog,
+          label: t("routes.create_blog") ?? "Create Blog",
+          hidden: true,
+          meta: {
+            title: t("meta.create_blog.title") ?? "Create Blog",
+            description: t("meta.create_blog.description") ?? "Create a new blog post",
+          },
+
+        },
+        {
+          _id: generateId(),
+          path: "/blog/edit/:blogId",
+          Component: EditBlog,
+          label: t("routes.edit_blog") ?? "Edit Blog",
+          hidden: true,
+          meta: {
+            title: t("meta.edit_blog.title") ?? "Edit Blog",
+            description: t("meta.edit_blog.description") ?? "Edit your blog post",
+          }
+
         }
       ]
+    },
+    {
+      _id: generateId(),
+      path: "/product/:category/:productId",
+      Component: ProductDetails,
+      label: t("routes.product_details") ?? "Product Details",
+      hidden: true,
+      meta: {
+        title: t("meta.product_details.title") ?? "Product Detail",
+        description:
+          t("meta.product_details.description") ??
+          "Learn more about this product",
+      },
+    },
+
+    {
+      _id: generateId(),
+      path: "/shopping-cart",
+      Component: ShoppingCart,
+      label: t("routes.shopping_cart") ?? "Shopping Cart",
+      hidden: true,
+      meta: {
+        title: t("meta.shopping_cart") ?? "Shopping Cart",
+        description: t("meta.shopping_cart.description") ?? "Shopping Cart",
+      },
+    },
+
+    {
+      _id: generateId(),
+      path: "/checkout",
+      Component: Checkout,
+      label: t("routes.checkout") ?? "Checkout",
+      hidden: true,
+      meta: {
+        title: t("meta.checkout.title") ?? "Checkout",
+        description: t("meta.checkout.description") ?? "Checkout",
+      },
     },
     {
       _id: generateId(),
@@ -216,33 +209,6 @@ const useAppRoutes = () => {
       },
       hasChildren: true,
       children: dashboardRoutes,
-      isPrivate: true,
-    },
-    {
-      _id: generateId(),
-      path: "/not-found",
-      Component: NotFound,
-      label: t("routes.not_found") ?? "Page Not Found",
-      hidden: true,
-      meta: {
-        title: t("meta.not_found.title") ?? "Page Not Found",
-        description:
-          t("meta.not_found.description") ??
-          "Sorry, the page you are looking for does not exist",
-      },
-      isPrivate: true,
-    },
-    {
-      _id: generateId(),
-      path: "/error",
-      Component: Error,
-      label: t("routes.error") ?? "Error Page",
-      hidden: true,
-      meta: {
-        title: t("meta.error.title") ?? "Error Page",
-        description:
-          t("meta.error.description") ?? "An error occurred on the server",
-      },
       isPrivate: true,
     },
     

@@ -1,5 +1,4 @@
-import { useAuth } from "@config/auth";
-import { useAppDispatch } from "@hooks/useRedux";
+import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
 import { toggleProductFormModalVisibility } from "@redux/slices/modal";
 import useMyProductsService from "@services/my-products";
 import { useNotification } from "@tools/notification/notification";
@@ -9,9 +8,8 @@ const useMyProductsFeatures = () => {
   const { myProducts, removeProduct } = useMyProductsService();
   const dispatch = useAppDispatch();
   const dispatchNotification = useNotification();
-  const { getUser } = useAuth();
-
-  const { user } = getUser();
+  
+  const { user } = useAppSelector(({ auth }) => auth);
 
   const removeProductHander = async (product: ProductPropsI) => {
     await new Promise((resolve) => {

@@ -1,11 +1,13 @@
 import { Tag } from "antd";
-import ActionButtons from "../action-buttons";
-import useProductFeatures from "../../../../../../features";
-import Counter from "../counter";
-import Tooltip from "@tools/tooltip";
-import { Image } from "@generic/index";
-import Rating from "@generic/rating";
 import { useTranslation } from "react-i18next";
+
+import useProductFeatures from "../../../../../../features";
+import ActionButtons from "../action-buttons";
+import { Image } from "@generic/index";
+import Tooltip from "@tools/tooltip";
+import Rating from "@generic/rating";
+import Counter from "../counter";
+import { formatPrice } from "@helpers/index";
 
 const ProductDetails = () => {
   const { t } = useTranslation();
@@ -27,10 +29,7 @@ const ProductDetails = () => {
       </div>
       <div className='flex items-center justify-between mt-[15px]'>
         <strong className='text-green text-[22px] font-bold'>
-          {product?.data?.price.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD",
-          })}
+          {formatPrice(product?.data?.price)}
         </strong>
         <div className='flex flex-col-reverse gap-1 sm:flex-row md:flex-col-reverse lg:flex-row lg:gap-2 items-center'>
           <Rating rating={product?.data?.rate} />

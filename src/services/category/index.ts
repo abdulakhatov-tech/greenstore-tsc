@@ -1,15 +1,16 @@
+import { useTranslation } from "react-i18next";
+
 import useAxios from "@hooks/useAxios";
 import useQueryHandler from "@hooks/useQueryHandler";
 import { useNotification } from "@tools/notification/notification";
-import { useTranslation } from "react-i18next";
 
 const useCategoryService = () => {
   const { t } = useTranslation();
   const axios = useAxios();
   const dispatchNotification = useNotification();
 
-  const categories = useQueryHandler({
-    queryKey: ["categories"],
+  const category = useQueryHandler({
+    queryKey: ["category"],
     queryFn: async () => {
       const { data } = await axios({
         method: "GET",
@@ -26,7 +27,7 @@ const useCategoryService = () => {
     },
   });
 
-  return { ...categories };
+  return { ...category };
 };
 
 export default useCategoryService;

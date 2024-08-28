@@ -1,11 +1,11 @@
 import { FC, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-import { Header, Main, ProductDescriptionAndReviews } from "./customs";
 import Container from "@layout/container";
 import { useAppDispatch } from "@hooks/useRedux";
-import { setRelatedProducts } from "@redux/slices/related-products";
 import RelatedProducts from "@components/releted-products";
-import { useParams } from "react-router-dom";
+import { setRelatedProducts } from "@redux/slices/related-products";
+import { Header, Main, ProductDescriptionAndReviews } from "./customs";
 
 const ProductDetailsComponent: FC = () => {
   const { category } = useParams();
@@ -13,6 +13,8 @@ const ProductDetailsComponent: FC = () => {
 
   useEffect(() => {
     dispatch(setRelatedProducts(category));
+
+    window.scrollTo(0,0)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category]);
 

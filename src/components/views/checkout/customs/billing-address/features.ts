@@ -3,14 +3,13 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useState } from "react";
 
-import { useAuth } from "@config/auth";
 import useAxios from "@hooks/useAxios";
 import { AuthQuery, BillingAddressPropsI, PAYMENT_METHODS } from "@type/index";
 import useSearchParamsHook from "@hooks/useSearchParams";
 import useShoppingCartService from "@services/shopping-cart";
 import { setPaymentMethod } from "@redux/slices/shopping-cart";
 import { useNotification } from "@tools/notification/notification";
-import { useAppDispatch } from "@hooks/useRedux";
+import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
 
 const initialState: BillingAddressPropsI = {
   name: "",
@@ -32,7 +31,7 @@ const useBillingAddressFeatures = () => {
   // hooks
   const axios = useAxios();
   const [form] = Form.useForm();
-  const { isAuthed } = useAuth();
+  const { isAuthed } = useAppSelector(({ auth }) => auth);
   const dispatch = useAppDispatch();
   const dispatchNotification = useNotification();
   const { setParam } = useSearchParamsHook();
@@ -77,7 +76,7 @@ const useBillingAddressFeatures = () => {
 
         setLoading(true);
 
-        if (!isAuthed()) {
+        if (!isAuthed) {
           handleAuth();
           return;
         }

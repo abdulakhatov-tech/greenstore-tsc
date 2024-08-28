@@ -17,6 +17,7 @@ import { useTranslation } from "react-i18next";
 
 import Loading from "@generic/loading";
 import useEnhancedChartFeatures from "./features";
+import Statistics from "./statistics";
 
 ChartJS.register(
   ArcElement,
@@ -46,6 +47,10 @@ const EnhancedChart: React.FC = memo(() => {
   return (
     <div className='bg-[#f0f0f0] min-h-fit'>
       <div className='w-full h-full p-5 bg-[#fff] shadow-[0 4px 8px rgba(0,0,0,0.1)]'>
+      <h2 className='text-[27px] font-bold leading-4 text-black mt-[15px] mb-[20px] text-center'>
+          Statistics
+        </h2>
+        <Statistics />
         <h2 className='text-[27px] font-bold leading-4 text-black mt-[15px] mb-[20px] text-center'>
           { t('profile.categories') }
         </h2>

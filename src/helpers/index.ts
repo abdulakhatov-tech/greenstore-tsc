@@ -4,8 +4,7 @@ import dayjs from 'dayjs';
 // Utility function to format price with currency
 export const formatPrice = (price: number, locale: string = 'en-US', currency: string = 'USD'): string => {
   if (isNaN(price)) {
-    console.error('Invalid price value');
-    return '';
+    throw new Error('Invalid price value')
   }
 
   return new Intl.NumberFormat(locale, {
@@ -24,8 +23,8 @@ export const formatDate = (dateString: string, locale: string = 'en-GB', options
     }
 
     return new Intl.DateTimeFormat(locale, options).format(date);
-  } catch (error) {
-    console.error('Error formatting date:', error);
+  } catch (error: any) {
+    throw new Error(error)
     return '';
   }
 };
@@ -38,8 +37,8 @@ export const formatTime = (time: string, format: string = 'YYYY-MM-DD'): string 
       throw new Error('Invalid time format');
     }
     return formattedDate;
-  } catch (error) {
-    console.error('Error formatting time:', error);
+  } catch (error: any) {
+    throw new Error(error)
     return '';
   }
 };

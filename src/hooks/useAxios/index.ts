@@ -1,13 +1,14 @@
-import useSearchParamsHook from "@hooks/useSearchParams";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
-import { AxiosProp } from "./types";
-import { useAuth } from "@config/auth";
 import Cookies from "js-cookie";
+// import { useNavigate } from "react-router-dom";
+
+import { AxiosProp } from "./types";
+import { useAppSelector } from "@hooks/useRedux";
+import useSearchParamsHook from "@hooks/useSearchParams";
 
 const useAxios = () => {
   // const navigate = useNavigate();
-  const { getToken } = useAuth();
+  const { token } = useAppSelector(({ auth }) => auth);
   const { setParam } = useSearchParamsHook();
 
   const userCookie = Cookies.get("user");
@@ -30,7 +31,6 @@ const useAxios = () => {
       const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
       // headers
-      const token = getToken();
       const authHeader =
         includeToken && token ? { Authorization: `Bearer ${token}` } : {};
 

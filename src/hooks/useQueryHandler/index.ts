@@ -9,7 +9,8 @@ interface QueryHandlerProps {
   onSuccess?: () => void;
   enabled?: any;
   staleTime?: number;
-  select?: any
+  select?: any;
+  refetchInterval?: any
 }
 
 const useQueryHandler = ({
@@ -18,6 +19,7 @@ const useQueryHandler = ({
   options = {},
   staleTime,
   select,
+  refetchInterval
 }: QueryHandlerProps) => {
   const queryRequest = useQuery({
     queryKey,
@@ -29,6 +31,7 @@ const useQueryHandler = ({
     },
     staleTime,
     select,
+    refetchInterval
   });
 
   return { ...queryRequest };

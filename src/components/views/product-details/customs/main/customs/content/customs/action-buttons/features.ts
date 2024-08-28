@@ -25,7 +25,7 @@ const useActionButtonsFeatures = () => {
       }
     }
 
-    navigate("/shop/shopping-cart");
+    navigate("/shopping-cart");
   };
 
   const addToCartHandler = (product: ProductPropsI) => {

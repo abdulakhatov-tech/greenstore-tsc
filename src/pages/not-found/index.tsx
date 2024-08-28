@@ -1,7 +1,10 @@
+import NotFoundComponent from "@components/views/not-found";
 import { FC } from "react";
 
 const NotFound: FC = () => {
-  return <div>NotFound</div>;
+  return (
+    <NotFoundComponent />
+  );
 };
 
 export default NotFound;

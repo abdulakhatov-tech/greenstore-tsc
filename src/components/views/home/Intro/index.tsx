@@ -1,5 +1,6 @@
-import { Carousel } from "antd";
 import { FC } from "react";
+import { Carousel } from "antd";
+
 import Slide from "./slide";
 import { MockData } from "@utils/index";
 import Container from "@layout/container";

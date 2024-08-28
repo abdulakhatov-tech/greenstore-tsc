@@ -8,7 +8,7 @@ import useSearchBarFeatures from './features';
 
 const SearchBar: React.FC = () => {
   const { t } = useTranslation();
-  const { searchBlogRef, onSearchChange, searchVal } = useSearchBarFeatures();
+  const { searchBlogRef, onSearchChange, searchVal, focusInput } = useSearchBarFeatures();
 
   return (
     <div className="flex flex-col items-center mt-8">
@@ -23,7 +23,7 @@ const SearchBar: React.FC = () => {
             onChange={onSearchChange}
             value={searchVal}
           />
-          <Button variant="primary" className="rounded-l-none h-9 md:h-10">
+          <Button variant="primary" className="rounded-l-none h-9 md:h-10" onClick={focusInput}>
             <SearchOutlined />
           </Button>
         </div>

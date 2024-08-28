@@ -8,11 +8,11 @@ import FormField from "@generic/form-field";
 import Typography from "@generic/typography";
 import useAccountDetailsFeatures from "./features";
 import useFormRules from "@utils/form";
-import { useAuth } from "@config/auth";
 import { UPLOAD_URL } from "@utils/index";
+import { useAppSelector } from "@hooks/useRedux";
 
 const AccountDetailsComponent: React.FC = () => {
-  const { getToken } = useAuth();
+  const { token } = useAppSelector(({ auth }) => auth);
   const { t } = useTranslation();
   const { accountDetailsFormRules } = useFormRules();
   const { form, onFinish, loading, user } = useAccountDetailsFeatures();
@@ -68,7 +68,7 @@ const AccountDetailsComponent: React.FC = () => {
               listType='picture'
               data={{ type: "img" }}
               headers={{
-                Authorization: `Bearer ${getToken()}`,
+                Authorization: `Bearer ${token}`,
               }}
               accept='.png,.jpg,.jpeg'
             >
