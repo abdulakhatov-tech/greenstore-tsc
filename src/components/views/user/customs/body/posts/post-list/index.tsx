@@ -20,7 +20,7 @@ const PostList: React.FC = () => {
     loadedBlog,
     data,
   } = usePostListFeatures();
-
+  
   const renderPosts = () => {
     if (!isOnline || isLoading || isError) {
       return Array.from({ length: 9 }).map((_, index) => (
@@ -33,7 +33,7 @@ const PostList: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-8 mb-12">
+    <div className="flex flex-col gap-8">
       <div
         className="mt-8 w-full grid grid-cols-3 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1"
         id="blog"

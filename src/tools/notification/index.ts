@@ -17,7 +17,7 @@ const Notification = () => {
     if (message && description) {
       api[type]({
         message,
-        description,
+        description: description ? description : '',
         onClose: () => dispatch(closeNotification()),
       });
     }

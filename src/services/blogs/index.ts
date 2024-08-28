@@ -11,7 +11,7 @@ import { BlogDataT } from "@type/index";
 const useBlogsServices = () => {
   const axios = useAxios();
   const { t } = useTranslation();
-  const { blogId } = useParams();
+  const { blogId, authorId } = useParams();
   const { getParam } = useSearchParamsHook();
   const dispatchNotification = useNotification();
   const queryClient = useQueryClient();
@@ -39,6 +39,24 @@ const useBlogsServices = () => {
       });
     },
   });
+
+  const getAllBlogsCreatedBy = useQueryHandler({
+    queryKey: ["blogsCreatedBy"],
+    queryFn: async () => {
+      const { data } = await axios({
+        url: `/user/blog/created-by/${authorId}`
+      })
+
+      return data?.data.reverse() || [];
+    },
+    onError: () => {
+      dispatchNotification({
+        type: "error",
+        message: t("notification.blog_get_blogs_by_created_message"),
+        description: t("notification.blog_get_blogs_by_created_description"),
+      });
+    }
+  })
 
   const getBlogById = useQueryHandler({
     queryKey: ["getBlogById", blogId],
@@ -167,6 +185,7 @@ const useBlogsServices = () => {
   return {
     getAllBlogs,
     getBlogById,
+    getAllBlogsCreatedBy,
     deleteBlogById: deleteBlogById.mutate,
     createBlog: createBlog.mutate,
     editBlogById: editBlogById.mutate,

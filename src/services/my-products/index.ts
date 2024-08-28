@@ -5,17 +5,24 @@ import useAxios from "@hooks/useAxios";
 import useQueryHandler from "@hooks/useQueryHandler";
 import { AddingEditingProductI, ProductPropsI } from "@type/index";
 import { useNotification } from "@tools/notification/notification";
+import { useParams } from "react-router-dom";
 
 const useMyProductsService = () => {
-  const { t } = useTranslation();
   const axios = useAxios();
+  const { authorId } = useParams();
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const dispatchNotification = useNotification();
 
   const myProducts = useQueryHandler({
     queryKey: ["my-products"],
     queryFn: async () => {
-      const { data } = await axios({ url: "/user/products" });
+      const { data } = await axios({ 
+        url: "/user/products",
+        params: {
+          access_token: authorId && authorId
+        }
+       });
 
       return data?.data || [];
     },

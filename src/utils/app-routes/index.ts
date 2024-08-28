@@ -25,6 +25,7 @@ const TrackOrder = lazy(() => import("@pages/profile/track-order"));
 const BlogPost = lazy(() => import("@pages/blogs/blog-post"));
 const CreateBlog = lazy(() => import("@pages/blogs/create"));
 const EditBlog = lazy(() => import('@pages/blogs/edit'));
+const User = lazy(() => import('@pages/user'));
 
 const useAppRoutes = () => {
   const { t } = useTranslation();
@@ -123,7 +124,7 @@ const useAppRoutes = () => {
           t("meta.blogs.description") ??
           "Latest news and updates from Green Store",
       },
-      isPrivate: true,
+      isPrivate: false,
       hasChildren: true,
       children: [
         {
@@ -138,7 +139,7 @@ const useAppRoutes = () => {
               t("meta.blog_details.description") ??
               "Read more about this blog post",
           },
-          isPrivate: true,
+          isPrivate: false,
         },
         {
           _id: generateId(),
@@ -179,7 +180,6 @@ const useAppRoutes = () => {
           "Learn more about this product",
       },
     },
-
     {
       _id: generateId(),
       path: "/shopping-cart",
@@ -191,7 +191,6 @@ const useAppRoutes = () => {
         description: t("meta.shopping_cart.description") ?? "Shopping Cart",
       },
     },
-
     {
       _id: generateId(),
       path: "/checkout",
@@ -217,6 +216,20 @@ const useAppRoutes = () => {
       children: dashboardRoutes,
       isPrivate: true,
     },
+    {
+      _id: generateId(),
+      path: "/user/:authorId",
+      Component: User,
+      label: t("routes.profile") ?? "Profile",
+      hidden: true,
+      meta: {
+        title: t("meta.profile.title") ?? "User",
+        description: t("meta.profile.description") ?? "User",
+      },
+      hasChildren: true,
+      children: dashboardRoutes,
+      isPrivate: false,
+    }
     
   ];
 

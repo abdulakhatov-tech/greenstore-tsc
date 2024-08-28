@@ -1,0 +1,41 @@
+#user-header .avatar-skeleton {
+    width: 150px !important;
+    height: 150px !important;
+}
+
+#user-header .btn-skeleton {
+    height: 45px;
+}
+
+@media screen and (max-width: 1024px) {
+    #user-header .avatar-skeleton {
+        width: 140px !important;
+        height: 140px !important;
+    }
+
+    #user-header .btn-skeleton {
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #user-header .avatar-skeleton {
+        width: 130px !important;
+        height: 130px !important;
+    }
+
+    #user-header .btn-skeleton {
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #user-header .avatar-skeleton {
+        width: 120px !important;
+        height: 120px !important;
+    }
+
+    #user-header .btn-skeleton {
+        height: 33px;
+    }
+}
