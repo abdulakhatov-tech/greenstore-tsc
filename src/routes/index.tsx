@@ -1,13 +1,23 @@
-import { lazy } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { lazy, useEffect } from "react";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 
 import useAppRoutes from "@utils/app-routes";
 import MainLayout from "@layout/main-layout";
+import { useAppSelector } from "@hooks/useRedux";
 
 const NotFound = lazy(() => import("@pages/not-found"))
 const Error = lazy(() => import("@pages/error"));
 const AppRoutes = () => {
+  const navigate = useNavigate();
   const { appRoutes } = useAppRoutes();
+  const { isAuthed } = useAppSelector((state) => state.auth);
+
+  useEffect(() => {
+    if(!isAuthed) {
+      navigate("/") // Redirect to login page if not authenticated
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthed])
 
   return (
     <Routes>
