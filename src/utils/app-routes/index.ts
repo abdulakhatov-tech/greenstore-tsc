@@ -42,6 +42,7 @@ const useAppRoutes = () => {
         title: t("meta.account_details.title") ?? "Account Details",
         description: t("meta.account_details.description") ?? "Account Details",
       },
+      isPrivate: true,
     },
     {
       _id: generateId(),
@@ -54,6 +55,7 @@ const useAppRoutes = () => {
         title: t("meta.my_products.title") ?? "My Products",
         description: t("meta.my_products.description") ?? "My Products",
       },
+      isPrivate: true,
     },
     {
       _id: generateId(),
@@ -66,6 +68,7 @@ const useAppRoutes = () => {
         title: t("meta.address.title") ?? "Address",
         description: t("meta.address.description") ?? "Address",
       },
+      isPrivate: true,
     },
     {
       _id: generateId(),
@@ -78,6 +81,7 @@ const useAppRoutes = () => {
         title: t("meta.wishlist.title") ?? "Wishlist",
         description: t("meta.wishlist.description") ?? "Wishlist",
       },
+      isPrivate: true,
     },
     {
       _id: generateId(),
@@ -90,6 +94,7 @@ const useAppRoutes = () => {
         title: t("meta.wishlist.title") ?? "Track Order",
         description: t("meta.wishlist.description") ?? "Track Order",
       },
+      isPrivate: true,
     },
   ];
 
@@ -133,6 +138,7 @@ const useAppRoutes = () => {
               t("meta.blog_details.description") ??
               "Read more about this blog post",
           },
+          isPrivate: true,
         },
         {
           _id: generateId(),
@@ -144,7 +150,7 @@ const useAppRoutes = () => {
             title: t("meta.create_blog.title") ?? "Create Blog",
             description: t("meta.create_blog.description") ?? "Create a new blog post",
           },
-
+          isPrivate: true,
         },
         {
           _id: generateId(),
@@ -155,8 +161,8 @@ const useAppRoutes = () => {
           meta: {
             title: t("meta.edit_blog.title") ?? "Edit Blog",
             description: t("meta.edit_blog.description") ?? "Edit your blog post",
-          }
-
+          },
+          isPrivate: true,
         }
       ]
     },
