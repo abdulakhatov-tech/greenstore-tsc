@@ -506,5 +506,23 @@
     "sure": "Are you sure to delete this post?",
     "ok_text": "Yes",
     "cancel_text": "No"
+   },
+   "user": {
+      "followers": "Followers",
+      "start_chat": "Start Chat",
+      "send_invitation": "Send Invitation",
+      "follow": "Follow",
+      "unfollow": "Unfollow",
+      "you": "You",
+      "about": "About",
+      "products": "Products",
+      "posts": "Posts",
+      "likes": "Likes",
+      "information_missing": "Information is missing!",
+      "information_missing_description": "Information has not been revealed by user, or account switched to private mode.",
+      "no_products_yet": "No products yet",
+      "no_posts_yet": "No posts yet",
+      "chat": "Chat",
+      "observe": "Observe"
    }
 }

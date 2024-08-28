@@ -4,10 +4,16 @@ import {
   HeroCarouselSlideT,
   LanguageOptionI,
   PlantGalleryNavigationI,
+  ProfleTabType,
   SortCategoryBy,
   SortingOptionI,
 } from "@type/index";
 import Cookies from "js-cookie";
+import About from "@components/views/user/customs/body/about";
+import Products from "@components/views/user/customs/body/products";
+import Posts from "@components/views/user/customs/body/posts";
+import Likes from "@components/views/user/customs/body/likes";
+import Followers from "@components/views/user/customs/body/followers";
 
 export const shipping = 16
 const userCookie = Cookies.get("user");
@@ -20,6 +26,8 @@ export const UPLOAD_URL: string = `http://localhost:8080/api/upload?access_token
 
 export const logo: string =
   "https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Flogo.svg?alt=media&token=fc9659d6-f435-43b9-a624-8b0d3a574baa";
+
+export const USER_COVER_IMAGE: string = 'https://i0.wp.com/linkedinheaders.com/wp-content/uploads/2018/02/mountain-lake-header.jpg?fit=1584%2C396&ssl=1'
 
 export const MockData = () => {
   const { t } = useTranslation();
@@ -304,6 +312,34 @@ export const MockData = () => {
     }
   ]
 
+  const profile_tab_items: ProfleTabType[] = [
+    {
+      key: "1",
+      label: t('user.about'),
+      Children: About,
+    },
+    {
+      key: "2",
+      label: t('user.products'),
+      Children: Products,
+    },
+    {
+      key: "3",
+      label: t('user.posts'),
+      Children: Posts,
+    },
+    {
+      key: "4",
+      label: t('user.likes'),
+      Children: Likes,
+    },
+    {
+      key: "5",
+      label: t('user.followers'),
+      Children: Followers,
+    },
+  ];
+
   return {
     langData,
     blog_intro_mock,
@@ -311,5 +347,6 @@ export const MockData = () => {
     footer_navigation,
     hero_carousel_mock,
     plant_gallery_navigation,
+    profile_tab_items
   };
 };

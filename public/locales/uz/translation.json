@@ -506,5 +506,23 @@
     "sure": "Ushbu postni o'chirishni xohlaysizmi?",
     "ok_text": "Ha",
     "cancel_text": "Yo'q"
+  },
+  "user": {
+    "followers": "Kuzatuvchilar",
+    "start_chat": "Chatni boshlash",
+    "send_invitation": "Taklif yuborish",
+    "follow": "Kuzatish",
+    "unfollow": "Kuzatishni to'xtatish",
+    "you": "Siz",
+    "about": "Biz haqimizda",
+    "products": "Mahsulotlar",
+    "posts": "Postlar",
+    "likes": "Layklar",
+    "information_missing": "Ma'lumot yetishmayapti!",
+    "information_missing_description": "Ma'lumot foydalanuvchi tomonidan oshkor qilinmagan yoki hisob maxfiy rejimga o'tkazilgan.",
+    "no_products_yet": "Hali mahsulotlar yo'q",
+    "no_posts_yet": "Hali postlar yo'q",
+    "chat": "Chat",
+    "observe": "Kuzatish"
   }
 }

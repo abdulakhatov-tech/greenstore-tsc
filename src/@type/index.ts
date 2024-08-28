@@ -141,7 +141,7 @@ export type NotificationTypeT = "success" | "info" | "warning" | "error";
 export interface NotificationPropsI {
   type: NotificationTypeT | null;
   message: string;
-  description: string;
+  description?: string;
 }
 
 export interface BreadcrumbRoutesI {
@@ -257,3 +257,9 @@ export type BlogDataT = {
   short_description: string;
   content: string;
 }
+
+export type ProfleTabType = {
+  key: string;
+  label: string;
+  Children: React.FC;
+};

@@ -7,11 +7,13 @@ import useQueryHandler from "@hooks/useQueryHandler";
 import { useNotification } from "@tools/notification/notification";
 import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
 import { updateUser } from "@redux/slices/auth";
+import { useParams } from "react-router-dom";
 
 const useWishlistService = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const queryClient = useQueryClient();
+  const { authorId } = useParams()
 
   const axios = useAxios();
   
@@ -23,7 +25,10 @@ const useWishlistService = () => {
     queryFn: async () => {
       const response = await axios({
         method: "GET",
-        url: "/user/wishlist"
+        url: "/user/wishlist",
+        params: {
+          access_token: authorId && authorId
+        }
       });
       return response?.data?.data.filter((item: any) => Boolean(item)) || [];
     },
