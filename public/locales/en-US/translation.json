@@ -85,7 +85,14 @@
     "shopping_cart": "Shopping Cart",
     "favourites": "Favourites",
     "language": "Language",
-    "login": "Login"
+    "login": "Login",
+    "notification": "Notifications",
+    "go_to_profile": "Go to profile",
+    "you_have_new_follower": "You have new follower",
+    "loading": "Loading",
+    "no_notifications": "No notifications",
+    "invitations": "New invitations",
+    "followers": "New followers"
   },
   "modal": {
     "auth": {

@@ -263,3 +263,10 @@ export type ProfleTabType = {
   label: string;
   Children: React.FC;
 };
+
+export type NotificationStackT = {
+  type: "follow_stack" | "invitation_stack";
+  message: string;
+  user_id?: string;
+  time_stamp: number;
+};

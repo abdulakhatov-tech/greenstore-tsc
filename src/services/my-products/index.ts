@@ -20,7 +20,7 @@ const useMyProductsService = () => {
       const { data } = await axios({ 
         url: "/user/products",
         params: {
-          access_token: authorId && authorId
+          ...(authorId && { access_token: authorId })
         }
        });
 
@@ -70,6 +70,11 @@ const useMyProductsService = () => {
 
   const addProduct = useMutation({
     mutationFn: async (product: AddingEditingProductI) => {
+
+      // queryClient.setQueryData(['my-products'], (prev: any) => {
+      //   return [...prev, product]
+      // })
+
       const { data } = await axios({
         method: "POST",
         url: `/flower/category/${product?.category}`,

@@ -46,9 +46,9 @@ const useProductFormModalFeatures = () => {
       detailedImage3FileList.length > 0 &&
       detailedImage4FileList.length > 0;
 
-      setTimeout(() => {
-        setAllImagesUploaded(areAllImagesUploaded);
-      }, 2000)
+    setTimeout(() => {
+      setAllImagesUploaded(areAllImagesUploaded);
+    }, 2000);
   }, [
     mainImageFileList,
     detailedImage1FileList,
@@ -56,7 +56,6 @@ const useProductFormModalFeatures = () => {
     detailedImage3FileList,
     detailedImage4FileList,
   ]);
-
 
   const handleChange = (info: any, setFileList: any, fieldName: any) => {
     const newFileList = info.fileList.slice(-1); // Limit to only one image
@@ -69,27 +68,32 @@ const useProductFormModalFeatures = () => {
   };
 
   const onFinish = async (e: any) => {
-    setLoading(true);
-    const formattedData: AddingEditingProductI = {
-      title: e.title,
-      price: Number(e.price),
-      category: e.category,
-      discount: !!e.discount_price,
-      discount_price: Number(e.discount_price),
-      short_description: e.short_description,
-      description: e.description,
-      main_image: e.main_image[0].response?.image_url.url,
-      detailed_images: [
-        e.detailed_image_1[0].response?.image_url.url,
-        e.detailed_image_2[0].response?.image_url.url,
-        e.detailed_image_3[0].response?.image_url.url,
-        e.detailed_image_4[0].response?.image_url.url,
-      ],
-    };
+    try {
+      setLoading(true);
 
-    await addProduct(formattedData);
-    setLoading(false);
-    onCancel();
+      const formattedData: AddingEditingProductI = {
+        title: e.title,
+        price: Number(e.price),
+        category: e.category,
+        discount: !!e.discount_price,
+        discount_price: Number(e.discount_price),
+        short_description: e.short_description,
+        description: e.description,
+        main_image: e.main_image[0].response?.image_url.url,
+        detailed_images: [
+          e.detailed_image_1[0].response?.image_url.url,
+          e.detailed_image_2[0].response?.image_url.url,
+          e.detailed_image_3[0].response?.image_url.url,
+          e.detailed_image_4[0].response?.image_url.url,
+        ],
+      };
+
+      await addProduct(formattedData);
+      setLoading(false);
+      onCancel();
+    } catch (error: any) {
+      setLoading(false);
+    }
   };
 
   return {
@@ -109,7 +113,7 @@ const useProductFormModalFeatures = () => {
     onFinish,
     onCancel,
     open: productFormModalVisibility,
-    allImagesUploaded
+    allImagesUploaded,
   };
 };
 

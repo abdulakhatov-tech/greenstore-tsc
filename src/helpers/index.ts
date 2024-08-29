@@ -30,7 +30,7 @@ export const formatDate = (dateString: string, locale: string = 'en-GB', options
 };
 
 // Utility function to format a time string
-export const formatTime = (time: string, format: string = 'YYYY-MM-DD'): string => {
+export const formatTime = (time: string | number, format: string = 'YYYY-MM-DD'): string => {
   try {
     const formattedDate = dayjs(time).format(format);
     if (!formattedDate) {
