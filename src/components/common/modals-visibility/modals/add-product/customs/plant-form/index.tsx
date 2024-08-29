@@ -34,7 +34,6 @@ const PlantForm: React.FC = () => {
     setDetailedImage3FileList,
     setDetailedImage4FileList,
     setMainImageFileList,
-    allImagesUploaded
   } = useProductFormModalFeatures();
 
   const uploadProps: UploadProps<any> = {
@@ -219,7 +218,7 @@ const PlantForm: React.FC = () => {
           {t("modal.plant_form_modal.cancel")}
         </Button>
 
-        <Button type='submit' variant='primary' loading={loading} disabled={!allImagesUploaded}>
+        <Button type='submit' variant='primary' loading={loading}>
           {t("modal.plant_form_modal.add")}
         </Button>
       </div>

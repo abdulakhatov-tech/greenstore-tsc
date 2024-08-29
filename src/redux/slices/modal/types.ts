@@ -7,7 +7,11 @@ export type InitialStateT = {
     categoriesModalVisibility: boolean;
     categoryModalVisibility: boolean;
     trackOrderModalVisibility: boolean;
-    productFormModalVisibility: boolean;
+    addProductFormModalVisibility: boolean;
+    editProductFormModalVisibility: {
+        open: boolean;
+        product: any | null;
+    };
     orderDetailsModalVisibility: {
         open: boolean;
         order: any | null;
