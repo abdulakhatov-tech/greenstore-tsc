@@ -1,19 +1,20 @@
 import { Form } from "antd";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
+import { toggleAddProductFormModalVisibility } from "@redux/slices/modal";
 import { useAppDispatch, useAppSelector } from "@hooks/useRedux";
 import useMyProductsService from "@services/my-products";
 import { AddingEditingProductI } from "@type/index";
-import { toggleProductFormModalVisibility } from "@redux/slices/modal";
 
 const useProductFormModalFeatures = () => {
+  const { t } = useTranslation();
   const [form] = Form.useForm();
   const dispatch = useAppDispatch();
   const { addProduct } = useMyProductsService();
-  const { productFormModalVisibility } = useAppSelector((state) => state.modal);
+  const { addProductFormModalVisibility } = useAppSelector((state) => state.modal);
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [allImagesUploaded, setAllImagesUploaded] = useState<boolean>(false);
 
   const [mainImageFileList, setMainImageFileList] = useState<any[]>([]);
   const [detailedImage1FileList, setDetailedImage1FileList] = useState<any[]>(
@@ -30,6 +31,7 @@ const useProductFormModalFeatures = () => {
   );
 
   useEffect(() => {
+    // Reset form fields and file lists
     form.resetFields();
     setMainImageFileList([]);
     setDetailedImage1FileList([]);
@@ -38,25 +40,6 @@ const useProductFormModalFeatures = () => {
     setDetailedImage4FileList([]);
   }, [form]);
 
-  useEffect(() => {
-    const areAllImagesUploaded =
-      mainImageFileList.length > 0 &&
-      detailedImage1FileList.length > 0 &&
-      detailedImage2FileList.length > 0 &&
-      detailedImage3FileList.length > 0 &&
-      detailedImage4FileList.length > 0;
-
-    setTimeout(() => {
-      setAllImagesUploaded(areAllImagesUploaded);
-    }, 2000);
-  }, [
-    mainImageFileList,
-    detailedImage1FileList,
-    detailedImage2FileList,
-    detailedImage3FileList,
-    detailedImage4FileList,
-  ]);
-
   const handleChange = (info: any, setFileList: any, fieldName: any) => {
     const newFileList = info.fileList.slice(-1); // Limit to only one image
     setFileList(newFileList);
@@ -64,12 +47,32 @@ const useProductFormModalFeatures = () => {
   };
 
   const onCancel = () => {
-    dispatch(toggleProductFormModalVisibility(false));
+    dispatch(toggleAddProductFormModalVisibility(false));
   };
 
   const onFinish = async (e: any) => {
+
+    console.log(e, 'eeeeeeeeeeeeeeeee')
     try {
       setLoading(true);
+
+      // Check if images are present
+      if (
+        !mainImageFileList.length ||
+        !detailedImage1FileList.length ||
+        !detailedImage2FileList.length ||
+        !detailedImage3FileList.length ||
+        !detailedImage4FileList.length
+      ) {
+        form.setFields([
+          {
+            name: "main_image",
+            errors: [t("validation.image_required")],
+          },
+        ]);
+        setLoading(false);
+        return;
+      }
 
       const formattedData: AddingEditingProductI = {
         title: e.title,
@@ -79,13 +82,24 @@ const useProductFormModalFeatures = () => {
         discount_price: Number(e.discount_price),
         short_description: e.short_description,
         description: e.description,
-        main_image: e.main_image[0].response?.image_url.url,
-        detailed_images: [
-          e.detailed_image_1[0].response?.image_url.url,
-          e.detailed_image_2[0].response?.image_url.url,
-          e.detailed_image_3[0].response?.image_url.url,
-          e.detailed_image_4[0].response?.image_url.url,
-        ],
+        main_image:
+        typeof e.main_image[0] === "string"
+          ? e.main_image[0]
+          : e.main_image[0].response?.image_url.url,
+      detailed_images: [
+        typeof e.detailed_image_1[0] === "string"
+          ? e.detailed_image_1[0]
+          : e.detailed_image_1[0].response?.image_url.url,
+        typeof e.detailed_image_2[0] === "string"
+          ? e.detailed_image_2[0]
+          : e.detailed_image_2[0].response?.image_url.url,
+        typeof e.detailed_image_3[0] === "string"
+          ? e.detailed_image_3[0]
+          : e.detailed_image_3[0].response?.image_url.url,
+        typeof e.detailed_image_4[0] === "string"
+          ? e.detailed_image_4[0]
+          : e.detailed_image_4[0].response?.image_url.url,
+      ],
       };
 
       await addProduct(formattedData);
@@ -112,8 +126,7 @@ const useProductFormModalFeatures = () => {
     loading,
     onFinish,
     onCancel,
-    open: productFormModalVisibility,
-    allImagesUploaded,
+    open: addProductFormModalVisibility,
   };
 };
 

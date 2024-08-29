@@ -83,7 +83,7 @@ const useTableColumns = () => {
       width: 90,
       render: (_: any, record: ProductPropsI) => (
         <div className='flex items-center gap-3 text-[18px]'>
-          <EditOutlined onClick={editProductHandler} />
+          <EditOutlined onClick={() => editProductHandler(record)} />
           <Popconfirm
             title={`${t("profile.delete")}`}
             description={t("profile.delete_description")}

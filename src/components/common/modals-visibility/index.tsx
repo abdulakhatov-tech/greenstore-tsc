@@ -7,9 +7,10 @@ import {
   AuthModal,
   CategoryMenu,
   OrderDetailsModal,
-  ProductFormModal,
+  AddProductModal,
   SideMenuModal,
   TrackOrderModal,
+  EditProductModal,
 } from "./modals";
 import useMediaQuery from "@hooks/useMediaQuery";
 import useModalVisibilityFeatures from "./features";
@@ -22,8 +23,9 @@ const ModalVisibility: FC = () => {
     sideMenuModalVisibility,
     categoryModalVisibility,
     trackOrderModalVisibility,
-    productFormModalVisibility,
+    addProductFormModalVisibility,
     orderDetailsModalVisibility,
+    editProductFormModalVisibility
   } = useAppSelector((state) => state.modal);
   const { handleAuthParam, handleTrackOrderParam } =
     useModalVisibilityFeatures();
@@ -53,7 +55,8 @@ const ModalVisibility: FC = () => {
       {sideMenuModalVisibility && <SideMenuModal />}
       {categoryModalVisibility && <CategoryMenu />}
       {trackOrderModalVisibility && <TrackOrderModal />}
-      {productFormModalVisibility && <ProductFormModal />}
+      {addProductFormModalVisibility && <AddProductModal />}
+      {editProductFormModalVisibility.open && <EditProductModal />}
       {orderDetailsModalVisibility.open && <OrderDetailsModal />}
     </>
   );

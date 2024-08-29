@@ -38,6 +38,7 @@ const useMyProductsService = () => {
   const removeProduct = useMutation({
     mutationFn: async (product: ProductPropsI) => {
       const { _id, category } = product;
+      console.log(_id, category)
 
       const response = await axios({
         method: "DELETE",
@@ -46,6 +47,7 @@ const useMyProductsService = () => {
       });
 
       queryClient.setQueryData(["my-products"], (prev: any) => {
+        console.log(prev, 'prev')
         return prev?.filter((item: any) => item?._id !== _id);
       });
 
@@ -100,12 +102,50 @@ const useMyProductsService = () => {
     },
   });
 
+  const updateProductByCategory = useMutation({
+    mutationFn: async ({_id, category, data}: any) => {
+      // Optimistically update the cache before the mutation
+      queryClient.setQueryData(['my-products'], (prev: any) =>
+        prev.map((item: any) => (item._id === _id ? { ...item, ...data } : item))
+      );
+
+      try {
+        const response= await axios({
+          method: "PUT",
+          url: `/user/product/${category}`,
+          data: { _id, data },
+        })
   
+        return response?.data?.data;
+      } catch (error) {
+        // Rollback the optimistic update in case of an error
+        queryClient.invalidateQueries({ queryKey: ["my-products"] });
+        throw error;
+      }
+
+    },
+    onSuccess: () => {
+      dispatchNotification({
+        type: "success",
+        message: t('notification.update_product_success_message'),
+        description: t('notification.update_product_success_description'),
+      })
+      queryClient.invalidateQueries({ queryKey: ["my-products"] });
+    },
+    onError: () => {
+      dispatchNotification({
+        type: "error",
+        message: t('notification.update_product_error_message'),
+        description: t('notification.update_product_error_description'),
+      })
+    }
+  })
 
   return {
     myProducts,
     removeProduct: removeProduct.mutateAsync,
     addProduct: addProduct.mutateAsync,
+    updateProductByCategory: updateProductByCategory.mutate
   };
 };
 
