@@ -85,7 +85,14 @@
     "shopping_cart": "Savatcha",
     "favourites": "Sevimlilar",
     "language": "Til",
-    "login": "Kirish"
+    "login": "Kirish",
+    "notification": "Bildirishnomalar",
+    "go_to_profile": "Profilga o'tish",
+    "you_have_new_follower": "Sizda yangi obunachi bor",
+    "loading": "Yuklanmoqda",
+    "no_notifications": "Bildirishnomalar yo'q",
+    "invitations": "Yangi taklifnomalar",
+    "followers": "Yangi obunachilar"
   },
   "modal": {
     "auth": {

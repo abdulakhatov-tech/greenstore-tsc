@@ -85,7 +85,15 @@
     "shopping_cart": "Корзина",
     "favourites": "Избранное",
     "language": "Язык",
-    "login": "Войти"
+    "login": "Войти",
+    "notification": "Уведомления",
+    "go_to_profile": "Перейти в профиль",
+    "you_have_new_follower": "У вас новый подписчик",
+    "loading": "Загрузка",
+    "no_notifications": "Нет уведомлений",
+
+    "invitations": "Новые приглашения",
+    "followers": "Новые подписчики"
   },
   "modal": {
     "auth": {
@@ -524,6 +532,5 @@
     "no_posts_yet": "Пока нет постов",
     "chat": "Чат",
     "observe": "Наблюдать"
-    
   }
 }

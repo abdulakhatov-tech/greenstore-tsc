@@ -14,6 +14,7 @@ const useWishlistService = () => {
   const dispatch = useAppDispatch();
   const queryClient = useQueryClient();
   const { authorId } = useParams()
+  const { isAuthed } = useAppSelector(({auth}) => auth)
 
   const axios = useAxios();
   
@@ -23,11 +24,15 @@ const useWishlistService = () => {
   const wishlist = useQueryHandler({
     queryKey: ["wishlist"],
     queryFn: async () => {
+      if (!isAuthed) {
+        return [];
+      }
+
       const response = await axios({
         method: "GET",
         url: "/user/wishlist",
         params: {
-          access_token: authorId && authorId
+          ...(authorId && { access_token: authorId })
         }
       });
       return response?.data?.data.filter((item: any) => Boolean(item)) || [];

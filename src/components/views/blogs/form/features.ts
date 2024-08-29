@@ -11,8 +11,6 @@ const useBlogFormFeatures = () => {
   const { getBlogById, createBlog, editBlogById } = useBlogsServices();
   const [loading, setLoading] = useState<boolean>(false);
 
-
-  console.log(getBlogById?.data)
   useEffect(() => {
     if (blogId && getBlogById?.data) {
       form.setFieldsValue({
