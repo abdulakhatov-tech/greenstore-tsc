@@ -25,7 +25,7 @@ const ModalVisibility: FC = () => {
     trackOrderModalVisibility,
     addProductFormModalVisibility,
     orderDetailsModalVisibility,
-    editProductFormModalVisibility
+    editProductFormModalVisibility,
   } = useAppSelector((state) => state.modal);
   const { handleAuthParam, handleTrackOrderParam } =
     useModalVisibilityFeatures();

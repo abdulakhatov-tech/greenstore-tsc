@@ -1,35 +1,14 @@
-import { Helmet } from "react-helmet-async";
+import { FC } from "react";
+
+import Seo from "@components/seo";
+import { SeoPropsT } from "@type/index";
 import BlogPostComponent from "@components/views/blogs/blog-post";
-import useBlogsServices from "@services/blogs";
-import useUsersService from "@services/users";
 
-const BlogPost = () => {
-  const { getUserById } = useUsersService();
-  const { getBlogById } = useBlogsServices();
-
-  const { data: post } = getBlogById;
-  const { data: author } = getUserById;
-
-  const  VITE_BASE_URL = import.meta.env.VITE_BASE_URL
-
+const BlogPost: FC<{ meta: SeoPropsT }> = ({ meta }) => {
   return (
-    <>
-      <Helmet>
-        <title>{post?.title  || 'GreenStore - Blog Post'}</title>
-        <meta property='og:title' content={post?.title || 'GreenStore - Check out this Blog Post'} />
-        <meta property='og:description' content={post?.short_description || 'Discover insightful articles and updates on our blog. Stay informed and inspired with GreenStore.'} />
-        <meta property='og:image' content={author?.profile_photo || `${VITE_BASE_URL}/default-image.jpg`} />
-        <meta property='og:url' content={`${VITE_BASE_URL}/blog/${post?.created_by}/${post?._id}`} />
-        <meta property="og:type" content="article" />
-
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content={post?.title || 'GreenStore - Blog Post'} />
-        <meta name='twitter:description' content={post?.short_description || 'Discover insightful articles and updates on our blog. Stay informed and inspired with GreenStore.'} />
-        <meta name='twitter:image' content={author?.profile_photo || `${VITE_BASE_URL}/default-image.jpg`} />
-      </Helmet>
-
+    <Seo {...meta}>
       <BlogPostComponent />
-    </>
+    </Seo>
   );
 };
 

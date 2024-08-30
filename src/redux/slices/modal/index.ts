@@ -69,7 +69,7 @@ export const {
   toggleTrackOrderModalVisibility,
   toggleAddProductFormModalVisibility,
   toggleOrderDetailsModalVisibility,
-  toggleEditProductFormModalVisibility
+  toggleEditProductFormModalVisibility,
 } = modalSlice.actions;
 
 export default modalSlice.reducer;

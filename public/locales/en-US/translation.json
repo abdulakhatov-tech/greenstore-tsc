@@ -6,8 +6,6 @@
   },
   "routes": {
     "home": "Home",
-    "shop": "Shop",
-    "plant_care": "Plant Care",
     "blogs": "Blogs",
     "product_details": "Product Details",
     "not-found": "Not Found",
@@ -20,64 +18,65 @@
     "wishlist": "Wishlist",
     "shopping_cart": "Shopping Cart",
     "checkout": "Checkout",
-    "track_order": "Track Order"
+    "track_order": "Track Order",
+    "user": "Admin"
   },
   "meta": {
     "home": {
-      "title": "Greenstore - Marketplace",
-      "description": "Explore our products and services"
-    },
-    "shop": {
-      "title": "Greenstore - Shop",
-      "description": "Buy quality products from our store"
-    },
-    "plant_care": {
-      "title": "Greenstore - Plant Care",
-      "description": "Learn about plant care and gardening tips"
+      "title": "Greenstore - Fresh Flowers & Unique Bouquets",
+      "description": "Discover a wide range of fresh flowers, bouquets, and floral gifts at Greenstore. Your go-to destination for beautiful floral arrangements."
     },
     "blogs": {
-      "title": "Greenstore - Blogs",
-      "description": "Read our latest blog posts"
+      "title": "Greenstore - Flower Shop Blog & Floral Insights",
+      "description": "Stay updated with the latest blog posts, tips, and floral trends from Greenstore. Explore expert advice and gardening ideas."
     },
     "product_details": {
-      "title": "{{ product.name }} - Greenstore",
-      "description": "{{ product.description }}"
-    },
-    "not_found": {
-      "title": "Greenstore - Not Found",
-      "description": "Page not found"
-    },
-    "error": {
-      "title": "Greenstore - Error",
-      "description": "An error occurred"
-    },
-    "profile": {
-      "title": "Greenstore - Profile",
-      "description": "Manage your account details"
-    },
-    "account_details": {
-      "title": "Greenstore - Account Details",
-      "description": "Update your personal information"
-    },
-    "my_products": {
-      "title": "Greenstore - My Products",
-      "description": "View and manage your products"
-    },
-    "address": {
-      "title": "Greenstore - Address",
-      "description": "Update your shipping address"
+      "title": "Greenstore Flower Shop",
+      "description": "Explore detailed information about this beautiful flower or bouquet at Greenstore."
     },
     "shopping_cart": {
-      "title": "Greenstore - Shopping Cart",
-      "description": "Review and checkout your items"
+      "title": "Greenstore - Your Shopping Cart",
+      "description": "Review the items in your cart and proceed to checkout to complete your purchase at Greenstore."
     },
     "checkout": {
-      "title": "Greenstore - Checkout",
-      "description": "Confirm your order and pay securely"
+      "title": "Greenstore - Secure Checkout",
+      "description": "Finalize your order and make secure payments with our easy checkout process. Confirm your purchase and delivery details."
+    },
+    "profile": {
+      "title": "Greenstore - Manage Your Profile",
+      "description": "Access and update your account details, preferences, and order history at Greenstore."
+    },
+    "account_details": {
+      "title": "Greenstore - Update Account Information",
+      "description": "Modify your personal information and manage your account settings for a better shopping experience."
+    },
+    "my_products": {
+      "title": "Greenstore - Manage Your Products",
+      "description": "View, edit, and manage your product listings and inventory directly from your Greenstore account."
+    },
+    "address": {
+      "title": "Greenstore - Update Shipping Address",
+      "description": "Edit your shipping and billing addresses to ensure accurate delivery of your floral orders."
+    },
+    "wishlist": {
+      "title": "Greenstore - Your Wishlist",
+      "description": "View and manage your favorite flowers and bouquets at Greenstore."
     },
     "track_order": {
-      "title": "Greenstore - Track Order",
-      "description": "Track your order status and view tracking information"
+      "title": "Greenstore - Track Your Order",
+      "description": "Monitor the status of your order and get real-time updates on delivery progress at Greenstore."
+    },
+    "user": {
+      "title": "Greenstore - User Profile",
+      "description": "View and manage your personal information, preferences, and order history at Greenstore."
+    },
+    "not_found": {
+      "title": "Greenstore - Page Not Found",
+      "description": "Sorry, the page you're looking for doesn't exist. Return to the homepage or explore other sections."
+    },
+    "error": {
+      "title": "Greenstore - Something Went Wrong",
+      "description": "An unexpected error occurred. Please try again later or contact support if the issue persists."
     }
   },
   "header": {
@@ -343,6 +342,15 @@
         "more": "More",
         "get_details": "Get Details",
         "detailed_info": "Detail Information"
+      },
+      "category": {
+        "create_category": "Create Category",
+        "edit_category": "Edit Category",
+        "cancel":"Cancel",
+        "create": "Create",
+        "save": "Save",
+        "title": "My Categories",
+        "add": "Add"
       }
    },
    "form": {
