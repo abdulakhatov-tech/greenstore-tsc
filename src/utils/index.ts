@@ -14,6 +14,9 @@ import Products from "@components/views/user/customs/body/products";
 import Posts from "@components/views/user/customs/body/posts";
 import Likes from "@components/views/user/customs/body/likes";
 import Followers from "@components/views/user/customs/body/followers";
+import { useAppSelector } from "@hooks/useRedux";
+import useBlogsServices from "@services/blogs";
+import useMyProductsService from "@services/my-products";
 
 export const shipping = 16
 const userCookie = Cookies.get("user");
@@ -36,6 +39,9 @@ export const USER_COVER_IMAGE: string = 'https://i0.wp.com/linkedinheaders.com/w
 
 export const MockData = () => {
   const { t } = useTranslation();
+  const { user } = useAppSelector(({auth}) => auth)
+  const { getAllBlogsCreatedBy: {data: blogs} } = useBlogsServices();
+  const { myProducts: {data:products} } = useMyProductsService();
 
   const langData: LanguageOptionI[] = [
     {
@@ -325,22 +331,22 @@ export const MockData = () => {
     },
     {
       key: "2",
-      label: t('user.products'),
+      label: t('user.products') + ` (${products?.length || 0})`,
       Children: Products,
     },
     {
       key: "3",
-      label: t('user.posts'),
+      label: t('user.posts') + ` (${blogs?.length || 0})`,
       Children: Posts,
     },
     {
       key: "4",
-      label: t('user.likes'),
+      label: t('user.likes') + ` (${user?.wishlist?.length || 0})`,
       Children: Likes,
     },
     {
       key: "5",
-      label: t('user.followers'),
+      label: t('user.followers') + ` (${user?.followers?.length || 0})`,
       Children: Followers,
     },
   ];

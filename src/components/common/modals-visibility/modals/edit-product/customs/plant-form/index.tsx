@@ -219,7 +219,7 @@ const PlantForm: React.FC = () => {
         </Button>
 
         <Button type='submit' variant='primary' loading={loading}>
-          {t("modal.plant_form_modal.edit")}
+          {t("modal.plant_form_modal.save")}
         </Button>
       </div>
     </Form>
