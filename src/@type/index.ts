@@ -270,3 +270,11 @@ export type NotificationStackT = {
   user_id?: string;
   time_stamp: number;
 };
+
+export type SeoPropsT = {
+  title?: string;
+  description?: string;
+  path?: string;
+  children?: React.ReactNode;
+  keywords?: string[];
+};

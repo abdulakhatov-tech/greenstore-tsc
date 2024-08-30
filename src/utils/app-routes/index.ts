@@ -24,8 +24,8 @@ const TrackOrder = lazy(() => import("@pages/profile/track-order"));
 
 const BlogPost = lazy(() => import("@pages/blogs/blog-post"));
 const CreateBlog = lazy(() => import("@pages/blogs/create"));
-const EditBlog = lazy(() => import('@pages/blogs/edit'));
-const User = lazy(() => import('@pages/user'));
+const EditBlog = lazy(() => import("@pages/blogs/edit"));
+const User = lazy(() => import("@pages/user"));
 
 const useAppRoutes = () => {
   const { t } = useTranslation();
@@ -36,12 +36,12 @@ const useAppRoutes = () => {
       _id: generateId(),
       path: "account-details",
       Component: AccountDetails,
-      label: t("routes.account_details") ?? "Account Details",
+      label: t("routes.account_details"),
       Icon: UserOutlined,
       hidden: true,
       meta: {
-        title: t("meta.account_details.title") ?? "Account Details",
-        description: t("meta.account_details.description") ?? "Account Details",
+        title: t("meta.account_details.title"),
+        description: t("meta.account_details.description"),
       },
       isPrivate: true,
     },
@@ -49,12 +49,12 @@ const useAppRoutes = () => {
       _id: generateId(),
       path: "my-products",
       Component: MyProducts,
-      label: t("routes.my_products") ?? "My Products",
+      label: t("routes.my_products"),
       Icon: ShoppingOutlined,
       hidden: true,
       meta: {
-        title: t("meta.my_products.title") ?? "My Products",
-        description: t("meta.my_products.description") ?? "My Products",
+        title: t("meta.my_products.title"),
+        description: t("meta.my_products.description"),
       },
       isPrivate: true,
     },
@@ -62,12 +62,12 @@ const useAppRoutes = () => {
       _id: generateId(),
       path: "address",
       Component: Address,
-      label: t("routes.address") ?? "Address",
+      label: t("routes.address"),
       Icon: EnvironmentOutlined,
       hidden: true,
       meta: {
-        title: t("meta.address.title") ?? "Address",
-        description: t("meta.address.description") ?? "Address",
+        title: t("meta.address.title"),
+        description: t("meta.address.description"),
       },
       isPrivate: true,
     },
@@ -75,12 +75,12 @@ const useAppRoutes = () => {
       _id: generateId(),
       path: "wishlist",
       Component: Wishlist,
-      label: t("routes.wishlist") ?? "Wishlist",
+      label: t("routes.wishlist"),
       Icon: HeartOutlined,
       hidden: true,
       meta: {
-        title: t("meta.wishlist.title") ?? "Wishlist",
-        description: t("meta.wishlist.description") ?? "Wishlist",
+        title: t("meta.wishlist.title"),
+        description: t("meta.wishlist.description"),
       },
       isPrivate: true,
     },
@@ -88,12 +88,12 @@ const useAppRoutes = () => {
       _id: generateId(),
       path: "track-order",
       Component: TrackOrder,
-      label: t("routes.track_order") ?? "Track Order",
+      label: t("routes.track_order"),
       Icon: DashboardOutlined,
       hidden: true,
       meta: {
-        title: t("meta.wishlist.title") ?? "Track Order",
-        description: t("meta.wishlist.description") ?? "Track Order",
+        title: t("meta.track_order.title"),
+        description: t("meta.track_order.description"),
       },
       isPrivate: true,
     },
@@ -104,11 +104,11 @@ const useAppRoutes = () => {
       _id: generateId(),
       path: "/",
       Component: Home,
-      label: t("routes.home") ?? "Home",
+      label: t("routes.home"),
       hidden: false,
       meta: {
-        title: t("meta.home.title") ?? "Green Store",
-        description: t("meta.home.description") ?? "Welcome to Green Store",
+        title: t("meta.home.title"),
+        description: t("meta.home.description"),
       },
       isPrivate: false,
     },
@@ -116,13 +116,11 @@ const useAppRoutes = () => {
       _id: generateId(),
       path: "/blog",
       Component: Blogs,
-      label: t("routes.blogs") ?? "Blogs",
+      label: t("routes.blogs"),
       hidden: false,
       meta: {
-        title: t("meta.blogs.title") ?? "Blogs",
-        description:
-          t("meta.blogs.description") ??
-          "Latest news and updates from Green Store",
+        title: t("meta.blogs.title"),
+        description: t("meta.blogs.description"),
       },
       isPrivate: false,
       hasChildren: true,
@@ -149,7 +147,8 @@ const useAppRoutes = () => {
           hidden: true,
           meta: {
             title: t("meta.create_blog.title") ?? "Create Blog",
-            description: t("meta.create_blog.description") ?? "Create a new blog post",
+            description:
+              t("meta.create_blog.description") ?? "Create a new blog post",
           },
           isPrivate: true,
         },
@@ -161,56 +160,56 @@ const useAppRoutes = () => {
           hidden: true,
           meta: {
             title: t("meta.edit_blog.title") ?? "Edit Blog",
-            description: t("meta.edit_blog.description") ?? "Edit your blog post",
+            description:
+              t("meta.edit_blog.description") ?? "Edit your blog post",
           },
           isPrivate: true,
-        }
-      ]
+        },
+      ],
     },
     {
       _id: generateId(),
       path: "/product/:category/:productId",
       Component: ProductDetails,
-      label: t("routes.product_details") ?? "Product Details",
+      label: t("routes.product_details") ,
       hidden: true,
       meta: {
-        title: t("meta.product_details.title") ?? "Product Detail",
+        title: t("meta.product_details.title") ,
         description:
-          t("meta.product_details.description") ??
-          "Learn more about this product",
+          t("meta.product_details.description") ,
       },
     },
     {
       _id: generateId(),
       path: "/shopping-cart",
       Component: ShoppingCart,
-      label: t("routes.shopping_cart") ?? "Shopping Cart",
+      label: t("routes.shopping_cart"),
       hidden: true,
       meta: {
-        title: t("meta.shopping_cart") ?? "Shopping Cart",
-        description: t("meta.shopping_cart.description") ?? "Shopping Cart",
+        title: t("meta.shopping_cart.title"),
+        description: t("meta.shopping_cart.description"),
       },
     },
     {
       _id: generateId(),
       path: "/checkout",
       Component: Checkout,
-      label: t("routes.checkout") ?? "Checkout",
+      label: t("routes.checkout"),
       hidden: true,
       meta: {
-        title: t("meta.checkout.title") ?? "Checkout",
-        description: t("meta.checkout.description") ?? "Checkout",
+        title: t("meta.checkout.title"),
+        description: t("meta.checkout.description"),
       },
     },
     {
       _id: generateId(),
       path: "/profile",
       Component: Profile,
-      label: t("routes.profile") ?? "Profile",
+      label: t("routes.profile"),
       hidden: true,
       meta: {
-        title: t("meta.profile.title") ?? "Profile",
-        description: t("meta.profile.description") ?? "Profile",
+        title: t("meta.profile.title"),
+        description: t("meta.profile.description"),
       },
       hasChildren: true,
       children: dashboardRoutes,
@@ -220,17 +219,16 @@ const useAppRoutes = () => {
       _id: generateId(),
       path: "/user/:authorId",
       Component: User,
-      label: t("routes.profile") ?? "Profile",
+      label: t("routes.user"),
       hidden: true,
       meta: {
-        title: t("meta.profile.title") ?? "User",
-        description: t("meta.profile.description") ?? "User",
+        title: t("meta.user.title"),
+        description: t("meta.user.description"),
       },
       hasChildren: true,
       children: dashboardRoutes,
       isPrivate: false,
-    }
-    
+    },
   ];
 
   return { appRoutes, dashboardRoutes };

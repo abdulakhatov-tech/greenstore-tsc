@@ -14,14 +14,14 @@ const Followers: React.FC = () => {
 
   return (
     <div>
-      {data?.followers?.length && (
+      {data?.followers?.length ? (
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px]'>
           {data?.followers?.map((follower: string, index: number) => (
             <FollowerCard key={index} follower={follower} />
           ))}
         </div>
-      )}
-      {!data?.followers?.length && (
+      ) : ''}
+      {!data?.followers?.length ? (
         <div className='h-[400px] flex flex-col items-center justify-center'>
           <Empty
             description={
@@ -34,7 +34,7 @@ const Followers: React.FC = () => {
             }
           />
         </div>
-      )}
+      ) : ''}
     </div>
   );
 };

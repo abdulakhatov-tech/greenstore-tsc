@@ -20,64 +20,65 @@
     "wishlist": "Istaklar ro‘yxati",
     "shopping_cart": "Savatcha",
     "checkout": "Hisob-kitob",
-    "track_order": "Buyurtmani kuzatish"
+    "track_order": "Buyurtmani kuzatish",
+    "user": "Admin"
   },
   "meta": {
     "home": {
-      "title": "Greenstore - Marketplace",
-      "description": "Mahsulotlarimiz va xizmatlarimizni ko'rib chiqing"
-    },
-    "shop": {
-      "title": "Greenstore - Do'kon",
-      "description": "Do'konimizdan sifatli mahsulotlar sotib oling"
-    },
-    "plant_care": {
-      "title": "Greenstore - O'simlik parvarishi",
-      "description": "O'simlik parvarishi va bog'dorchilik bo'yicha maslahatlar"
+      "title": "Greenstore - Yangi Gullar va Maxsus Buketlar",
+      "description": "Greenstore'da keng turdagi yangi gullar, buketlar va gul sovg'alarini kashf eting. Chiroyli gul kompozitsiyalari uchun sizning asosiy manzilingiz."
     },
     "blogs": {
-      "title": "Greenstore - Bloglar",
-      "description": "So'nggi blog postlarimizni o'qing"
+      "title": "Greenstore - Gul do'koni Blogi va Gul Maslahatlari",
+      "description": "Greenstore'dan so'nggi blog postlari, maslahatlar va gul tendentsiyalarini kuzatib boring. Mutaxassislarning tavsiyalari va bog'dorchilik g'oyalari."
     },
     "product_details": {
-      "title": "{{ product.name }} - Greenstore",
-      "description": "{{ product.description }}"
-    },
-    "not_found": {
-      "title": "Greenstore - Topilmadi",
-      "description": "Sahifa topilmadi"
-    },
-    "error": {
-      "title": "Greenstore - Xato",
-      "description": "Xato yuz berdi"
-    },
-    "profile": {
-      "title": "Greenstore - Profil",
-      "description": "Hisob tafsilotlarini boshqarish"
-    },
-    "account_details": {
-      "title": "Greenstore - Hisob tafsilotlari",
-      "description": "Shaxsiy ma'lumotlarni yangilang"
-    },
-    "my_products": {
-      "title": "Greenstore - Mening mahsulotlarim",
-      "description": "Mahsulotlaringizni ko'rib chiqing va boshqaring"
-    },
-    "address": {
-      "title": "Greenstore - Manzil",
-      "description": "Yetkazib berish manzilini yangilang"
+      "title": "Greenstore Gul Do'koni",
+      "description": "Greenstore'da ushbu chiroyli gul yoki buket haqida batafsil ma'lumot oling."
     },
     "shopping_cart": {
-      "title": "Greenstore - Savatcha",
-      "description": "Buyumlaringizni ko'rib chiqing va hisob-kitob qiling"
+      "title": "Greenstore - Savat",
+      "description": "Savatdagi narsalarni ko'rib chiqing va sotib olishni yakunlash uchun chekautga o'ting."
     },
     "checkout": {
-      "title": "Greenstore - Hisob-kitob",
-      "description": "Buyurtmani tasdiqlang va xavfsiz to'lang"
+      "title": "Greenstore - Xavfsiz Chekaut",
+      "description": "Buyurtmangizni yakunlang va xavfsiz to'lovlar bilan oson chekaut jarayonini amalga oshiring. Sotib olish va yetkazib berish tafsilotlarini tasdiqlang."
+    },
+    "profile": {
+      "title": "Greenstore - Profilingizni Boshqarish",
+      "description": "Greenstore'da hisob ma'lumotlaringizni, sozlamalaringizni va buyurtmalar tarixingizni ko'rish va yangilash."
+    },
+    "account_details": {
+      "title": "Greenstore - Hisob Ma'lumotlarini Yangilash",
+      "description": "Shaxsiy ma'lumotlaringizni o'zgartiring va yaxshiroq xarid qilish tajribasi uchun hisob sozlamalaringizni boshqarish."
+    },
+    "my_products": {
+      "title": "Greenstore - Mahsulotlaringizni Boshqarish",
+      "description": "Greenstore hisobingizdan to'g'ridan-to'g'ri mahsulot ro'yxatlaringiz va inventaringizni ko'rish, tahrirlash va boshqarish."
+    },
+    "address": {
+      "title": "Greenstore - Yetkazib Berish Manzilini Yangilash",
+      "description": "Gul buyurtmalaringizning aniq yetkazib berilishini ta'minlash uchun yetkazib berish va hisob-kitob manzilingizni tahrirlash."
+    },
+    "wishlist": {
+      "title": "Greenstore - Sizning Xohishlaringiz",
+      "description": "Greenstore'da sevimli gullar va buketlaringizni ko'rish va boshqarish."
     },
     "track_order": {
-      "title": "Greenstore - Buyurtmani kuzatish",
-      "description": "Buyurtma holatini kuzatib boring va kuzatuv ma'lumotlarini ko'ring"
+      "title": "Greenstore - Buyurtmani Kuzatish",
+      "description": "Buyurtmangizning holatini kuzatib boring va Greenstore'da yetkazib berish jarayoni bo'yicha real vaqt yangilanishlarini oling."
+    },
+    "user": {
+      "title": "Greenstore - Foydalanuvchi Profil",
+      "description": "Greenstore'da shaxsiy ma'lumotlaringiz, sozlamalaringiz va buyurtmalar tarixingizni ko'rish va boshqarish."
+    },
+    "not_found": {
+      "title": "Greenstore - Sahifa Topilmadi",
+      "description": "Kechirasiz, qidirayotgan sahifangiz mavjud emas. Bosh sahifaga qayting yoki boshqa bo'limlarni o'rganing."
+    },
+    "error": {
+      "title": "Greenstore - Nima Boshqa Narsa Bo'ldi",
+      "description": "Kutilmagan xato yuz berdi. Keyinroq qayta urinib ko'ring yoki muammo davom etsa qo'llab-quvvatlash bilan bog'laning."
     }
   },
   "header": {
@@ -343,6 +344,15 @@
       "more": "Ko'proq",
       "get_details": "Detallarni olish",
       "detailed_info": "To'liq ma'lumot"
+    },
+    "category": {
+      "create_category": "Kategoriya yaratish",
+      "edit_category": "Kategoriyani tahrirlash",
+      "cancel": "Bekor qilish",
+      "create": "Yaratish",
+      "save": "Saqlash",
+      "title": "Mening kategoriyalarim",
+      "add": "Qo'shish"
     }
   },
   "form": {

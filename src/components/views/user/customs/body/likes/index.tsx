@@ -24,16 +24,16 @@ const Likes: React.FC = () => {
           ? Array.from({ length: 8 }).map((_, index) => (
               <ProductSkeleton key={index} />
             ))
-          : products?.length &&
+          : products?.length ?
             products?.map((product: ProductPropsI, index: number) => (
               <MemoizedProductCard
                 key={product._id ?? index}
                 product={product}
               />
-            ))}
+            )) : ''}
       </div>
 
-      {!products?.length && (
+      {!products?.length ? (
         <div className='h-[400px] flex flex-col items-center justify-center'>
           <Empty
             description={
@@ -43,7 +43,7 @@ const Likes: React.FC = () => {
             }
           />
         </div>
-      )}
+      ) : ''}
     </div>
   );
 };

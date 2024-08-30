@@ -1,8 +1,15 @@
-import ShoppingCartComponent from "@components/views/shopping-cart";
 import { FC } from "react";
 
-const ShoppingCart: FC = () => {
-  return <ShoppingCartComponent />
+import Seo from "@components/seo";
+import { SeoPropsT } from "@type/index";
+import ShoppingCartComponent from "@components/views/shopping-cart";
+
+const ShoppingCart: FC<{ meta: SeoPropsT }> = ({ meta }) => {
+  return (
+    <Seo {...meta}>
+      <ShoppingCartComponent />
+    </Seo>
+  );
 };
 
 export default ShoppingCart;

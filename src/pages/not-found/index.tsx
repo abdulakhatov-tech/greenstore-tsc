@@ -1,9 +1,14 @@
-import NotFoundComponent from "@components/views/not-found";
 import { FC } from "react";
 
-const NotFound: FC = () => {
+import Seo from "@components/seo";
+import { SeoPropsT } from "@type/index";
+import NotFoundComponent from "@components/views/not-found";
+
+const NotFound: FC<{ meta: SeoPropsT }> = ({ meta }) => {
   return (
-    <NotFoundComponent />
+    <Seo {...meta}>
+      <NotFoundComponent />
+    </Seo>
   );
 };
 

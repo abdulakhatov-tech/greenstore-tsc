@@ -18,6 +18,11 @@ import Followers from "@components/views/user/customs/body/followers";
 export const shipping = 16
 const userCookie = Cookies.get("user");
 
+export const siteUrl = "https://greenstore-shop.vercel.app/";
+export const defaultImage =
+   "https://aiph.org/wp-content/uploads/2022/10/AdobeStock_194370518-scaled.jpeg";
+
+
 const access_token = userCookie
   ? JSON.parse(userCookie)?._id
   : '64bebc1e2c6d3f056a8c85b7';

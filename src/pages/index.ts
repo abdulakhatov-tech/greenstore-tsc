@@ -1,5 +1,4 @@
 export { default as Home } from "./home";
-export { default as PlantCare } from "./plant-care";
 export { default as Blogs } from "./blogs";
 export { default as ProductDetail } from "./product-details";
 export { default as NotFound } from "./not-found";

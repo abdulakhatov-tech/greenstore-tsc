@@ -1,9 +1,8 @@
-import { ComponentType } from "react";
 
 export type RoutePropT = {
   _id: string | number;
   path: string;
-  Component: ComponentType;
+  Component: any;
   Icon?: any;
   label: string;
   hidden: boolean;

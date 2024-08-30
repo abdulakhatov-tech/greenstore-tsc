@@ -56,16 +56,16 @@ const useMyProductsService = () => {
     onSuccess: () => {
       dispatchNotification({
         type: "success",
-        message: t('notification.remove_product_success_message'),
-        description: t('notification.remove_product_success_description'),
+        message: 'Success',
+        description: 'Product was successfully deleted',
       })
       queryClient.invalidateQueries({ queryKey: ["my-products"] });
     },
     onError: () => {
       dispatchNotification({
         type: "error",
-        message: t('notification.remove_product_error_message'),
-        description: t('notification.remove_product_error_description'),
+        message: "Error",
+        description: 'Product was not successfully deleted',
       })
     },
   });
@@ -88,16 +88,16 @@ const useMyProductsService = () => {
     onSuccess: () => {
       dispatchNotification({
         type: "success",
-        message: t('notification.add_product_success_message'),
-        description: t('notification.add_product_success_description'),
+        message: 'Added',
+        description: 'Product added successfully',
       })
       queryClient.invalidateQueries({ queryKey: ["my-products"] });
     },
     onError: () => {
       dispatchNotification({
         type: "error",
-        message: t("notification.add_product_error_message"),
-        description: t("notification.add_product_error_description"),
+        message: 'Product not found',
+        description: 'Something went wrong',
       })
     },
   });
@@ -127,16 +127,16 @@ const useMyProductsService = () => {
     onSuccess: () => {
       dispatchNotification({
         type: "success",
-        message: t('notification.update_product_success_message'),
-        description: t('notification.update_product_success_description'),
+        message: 'Successful',
+        description: 'Product updated successfully',
       })
       queryClient.invalidateQueries({ queryKey: ["my-products"] });
     },
     onError: () => {
       dispatchNotification({
         type: "error",
-        message: t('notification.update_product_error_message'),
-        description: t('notification.update_product_error_description'),
+        message: 'Error updating',
+        description: 'Product not updated successfully',
       })
     }
   })
