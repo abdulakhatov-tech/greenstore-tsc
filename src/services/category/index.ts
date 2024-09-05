@@ -104,8 +104,7 @@ const useCategoryService = () => {
         queryKey: ["categoryByAuthor", { created_by }],
       });
     },
-    onError: (error) => {
-      console.log(error)
+    onError: () => {
       dispatchNotification({
         type: "error",
         message: t("notification.category_delete_error_message"),

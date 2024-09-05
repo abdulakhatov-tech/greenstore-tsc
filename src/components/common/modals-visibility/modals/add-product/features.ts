@@ -51,8 +51,6 @@ const useProductFormModalFeatures = () => {
   };
 
   const onFinish = async (e: any) => {
-
-    console.log(e, 'eeeeeeeeeeeeeeeee')
     try {
       setLoading(true);
 
