@@ -62,7 +62,7 @@ const Actions = () => {
       />
 
       {isAuthed ? (
-        <Tooltip title={`${user?.name} ${user?.surname}`} className='hidden md:block'>
+        <Tooltip title={`${user?.name} ${user?.surname}`} className='hidden lg:block'>
           <div
             onClick={handleUser}
             className='border-2 border-green rounded-full cursor-pointer'

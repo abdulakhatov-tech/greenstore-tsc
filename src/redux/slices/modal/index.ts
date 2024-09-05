@@ -19,6 +19,7 @@ const initialState: InitialStateT = {
     open: false,
     order: null,
   }, 
+  dashboardSidebarModalVisibility: false,
 };
 
 const modalSlice = createSlice({
@@ -57,7 +58,10 @@ const modalSlice = createSlice({
         open: action.payload.open,
         order: action.payload.order,
       };
-    }
+    },
+    toggleDashboardSidebarModalVisibility: (state, action) => {
+      state.dashboardSidebarModalVisibility = action.payload;
+    },
   },
 });
 
@@ -70,6 +74,7 @@ export const {
   toggleAddProductFormModalVisibility,
   toggleOrderDetailsModalVisibility,
   toggleEditProductFormModalVisibility,
+  toggleDashboardSidebarModalVisibility
 } = modalSlice.actions;
 
 export default modalSlice.reducer;

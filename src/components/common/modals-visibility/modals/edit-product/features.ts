@@ -32,8 +32,6 @@ const useProductFormModalFeatures = () => {
     []
   );
 
-  console.log(editProductFormModalVisibility);
-
   useEffect(() => {
     if (
       editProductFormModalVisibility.open &&
@@ -149,7 +147,6 @@ const useProductFormModalFeatures = () => {
   };
 
   const onFinish = async (e: any) => {
-    console.log(e, "event");
     try {
       setLoading(true);
 
@@ -208,8 +205,6 @@ const useProductFormModalFeatures = () => {
             : e.detailed_image_4[0].response?.image_url.url,
         ],
       };
-
-      console.log(formattedData, "formattedData");
 
       await updateProductByCategory({
         _id: editProductFormModalVisibility.product?._id,

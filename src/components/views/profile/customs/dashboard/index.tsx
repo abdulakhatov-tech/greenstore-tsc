@@ -1,8 +1,8 @@
-import { Link, NavLink, Outlet, useOutlet } from "react-router-dom";
+import React from "react";
+import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { LogoutOutlined } from "@ant-design/icons";
-import classNames from "classnames";
-import React from "react";
+import { Link, NavLink, Outlet, useOutlet } from "react-router-dom";
 
 import useAppRoutes from "@utils/app-routes";
 import useDashboardFeatures from "./features";

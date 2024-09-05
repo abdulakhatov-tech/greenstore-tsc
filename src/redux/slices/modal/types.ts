@@ -16,4 +16,5 @@ export type InitialStateT = {
         open: boolean;
         order: any | null;
     }; 
+    dashboardSidebarModalVisibility: boolean;
 }

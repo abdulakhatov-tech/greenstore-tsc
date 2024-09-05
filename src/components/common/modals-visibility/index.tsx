@@ -11,6 +11,7 @@ import {
   SideMenuModal,
   TrackOrderModal,
   EditProductModal,
+  DashboardSidebarModal,
 } from "./modals";
 import useMediaQuery from "@hooks/useMediaQuery";
 import useModalVisibilityFeatures from "./features";
@@ -26,6 +27,7 @@ const ModalVisibility: FC = () => {
     addProductFormModalVisibility,
     orderDetailsModalVisibility,
     editProductFormModalVisibility,
+    dashboardSidebarModalVisibility
   } = useAppSelector((state) => state.modal);
   const { handleAuthParam, handleTrackOrderParam } =
     useModalVisibilityFeatures();
@@ -58,6 +60,7 @@ const ModalVisibility: FC = () => {
       {addProductFormModalVisibility && <AddProductModal />}
       {editProductFormModalVisibility.open && <EditProductModal />}
       {orderDetailsModalVisibility.open && <OrderDetailsModal />}
+      {dashboardSidebarModalVisibility && <DashboardSidebarModal />}
     </>
   );
 };

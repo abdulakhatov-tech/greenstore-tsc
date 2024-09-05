@@ -38,7 +38,6 @@ const useMyProductsService = () => {
   const removeProduct = useMutation({
     mutationFn: async (product: ProductPropsI) => {
       const { _id, category } = product;
-      console.log(_id, category)
 
       const response = await axios({
         method: "DELETE",
@@ -47,7 +46,6 @@ const useMyProductsService = () => {
       });
 
       queryClient.setQueryData(["my-products"], (prev: any) => {
-        console.log(prev, 'prev')
         return prev?.filter((item: any) => item?._id !== _id);
       });
 

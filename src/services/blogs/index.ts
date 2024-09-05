@@ -160,15 +160,11 @@ const useBlogsServices = () => {
   });
 
   const viewBlogById = useMutation({
-    mutationFn: async (blogData: any) => {
+    mutationFn: async () => {
       const { data } = await axios({
         method: "PUT",
         url: `/user/blog/view`,
-        data: { _id: blogId, ...blogData },
-      });
-
-      queryClient.setQueryData(["blogs"], (prev: any) => {
-        return prev.map((item: any) => (item._id === blogId ? blogData : item));
+        data: { _id: blogId },
       });
 
       return data?.data;

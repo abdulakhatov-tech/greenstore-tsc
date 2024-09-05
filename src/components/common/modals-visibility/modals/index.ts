@@ -5,3 +5,4 @@ export { default as TrackOrderModal } from './track-order';
 export { default as AddProductModal } from './add-product';
 export { default as EditProductModal } from './edit-product';
 export { default as OrderDetailsModal } from './order-details';
+export { default as DashboardSidebarModal } from './dashboard-sidebar';
